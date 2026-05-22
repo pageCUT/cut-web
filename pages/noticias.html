@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noticias y Publicaciones | CUT — Confederación Unitaria de Trabajadores</title>
+<meta name="description" content="Últimas noticias, comunicados y publicaciones de la Confederación Unitaria de Trabajadores de Costa Rica.">
+<link rel="icon" type="image/png" href="../assets/images/logo-cut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  .page-hero{margin-top:var(--nav-h);background:linear-gradient(135deg,var(--red-dark) 0%,var(--black) 100%);padding:4rem 2rem 3rem;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.025) 0,rgba(255,255,255,0.025) 1px,transparent 1px,transparent 10px);}
+  .page-hero-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,var(--red) 0%,var(--yellow) 50%,var(--red) 100%);}
+  .page-hero-inner{max-width:var(--max-w);margin:0 auto;position:relative;z-index:1;}
+  .breadcrumb{font-size:12px;color:rgba(255,255,255,0.45);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.75rem;}
+  .breadcrumb a{color:rgba(255,255,255,0.45);transition:color .2s;} .breadcrumb a:hover{color:var(--yellow);} .breadcrumb span{color:rgba(255,255,255,0.65);}
+  .page-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;color:#fff;line-height:1;}
+  .page-subtitle{font-size:1rem;color:rgba(255,255,255,0.6);margin-top:0.75rem;}
+  /* Category filter */
+  .cat-filter{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2rem;}
+  .cat-btn{
+    padding:0.4rem 1rem;border-radius:20px;border:1.5px solid rgba(0,0,0,0.12);
+    background:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:#555;
+    cursor:pointer;transition:all 0.2s;
+  }
+  .cat-btn:hover,.cat-btn.active{background:var(--red);border-color:var(--red);color:#fff;}
+  /* Extended news grid - 3 columns always */
+  .news-grid-full{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:1.5rem;margin-bottom:2.5rem;
+  }
+  @media(max-width:900px){.news-grid-full{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.news-grid-full{grid-template-columns:1fr;}}
+</style>
+
+  <!-- PWA -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#C0001A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CUT CR">
+  <link rel="apple-touch-icon" href="../assets/images/logo-cut.png">
+  <!-- Seguridad -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+</head>
+<body>
+
+<div id="readBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+<a class="skip-link" href="#page-content">Saltar al contenido</a>
+
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="CUT — Inicio">
+      <img src="../assets/images/logo-cut.png" alt="Logo CUT" class="nav-logo">
+      <div class="nav-badge">CUT</div>
+      <div class="nav-name"><span class="nav-name-title">Confederación Unitaria</span><span class="nav-name-sub">Siempre con el Pueblo</span></div>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="/"               class="nav-link"        role="menuitem">Inicio</a>
+      <a href="/pages/noticias.html" class="nav-link active" role="menuitem">Noticias</a>
+      <a href="/pages/quienes-somos.html" class="nav-link" role="menuitem">Quiénes somos</a>
+      <a href="/pages/sindicatos.html"    class="nav-link" role="menuitem">Afiliados</a>
+      <a href="/pages/documentos.html"    class="nav-link" role="menuitem">Documentos</a>
+      <a href="/pages/junta-directiva.html" class="nav-link" role="menuitem">Junta</a>
+      <a href="/pages/afiliacion.html"    class="nav-link cta" role="menuitem">Únete</a>
+    </div>
+    <button class="hamburger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" role="menu">
+  <a href="/" class="nav-link" role="menuitem">Inicio</a>
+  <a href="/pages/noticias.html" class="nav-link" role="menuitem">Noticias</a>
+  <a href="/pages/quienes-somos.html" class="nav-link" role="menuitem">Quiénes somos</a>
+  <a href="/pages/sindicatos.html" class="nav-link" role="menuitem">Sindicatos afiliados</a>
+  <a href="/pages/documentos.html" class="nav-link" role="menuitem">Documentos</a>
+  <a href="/pages/junta-directiva.html" class="nav-link" role="menuitem">Junta Directiva</a>
+  <a href="/pages/afiliacion.html" class="nav-link cta" role="menuitem">Únete →</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-stripe" aria-hidden="true"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="/">Inicio</a> / <span>Noticias</span></div>
+    <h1 class="page-title">Noticias y Publicaciones</h1>
+    <p class="page-subtitle">Actualidad sindical de la Confederación Unitaria de Trabajadores</p>
+  </div>
+</div>
+
+<main id="page-content">
+  <section class="news-section" aria-labelledby="noticias-h2">
+    <div class="container">
+
+      <!-- FILTROS DE CATEGORÍA -->
+      <div class="cat-filter" role="group" aria-label="Filtrar por categoría">
+        <button class="cat-btn active" data-cat="all">Todas</button>
+        <button class="cat-btn" data-cat="sindical">Sindical</button>
+        <button class="cat-btn" data-cat="politica">Política</button>
+        <button class="cat-btn" data-cat="laboral">Laboral</button>
+        <button class="cat-btn" data-cat="derechos">Derechos</button>
+        <button class="cat-btn" data-cat="formacion">Formación</button>
+        <button class="cat-btn" data-cat="social">Social</button>
+      </div>
+
+      <!-- GRID COMPLETO DE NOTICIAS -->
+      <div class="news-grid-full" id="newsGrid" role="list">
+
+        <article class="nc fi" data-cat="sindical" role="listitem">
+          <div class="nc-img"><div class="nc-placeholder" aria-hidden="true">📰</div><span class="nc-badge sindical">SINDICAL</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">CUT conmemora <span data-years>45</span> años de lucha sindical en Costa Rica</a></h3><div class="nc-meta"><span>📅 Mayo 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d1" data-cat="politica" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#1565c0,#0d47a1)"><div class="nc-placeholder" aria-hidden="true">⚖️</div><span class="nc-badge politica">POLÍTICA</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Reformas al Código de Trabajo: posición oficial de la CUT ante la Asamblea</a></h3><div class="nc-meta"><span>📅 Abril 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d2" data-cat="derechos" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#1a6b5c,#0f4f40)"><div class="nc-placeholder" aria-hidden="true">♿</div><span class="nc-badge derechos">DERECHOS</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Accesibilidad e inclusión laboral: compromiso renovado de la CUT</a></h3><div class="nc-meta"><span>📅 Marzo 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi" data-cat="formacion" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#e65100,#bf360c)"><div class="nc-placeholder" aria-hidden="true">📚</div><span class="nc-badge formacion">FORMACIÓN</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Taller "Aprendiendo a Negociar" para líderes sindicales 2025</a></h3><div class="nc-meta"><span>📅 Febrero 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d1" data-cat="social" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#6a1b9a,#4a148c)"><div class="nc-placeholder" aria-hidden="true">🌎</div><span class="nc-badge cultura">INTERNACIONAL</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">CUT participa en foro regional sindical latinoamericano en Panamá</a></h3><div class="nc-meta"><span>📅 Enero 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d2" data-cat="sindical" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#1976d2,#1565c0)"><div class="nc-placeholder" aria-hidden="true">👥</div><span class="nc-badge social">SOCIAL</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Nueva campaña de afiliación sindical en el sector privado</a></h3><div class="nc-meta"><span>📅 Diciembre 2024</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi" data-cat="laboral" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,var(--red-dark),#111)"><div class="nc-placeholder" aria-hidden="true">🏗️</div><span class="nc-badge laboral">LABORAL</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Denuncia ante el Ministerio de Trabajo por incumplimiento de convención colectiva</a></h3><div class="nc-meta"><span>📅 Noviembre 2024</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d1" data-cat="formacion" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#333,#111)"><div class="nc-placeholder" aria-hidden="true">🎓</div><span class="nc-badge formacion">FORMACIÓN</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Seminario sobre derechos laborales para trabajadores del sector construcción</a></h3><div class="nc-meta"><span>📅 Octubre 2024</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d2" data-cat="derechos" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#1a6b5c,#111)"><div class="nc-placeholder" aria-hidden="true">✊</div><span class="nc-badge derechos">DERECHOS</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">CUT celebra el Día Internacional de los Trabajadores con marcha en San José</a></h3><div class="nc-meta"><span>📅 Mayo 2024</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+      </div><!-- /newsGrid -->
+
+      <!-- Nota para Blogger -->
+      <div style="text-align:center;padding:2rem;background:rgba(192,0,26,0.04);border:1px solid rgba(192,0,26,0.1);border-radius:10px;margin-top:1rem">
+        <p style="font-size:0.9rem;color:#666;margin-bottom:1rem">
+          <strong style="color:#C0001A">💡 Para publicar noticias reales:</strong> Vaya a su Blogger, cree una nueva entrada, y aparecerá aquí automáticamente gracias al tema XML personalizado.
+        </p>
+        <a href="https://blogger.com" target="_blank" rel="noopener" class="btn-red" style="display:inline-flex">Publicar en Blogger →</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div><img src="../assets/images/logo-cut.png" alt="Logo CUT" class="fbrand-logo"><div class="fbrand-badge">CUT</div><div class="fbrand-name">Confederación Unitaria de Trabajadores</div><p class="fbrand-desc">Fundada el 23 de noviembre de 1980. Siempre con el Pueblo.</p></div>
+    <div class="fcol"><h4>La CUT</h4><ul class="flinks"><li><a href="/pages/quienes-somos.html">Historia</a></li><li><a href="/pages/quienes-somos.html#mision">Misión y Visión</a></li><li><a href="/pages/junta-directiva.html">Junta Directiva</a></li><li><a href="/pages/documentos.html">Estatutos</a></li></ul></div>
+    <div class="fcol"><h4>Noticias</h4><ul class="flinks"><li><a href="/pages/noticias.html">Todas las noticias</a></li><li><a href="/#noticias">Últimas noticias</a></li></ul></div>
+    <div class="fcol"><h4>Contacto</h4><ul class="flinks"><li><a href="/pages/afiliacion.html">Afiliación</a></li><li><a href="/pages/contacto.html">Contacto</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="fcopy">© <span id="fyear">2025</span> <span>Confederación Unitaria de Trabajadores (CUT)</span>. Todos los derechos reservados.</p>
+    <p class="fcopy">Fundada el 23 de noviembre de 1980 · Costa Rica</p>
+  </div>
+</footer>
+
+<nav class="social-float" aria-label="Redes sociales">
+  <a href="https://facebook.com/CUT.CostaRica" class="sf-btn fb" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+  <a href="https://x.com/CUT_CR"              class="sf-btn tw" aria-label="Twitter"   target="_blank" rel="noopener">𝕏</a>
+  <a href="https://youtube.com/@CUT_CR"        class="sf-btn yt" aria-label="YouTube"   target="_blank" rel="noopener">▶</a>
+  <a href="https://instagram.com/cut_cr"       class="sf-btn ig" aria-label="Instagram" target="_blank" rel="noopener">◉</a>
+</nav>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | CUT — Confederación Unitaria de Trabajadores</title>
+<meta name="description" content="Póngase en contacto con la Confederación Unitaria de Trabajadores de Costa Rica. Teléfono, correo, dirección y formulario de contacto.">
+<link rel="icon" type="image/png" href="../assets/images/logo-cut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  .page-hero{margin-top:var(--nav-h);background:linear-gradient(135deg,#111 0%,#1a0a05 50%,#111 100%);padding:4rem 2rem 3rem;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.022) 0,rgba(255,255,255,0.022) 1px,transparent 1px,transparent 10px);}
+  .page-hero-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,var(--red) 0%,var(--yellow) 50%,var(--red) 100%);}
+  .page-hero-inner{max-width:var(--max-w);margin:0 auto;position:relative;z-index:1;}
+  .breadcrumb{font-size:12px;color:rgba(255,255,255,0.45);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.75rem;}
+  .breadcrumb a{color:rgba(255,255,255,0.45);transition:color .2s;} .breadcrumb a:hover{color:var(--yellow);} .breadcrumb span{color:rgba(255,255,255,0.65);}
+  .page-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;color:#fff;line-height:1;}
+  .page-subtitle{font-size:1rem;color:rgba(255,255,255,0.6);margin-top:0.75rem;}
+
+  /* Contact layout */
+  .contact-full{display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;align-items:start;}
+
+  /* Info panel */
+  .cinfo-panel{display:flex;flex-direction:column;gap:1.5rem;}
+  .cinfo-card{background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.07);padding:1.5rem;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+  .cinfo-card h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.2rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1.25rem;color:#111;}
+  .cdetail-row{display:flex;align-items:flex-start;gap:0.85rem;margin-bottom:1.1rem;}
+  .cdetail-row:last-child{margin-bottom:0;}
+  .cdetail-ico-wrap{width:40px;height:40px;border-radius:8px;background:rgba(192,0,26,0.08);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+  .cdetail-label{font-size:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#aaa;margin-bottom:0.2rem;}
+  .cdetail-value{font-size:0.9rem;color:#222;font-weight:600;}
+  .cdetail-sub{font-size:12px;color:#888;margin-top:2px;}
+
+  /* Social buttons */
+  .social-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.65rem;}
+  .social-card{
+    display:flex;align-items:center;gap:0.65rem;
+    padding:0.65rem 0.85rem;border-radius:8px;
+    border:1.5px solid rgba(0,0,0,0.1);
+    background:#fff;text-decoration:none;color:#333;
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    font-size:13px;text-transform:uppercase;letter-spacing:0.06em;
+    transition:all .22s;
+  }
+  .social-card:hover{transform:translateY(-2px);}
+  .social-card.fb:hover{border-color:#1877F2;color:#1877F2;background:#f0f5ff;}
+  .social-card.tw:hover{border-color:#000;color:#000;background:#f5f5f5;}
+  .social-card.yt:hover{border-color:#FF0000;color:#FF0000;background:#fff5f5;}
+  .social-card.ig:hover{border-color:#e1306c;color:#e1306c;background:#fff0f5;}
+  .social-card .s-ico{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+  .social-card.fb .s-ico{background:#e8f0fe;}
+  .social-card.tw .s-ico{background:#f0f0f0;}
+  .social-card.yt .s-ico{background:#ffe0e0;}
+  .social-card.ig .s-ico{background:#ffe0ef;}
+
+  /* Map */
+  .map-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.1);margin-top:1.5rem;}
+  .map-placeholder{
+    height:220px;background:linear-gradient(135deg,#e8e8e8,#d8d8d8);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;
+    color:#888;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.1em;
+  }
+  .map-placeholder-ico{font-size:2rem;opacity:0.5;}
+
+  /* Form */
+  .cform-card{background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.07);padding:2rem;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+  .cform-card h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;color:#111;}
+  .cform-card .form-desc{font-size:14px;color:#777;margin-bottom:1.5rem;line-height:1.6;}
+  .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+
+  @media(max-width:900px){.contact-full{grid-template-columns:1fr;}.form-row-2{grid-template-columns:1fr;}}
+</style>
+
+  <!-- PWA -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#C0001A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CUT CR">
+  <link rel="apple-touch-icon" href="../assets/images/logo-cut.png">
+  <!-- Seguridad -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+</head>
+<body>
+
+<div id="readBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+<a class="skip-link" href="#page-content">Saltar al contenido</a>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="CUT — Inicio">
+      <img src="../assets/images/logo-cut.png" alt="Logo CUT" class="nav-logo">
+      <div class="nav-badge">CUT</div>
+      <div class="nav-name"><span class="nav-name-title">Confederación Unitaria</span><span class="nav-name-sub">Siempre con el Pueblo</span></div>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="/"                           class="nav-link"        role="menuitem">Inicio</a>
+      <a href="/pages/noticias.html"        class="nav-link"        role="menuitem">Noticias</a>
+      <a href="/pages/publicaciones.html"   class="nav-link"        role="menuitem">Publicaciones</a>
+      <a href="/pages/quienes-somos.html"   class="nav-link"        role="menuitem">Quiénes somos</a>
+      <a href="/pages/sindicatos.html"      class="nav-link"        role="menuitem">Afiliados</a>
+      <a href="/pages/documentos.html"      class="nav-link"        role="menuitem">Documentos</a>
+      <a href="/pages/junta-directiva.html" class="nav-link"        role="menuitem">Junta</a>
+      <a href="/pages/afiliacion.html"      class="nav-link cta"    role="menuitem">Únete</a>
+    </div>
+    <button class="hamburger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" role="menu">
+  <a href="/" class="nav-link" role="menuitem">Inicio</a>
+  <a href="/pages/noticias.html" class="nav-link" role="menuitem">Noticias</a>
+  <a href="/pages/quienes-somos.html" class="nav-link" role="menuitem">Quiénes somos</a>
+  <a href="/pages/sindicatos.html" class="nav-link" role="menuitem">Sindicatos afiliados</a>
+  <a href="/pages/documentos.html" class="nav-link" role="menuitem">Documentos</a>
+  <a href="/pages/junta-directiva.html" class="nav-link" role="menuitem">Junta Directiva</a>
+  <a href="/pages/afiliacion.html" class="nav-link cta" role="menuitem">Únete →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-stripe" aria-hidden="true"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="/">Inicio</a> / <span>Contacto</span></div>
+    <h1 class="page-title">Contáctenos</h1>
+    <p class="page-subtitle">Estamos para servirle — Lunes a viernes, 8:00 a.m. – 4:30 p.m.</p>
+  </div>
+</div>
+
+<main id="page-content">
+  <section class="sec" aria-labelledby="contact-h2">
+    <div class="container">
+      <div class="contact-full">
+
+        <!-- LEFT: Info -->
+        <div class="cinfo-panel">
+
+          <!-- DATOS DE CONTACTO -->
+          <div class="cinfo-card fi">
+            <h3>Información de contacto</h3>
+
+            <div class="cdetail-row">
+              <div class="cdetail-ico-wrap" aria-hidden="true">📍</div>
+              <div>
+                <div class="cdetail-label">Dirección</div>
+                <!-- ▶ CAMBIE a la dirección real de la CUT -->
+                <div class="cdetail-value">San José, Costa Rica</div>
+                <div class="cdetail-sub">Actualizar con dirección exacta</div>
+              </div>
+            </div>
+
+            <div class="cdetail-row">
+              <div class="cdetail-ico-wrap" aria-hidden="true">📞</div>
+              <div>
+                <div class="cdetail-label">Teléfono</div>
+                <!-- ▶ CAMBIE al teléfono real -->
+                <div class="cdetail-value"><a href="tel:+50622220000" style="color:inherit">+506 2222-0000</a></div>
+              </div>
+            </div>
+
+            <div class="cdetail-row">
+              <div class="cdetail-ico-wrap" aria-hidden="true">✉️</div>
+              <div>
+                <div class="cdetail-label">Correo electrónico</div>
+                <!-- ▶ CAMBIE al correo real -->
+                <div class="cdetail-value"><a href="mailto:info@cut.or.cr" style="color:var(--red)">info@cut.or.cr</a></div>
+              </div>
+            </div>
+
+            <div class="cdetail-row">
+              <div class="cdetail-ico-wrap" aria-hidden="true">🕐</div>
+              <div>
+                <div class="cdetail-label">Horario de atención</div>
+                <div class="cdetail-value">Lunes a Viernes</div>
+                <div class="cdetail-sub">8:00 a.m. – 4:30 p.m.</div>
+              </div>
+            </div>
+
+            <div class="cdetail-row">
+              <div class="cdetail-ico-wrap" aria-hidden="true">🚨</div>
+              <div>
+                <div class="cdetail-label">Emergencias laborales</div>
+                <div class="cdetail-value">Contacte al sindicato más cercano</div>
+                <div class="cdetail-sub"><a href="/pages/sindicatos.html" style="color:var(--red);font-size:12px;">Ver sindicatos afiliados →</a></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- REDES SOCIALES -->
+          <div class="cinfo-card fi d1">
+            <h3>Redes sociales</h3>
+            <div class="social-grid">
+              <!-- ▶ CAMBIE las URLs a las redes reales de la CUT -->
+              <a href="https://facebook.com/CUT.CostaRica" class="social-card fb" target="_blank" rel="noopener" aria-label="Facebook de la CUT">
+                <div class="s-ico" aria-hidden="true">f</div>
+                Facebook
+              </a>
+              <a href="https://x.com/CUT_CR" class="social-card tw" target="_blank" rel="noopener" aria-label="Twitter/X de la CUT">
+                <div class="s-ico" aria-hidden="true">𝕏</div>
+                Twitter / X
+              </a>
+              <a href="https://youtube.com/@CUT_CR" class="social-card yt" target="_blank" rel="noopener" aria-label="YouTube de la CUT">
+                <div class="s-ico" aria-hidden="true">▶</div>
+                YouTube
+              </a>
+              <a href="https://instagram.com/cut_cr" class="social-card ig" target="_blank" rel="noopener" aria-label="Instagram de la CUT">
+                <div class="s-ico" aria-hidden="true">◉</div>
+                Instagram
+              </a>
+            </div>
+          </div>
+
+          <!-- MAPA -->
+          <div class="cinfo-card fi d2" style="padding:0;overflow:hidden;">
+            <!--
+              PARA ACTIVAR EL MAPA DE GOOGLE:
+              1. Vaya a maps.google.com
+              2. Busque la dirección exacta de la CUT
+              3. Haga clic en "Compartir" → "Insertar un mapa"
+              4. Copie el código iframe y reemplace el bloque de abajo
+            -->
+            <div class="map-placeholder" aria-label="Mapa de ubicación de la CUT">
+              <div class="map-placeholder-ico" aria-hidden="true">🗺️</div>
+              Mapa de Google Maps
+              <span style="font-size:11px;color:#aaa;font-weight:400;text-transform:none;letter-spacing:0;text-align:center;max-width:200px;line-height:1.4;">Reemplace este bloque con el iframe de Google Maps con la dirección real</span>
+            </div>
+            <!-- EJEMPLO de iframe de Google Maps (descomente y reemplace):
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!...SU-CODIGO..."
+              width="100%" height="260" style="border:0;display:block;" allowfullscreen=""
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación de la CUT en Google Maps"
+              aria-label="Mapa interactivo con la ubicación de la CUT en San José, Costa Rica">
+            </iframe>
+            -->
+          </div>
+
+          <!-- AFILIACIÓN CTA -->
+          <div class="fi d3" style="background:linear-gradient(135deg,rgba(192,0,26,0.06),rgba(192,0,26,0.03));border:1.5px solid rgba(192,0,26,0.2);border-radius:12px;padding:1.5rem;text-align:center;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;" aria-hidden="true">🤝</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.2rem;text-transform:uppercase;margin-bottom:0.5rem;">¿Desea afiliarse?</div>
+            <p style="font-size:13px;color:#666;margin-bottom:1rem;">Proteja sus derechos laborales con el respaldo de la CUT.</p>
+            <a href="/pages/afiliacion.html" class="btn-red" style="display:inline-flex;">Formulario de afiliación →</a>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div class="cform-card fi" style="transition-delay:0.15s">
+          <h2 id="contact-h2">Envíenos un mensaje</h2>
+          <p class="form-desc">Complete el formulario y un representante de la CUT se comunicará con usted a la brevedad posible en días y horas hábiles.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="form-row-2">
+              <div class="fgroup">
+                <label class="flabel" for="fn">Nombre *</label>
+                <input type="text" id="fn" class="finput" placeholder="Su nombre" required aria-required="true">
+              </div>
+              <div class="fgroup">
+                <label class="flabel" for="fap">Apellido *</label>
+                <input type="text" id="fap" class="finput" placeholder="Su apellido" required aria-required="true">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="fgroup">
+                <label class="flabel" for="fe">Correo electrónico *</label>
+                <input type="email" id="fe" class="finput" placeholder="su@correo.com" required aria-required="true">
+              </div>
+              <div class="fgroup">
+                <label class="flabel" for="ftel">Teléfono</label>
+                <input type="tel" id="ftel" class="finput" placeholder="+506 0000-0000">
+              </div>
+            </div>
+
+            <div class="fgroup">
+              <label class="flabel" for="fsuj">Asunto *</label>
+              <select id="fsuj" class="finput" required aria-required="true">
+                <option value="">Seleccione el motivo de contacto...</option>
+                <option value="afiliacion">Información sobre afiliación</option>
+                <option value="consulta">Consulta laboral general</option>
+                <option value="denuncia">Denuncia o violación de derechos</option>
+                <option value="convencion">Información sobre convenciones colectivas</option>
+                <option value="sindicato">Información sobre sindicatos afiliados</option>
+                <option value="formacion">Capacitación y formación sindical</option>
+                <option value="prensa">Prensa y comunicaciones</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="fgroup">
+              <label class="flabel" for="forg">Organización o empresa (opcional)</label>
+              <input type="text" id="forg" class="finput" placeholder="Nombre de su empresa o institución">
+            </div>
+
+            <div class="fgroup">
+              <label class="flabel" for="fmsg">Mensaje *</label>
+              <textarea id="fmsg" class="finput" style="min-height:130px;" placeholder="Describa su consulta, denuncia o mensaje de la forma más detallada posible..." required aria-required="true"></textarea>
+            </div>
+
+            <div class="fgroup" style="display:flex;align-items:flex-start;gap:0.75rem;">
+              <input type="checkbox" id="fprivacy" style="margin-top:4px;accent-color:var(--red);width:16px;height:16px;flex-shrink:0;" required aria-required="true">
+              <label for="fprivacy" style="font-size:13px;color:#666;cursor:pointer;line-height:1.55;">
+                He leído y acepto la <strong>política de privacidad</strong> de la CUT. Entiendo que mis datos serán utilizados únicamente para responder mi consulta y no serán compartidos con terceros.
+              </label>
+            </div>
+
+            <button type="submit" class="fsubmit" style="margin-top:0.5rem;">Enviar mensaje</button>
+            <div id="ffb" role="alert" aria-live="polite" style="display:none;margin-top:0.85rem;font-size:13px;text-align:center;padding:0.85rem;border-radius:8px;"></div>
+          </form>
+        </div>
+
+      </div><!-- /contact-full -->
+
+      <!-- ADDITIONAL INFO FROM HISTORICAL DOCUMENT -->
+      <div style="margin-top:4rem;padding:2rem;background:#f8f8f6;border-radius:12px;border:1px solid rgba(0,0,0,0.07);" class="fi">
+        <div class="sec-tag">Representación institucional</div>
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;margin:0.5rem 0 0.75rem;">La CUT también tiene presencia en</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;font-size:13px;color:#555;">
+          <div>
+            <strong style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#aaa;margin-bottom:0.4rem;">Nacional</strong>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.3rem;">
+              <li>✓ Ministerio de Trabajo y Seguridad Social</li>
+              <li>✓ Consejo Nacional de Salarios</li>
+              <li>✓ Consejo Superior de Trabajo</li>
+              <li>✓ Defensoría de los Habitantes</li>
+              <li>✓ Asamblea del Banco Popular</li>
+            </ul>
+          </div>
+          <div>
+            <strong style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#aaa;margin-bottom:0.4rem;">Internacional</strong>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.3rem;">
+              <li>✓ OIT — Organización Internacional del Trabajo</li>
+              <li>✓ FSM — Federación Sindical Mundial</li>
+              <li>✓ CSI / CSA</li>
+              <li>✓ Comité intersindical para migración</li>
+            </ul>
+          </div>
+          <div>
+            <strong style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#aaa;margin-bottom:0.4rem;">Atención especializada</strong>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.3rem;">
+              <li>✓ Consultas sobre convenciones colectivas</li>
+              <li>✓ Asesoría en negociación laboral</li>
+              <li>✓ Defensa de trabajadores migrantes</li>
+              <li>✓ Inclusión de personas con discapacidad</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div><img src="../assets/images/logo-cut.png" alt="Logo CUT" class="fbrand-logo"><div class="fbrand-badge">CUT</div><div class="fbrand-name">Confederación Unitaria de Trabajadores</div><p class="fbrand-desc">Fundada el 23 de noviembre de 1980. Más de <span data-years>45</span> años con el pueblo trabajador.</p></div>
+    <div class="fcol"><h4>La CUT</h4><ul class="flinks"><li><a href="/pages/quienes-somos.html">Historia</a></li><li><a href="/pages/quienes-somos.html#mision">Misión y Visión</a></li><li><a href="/pages/junta-directiva.html">Junta Directiva</a></li><li><a href="/pages/documentos.html">Estatutos</a></li></ul></div>
+    <div class="fcol"><h4>Noticias</h4><ul class="flinks"><li><a href="/pages/noticias.html">Todas las noticias</a></li><li><a href="/#noticias">Últimas noticias</a></li></ul></div>
+    <div class="fcol"><h4>Contacto</h4><ul class="flinks"><li><a href="/pages/afiliacion.html">Afiliación</a></li><li><a href="/pages/contacto.html">Contacto</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="fcopy">© <span id="fyear">2025</span> <span>Confederación Unitaria de Trabajadores (CUT)</span>. Todos los derechos reservados.</p>
+    <p class="fcopy">Fundada el 23 de noviembre de 1980 · Costa Rica</p>
+  </div>
+</footer>
+
+<nav class="social-float" aria-label="Redes sociales">
+  <a href="https://facebook.com/CUT.CostaRica" class="sf-btn fb" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+  <a href="https://x.com/CUT_CR"              class="sf-btn tw" aria-label="Twitter"   target="_blank" rel="noopener">𝕏</a>
+  <a href="https://youtube.com/@CUT_CR"        class="sf-btn yt" aria-label="YouTube"   target="_blank" rel="noopener">▶</a>
+  <a href="https://instagram.com/cut_cr"       class="sf-btn ig" aria-label="Instagram" target="_blank" rel="noopener">◉</a>
+</nav>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

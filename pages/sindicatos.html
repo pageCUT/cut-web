@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sindicatos Afiliados | CUT — Confederación Unitaria de Trabajadores</title>
+<meta name="description" content="Sindicatos y organizaciones afiliadas a la Confederación Unitaria de Trabajadores de Costa Rica.">
+<link rel="icon" type="image/png" href="../assets/images/logo-cut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  .page-hero{margin-top:var(--nav-h);background:linear-gradient(135deg,#0d0503 0%,#3d1008 50%,#0d0503 100%);padding:4rem 2rem 3rem;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.025) 0,rgba(255,255,255,0.025) 1px,transparent 1px,transparent 10px);}
+  .page-hero-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,var(--red) 0%,var(--yellow) 50%,var(--red) 100%);}
+  .page-hero-inner{max-width:var(--max-w);margin:0 auto;position:relative;z-index:1;}
+  .breadcrumb{font-size:12px;color:rgba(255,255,255,0.45);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.75rem;}
+  .breadcrumb a{color:rgba(255,255,255,0.45);transition:color .2s;} .breadcrumb a:hover{color:var(--yellow);} .breadcrumb span{color:rgba(255,255,255,0.65);}
+  .page-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;color:#fff;line-height:1;}
+  .page-subtitle{font-size:1rem;color:rgba(255,255,255,0.6);margin-top:0.75rem;}
+
+  /* SINDICATO CARDS — premium design */
+  .sind-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+    gap:1.75rem;
+  }
+  .sind-card{
+    background:#fff;border-radius:14px;
+    border:1px solid rgba(0,0,0,0.07);
+    box-shadow:0 2px 12px rgba(0,0,0,0.06);
+    overflow:hidden;transition:all 0.25s ease;
+    display:flex;flex-direction:column;
+  }
+  .sind-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.13);border-color:rgba(192,0,26,0.2);}
+
+  /* Logo area */
+  .sind-logo-wrap{
+    background:linear-gradient(135deg,#f8f8f6 0%,#f0ede8 100%);
+    padding:2rem;
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:3px solid var(--red);
+    position:relative;min-height:140px;
+  }
+  /* Placeholder circle — here goes the sindicato logo */
+  .sind-logo-circle{
+    width:90px;height:90px;border-radius:50%;
+    background:#fff;border:2.5px solid rgba(192,0,26,0.25);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,0.1);
+    overflow:hidden;flex-shrink:0;
+    position:relative;
+  }
+  .sind-logo-circle img{
+    width:100%;height:100%;object-fit:contain;padding:8px;
+  }
+  /* Fallback initials if no image */
+  .sind-logo-circle .initials{
+    font-family:'Barlow Condensed',sans-serif;font-weight:900;
+    font-size:1.3rem;color:var(--red);text-align:center;line-height:1.1;
+    padding:0.5rem;
+  }
+  .sind-body{padding:1.5rem;flex:1;display:flex;flex-direction:column;}
+  .sind-abbr{
+    font-family:'Barlow Condensed',sans-serif;font-weight:900;
+    font-size:1.6rem;color:var(--red);margin-bottom:0.2rem;line-height:1;
+  }
+  .sind-name{
+    font-size:12.5px;color:#444;font-weight:600;text-transform:uppercase;
+    letter-spacing:0.04em;margin-bottom:0.75rem;line-height:1.4;
+  }
+  .sind-desc{font-size:13.5px;color:#666;line-height:1.6;flex:1;}
+  .sind-footer{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-top:1.1rem;padding-top:1rem;border-top:1px solid #f0f0f0;
+  }
+  .sind-tag{
+    font-size:10px;font-weight:700;text-transform:uppercase;
+    letter-spacing:0.1em;padding:0.25rem 0.65rem;
+    background:rgba(192,0,26,0.08);color:var(--red);border-radius:3px;
+    font-family:'Barlow Condensed',sans-serif;
+  }
+  .sind-link{
+    font-size:11px;font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.08em;color:var(--red);
+    text-decoration:none;transition:color 0.2s;
+  }
+  .sind-link:hover{color:var(--red-dark);}
+
+  /* Info box */
+
+  @media(max-width:700px){.sind-grid{grid-template-columns:1fr;}}
+</style>
+
+  <!-- PWA -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#C0001A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CUT CR">
+  <link rel="apple-touch-icon" href="../assets/images/logo-cut.png">
+  <!-- Seguridad -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+</head>
+<body>
+
+<div id="readBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+<a class="skip-link" href="#page-content">Saltar al contenido</a>
+
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="CUT — Inicio">
+      <img src="../assets/images/logo-cut.png" alt="Logo CUT" class="nav-logo">
+      <div class="nav-badge">CUT</div>
+      <div class="nav-name"><span class="nav-name-title">Confederación Unitaria</span><span class="nav-name-sub">Siempre con el Pueblo</span></div>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="/"                           class="nav-link"        role="menuitem">Inicio</a>
+      <a href="/pages/noticias.html"        class="nav-link"        role="menuitem">Noticias</a>
+      <a href="/pages/publicaciones.html"   class="nav-link"        role="menuitem">Publicaciones</a>
+      <a href="/pages/quienes-somos.html"   class="nav-link"        role="menuitem">Quiénes somos</a>
+      <a href="/pages/sindicatos.html"      class="nav-link active" role="menuitem">Afiliados</a>
+      <a href="/pages/documentos.html"      class="nav-link"        role="menuitem">Documentos</a>
+      <a href="/pages/junta-directiva.html" class="nav-link"        role="menuitem">Junta</a>
+      <a href="/pages/afiliacion.html"      class="nav-link cta"    role="menuitem">Únete</a>
+    </div>
+    <button class="hamburger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" role="menu">
+  <a href="/" class="nav-link" role="menuitem">Inicio</a>
+  <a href="/pages/noticias.html" class="nav-link" role="menuitem">Noticias</a>
+  <a href="/pages/quienes-somos.html" class="nav-link" role="menuitem">Quiénes somos</a>
+  <a href="/pages/sindicatos.html" class="nav-link" role="menuitem">Sindicatos afiliados</a>
+  <a href="/pages/documentos.html" class="nav-link" role="menuitem">Documentos</a>
+  <a href="/pages/junta-directiva.html" class="nav-link" role="menuitem">Junta Directiva</a>
+  <a href="/pages/afiliacion.html" class="nav-link cta" role="menuitem">Únete →</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-stripe" aria-hidden="true"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="/">Inicio</a> / <span>Sindicatos afiliados</span></div>
+    <h1 class="page-title">Sindicatos Afiliados</h1>
+    <p class="page-subtitle">Organizaciones que forman parte de la familia CUT, unidas en defensa de los derechos laborales</p>
+  </div>
+</div>
+
+<main id="page-content">
+  <section class="sec" aria-labelledby="sind-h2">
+    <div class="container">
+      <!-- Instrucciones de logos: ver README.md -->
+
+      <div class="sec-header fi">
+        <div class="sec-tag">Organizaciones afiliadas</div>
+        <h2 class="sec-h2" id="sind-h2">Nuestros sindicatos</h2>
+        <p class="sec-lead">La CUT es una organización de puertas abiertas que permite la afiliación de organizaciones sindicales establecidas en el país, de carácter privado y público, dirigiendo sus recursos por la defensa de los trabajadores y el respeto de los derechos humanos, sociales y laborales.</p>
+      </div>
+
+      <div class="sind-grid">
+
+        <!-- 1. SITTRAIPROA -->
+        <div class="sind-card fi">
+          <div class="sind-logo-wrap">
+            <div class="sind-logo-circle" aria-label="Logo SITTRAIPROA">
+              <img src="../assets/images/sindicatos/sittraiproa-logo.png" alt="Logo oficial SITTRAIPROA" style="width:100%;height:100%;object-fit:contain;padding:4px;">
+            </div>
+          </div>
+          <div class="sind-body">
+            <div class="sind-abbr">SITTRAIPROA</div>
+            <div class="sind-name">Sindicato de Trabajadores de la Industria de Productos Alimenticios</div>
+            <p class="sind-desc">Representa y defiende los derechos de los trabajadores del sector de industria alimentaria en Costa Rica. Participan activamente en la negociación de convenciones colectivas que mejoran las condiciones laborales de sus afiliados.</p>
+            <div class="sind-footer">
+              <span class="sind-tag">Sector privado</span>
+              <a href="/pages/contacto.html" class="sind-link">Contactar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. SUNTRACS -->
+        <div class="sind-card fi d1">
+          <div class="sind-logo-wrap">
+            <div class="sind-logo-circle" aria-label="Logo SUNTRACS">
+              <img src="../assets/images/sindicatos/suntracs-logo.png" alt="Logo oficial SUNTRACS Costa Rica" style="width:100%;height:100%;object-fit:contain;padding:4px;">
+            </div>
+          </div>
+          <div class="sind-body">
+            <div class="sind-abbr">SUNTRACS</div>
+            <div class="sind-name">Sindicato Único Nacional de Trabajadores de la Construcción y Similares</div>
+            <p class="sind-desc">Organización sindical con presencia nacional que agrupa a los trabajadores de la industria de la construcción. Lucha por mejores salarios, condiciones de seguridad ocupacional y respeto de los derechos laborales en el sector.</p>
+            <div class="sind-footer">
+              <span class="sind-tag">Construcción</span>
+              <a href="/pages/contacto.html" class="sind-link">Contactar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. SITRAMA -->
+        <div class="sind-card fi d2">
+          <div class="sind-logo-wrap">
+            <div class="sind-logo-circle" aria-label="Logo SITRAMA">
+              <div class="initials" aria-hidden="true">SIT<br>RAMA</div>
+            </div>
+          </div>
+          <div class="sind-body">
+            <div class="sind-abbr">SITRAMA</div>
+            <div class="sind-name">Sindicato de Trabajadores de Materiales y Afines</div>
+            <p class="sind-desc">Representa a los trabajadores del sector de materiales de construcción y actividades relacionadas, defendiendo sus derechos ante empleadores y organismos gubernamentales.</p>
+            <div class="sind-footer">
+              <span class="sind-tag">Sector privado</span>
+              <a href="/pages/contacto.html" class="sind-link">Contactar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. UNTTRASA -->
+        <div class="sind-card fi">
+          <div class="sind-logo-wrap">
+            <div class="sind-logo-circle" aria-label="Logo UNTTRASA">
+              <div class="initials" aria-hidden="true">UNT<br>TRASA</div>
+            </div>
+          </div>
+          <div class="sind-body">
+            <div class="sind-abbr">UNTTRASA</div>
+            <div class="sind-name">Unión Nacional de Trabajadores del Transporte y Actividades Similares</div>
+            <p class="sind-desc">Organización que defiende y representa al sector transporte a nivel nacional, luchando por condiciones laborales dignas, jornadas reguladas y salarios justos para los trabajadores del transporte costarricense.</p>
+            <div class="sind-footer">
+              <span class="sind-tag">Transporte</span>
+              <a href="/pages/contacto.html" class="sind-link">Contactar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. SINTRADEPP -->
+        <div class="sind-card fi d1">
+          <div class="sind-logo-wrap">
+            <div class="sind-logo-circle" aria-label="Logo SINTRADEPP">
+              <div class="initials" aria-hidden="true">SIN<br>TRADE</div>
+            </div>
+          </div>
+          <div class="sind-body">
+            <div class="sind-abbr">SINTRADEPP</div>
+            <div class="sind-name">Sindicato de Trabajadores del Desarrollo Profesional y Personal</div>
+            <p class="sind-desc">Sindicato orientado al desarrollo y formación profesional de sus miembros, promoviendo la capacitación, el crecimiento profesional y la defensa de los derechos de los trabajadores en el ámbito del desarrollo personal.</p>
+            <div class="sind-footer">
+              <span class="sind-tag">Desarrollo profesional</span>
+              <a href="/pages/contacto.html" class="sind-link">Contactar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. ASOMEM -->
+        <div class="sind-card fi d2">
+          <div class="sind-logo-wrap">
+            <div class="sind-logo-circle" aria-label="Logo ASOMEM">
+              <div class="initials" aria-hidden="true">ASO<br>MEM</div>
+            </div>
+          </div>
+          <div class="sind-body">
+            <div class="sind-abbr">ASOMEM</div>
+            <div class="sind-name">Asociación de Miembros y Empleados</div>
+            <p class="sind-desc">Asociación que agrupa a miembros y empleados de diversas ramas laborales, trabajando en conjunto con la CUT por la defensa de los derechos laborales, la dignidad en el trabajo y el bienestar de sus asociados.</p>
+            <div class="sind-footer">
+              <span class="sind-tag">Asociación</span>
+              <a href="/pages/contacto.html" class="sind-link">Contactar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Ministerio de Hacienda -->
+        <div class="sind-card fi">
+          <div class="sind-logo-wrap" style="background:linear-gradient(135deg,#f8f8f6,#edf2f8)">
+            <div class="sind-logo-circle" aria-label="Logo Seccional Ministerio de Hacienda">
+              <div class="initials" aria-hidden="true">MIN<br>HAC.</div>
+            </div>
+          </div>
+          <div class="sind-body">
+            <div class="sind-abbr">Hacienda</div>
+            <div class="sind-name">Seccional del Ministerio de Hacienda</div>
+            <p class="sind-desc">Representación sindical del personal del Ministerio de Hacienda de Costa Rica. Defiende los derechos laborales de los funcionarios, participa en negociaciones colectivas del sector público y promueve mejores condiciones de trabajo en la institución.</p>
+            <div class="sind-footer">
+              <span class="sind-tag">Sector público</span>
+              <a href="/pages/contacto.html" class="sind-link">Contactar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AFILIARSE -->
+        <div class="sind-card fi d1" style="border:2px dashed rgba(192,0,26,0.25);background:rgba(192,0,26,0.02);box-shadow:none;">
+          <div class="sind-logo-wrap" style="background:rgba(192,0,26,0.04);border-bottom:3px dashed rgba(192,0,26,0.2);">
+            <div style="text-align:center;">
+              <div style="font-size:3rem;margin-bottom:0.5rem;" aria-hidden="true">🤝</div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);">¿Su organización<br>quiere afiliarse?</div>
+            </div>
+          </div>
+          <div class="sind-body" style="text-align:center;align-items:center;">
+            <div class="sind-abbr" style="font-size:1.2rem;">Afíliese a la CUT</div>
+            <div class="sind-name" style="text-align:center;">Su sindicato u organización laboral</div>
+            <p class="sind-desc" style="text-align:center;">La CUT es una organización de puertas abiertas. Si su sindicato comparte nuestros principios de defensa de los derechos laborales, contáctenos para iniciar el proceso de afiliación.</p>
+            <div class="sind-footer" style="justify-content:center;">
+              <a href="/pages/afiliacion.html" class="btn-red" style="font-size:13px;padding:0.55rem 1.25rem;">Contactar →</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /sind-grid -->
+
+      <!-- ESTRUCTURA SEGÚN RESEÑA HISTÓRICA -->
+      <div style="margin-top:4rem;padding:2.5rem;background:#f8f8f6;border-radius:14px;border:1px solid rgba(0,0,0,0.07);" class="fi">
+        <div class="sec-tag">Estructura orgánica — según reseña histórica</div>
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;text-transform:uppercase;margin:0.75rem 0 1rem;">Representación institucional de la CUT</h3>
+        <p style="color:#555;max-width:760px;margin-bottom:1.5rem;">La CUT mantiene representación activa con voz y voto en múltiples instituciones nacionales, garantizando que la voz de los trabajadores sea escuchada en los espacios donde se toman decisiones que afectan sus derechos y condiciones laborales.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+          <div style="background:#fff;border-radius:8px;padding:1.1rem;border-left:3px solid var(--red);">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#999;margin-bottom:0.4rem;">Nivel nacional</div>
+            <ul style="list-style:none;font-size:13px;color:#444;display:flex;flex-direction:column;gap:0.3rem;">
+              <li>✓ Ministerio de Trabajo</li>
+              <li>✓ Consejo Nacional de Salarios</li>
+              <li>✓ Consejo Superior de Trabajo</li>
+              <li>✓ Defensoría de los Habitantes</li>
+              <li>✓ Banco Popular (Asamblea)</li>
+            </ul>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:1.1rem;border-left:3px solid var(--yellow);">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#999;margin-bottom:0.4rem;">Negociación colectiva</div>
+            <ul style="list-style:none;font-size:13px;color:#444;display:flex;flex-direction:column;gap:0.3rem;">
+              <li>✓ Municipalidad de Atenas</li>
+              <li>✓ Dos Pinos</li>
+              <li>✓ Industria Cerámica Costarricense</li>
+              <li>✓ Sector público y privado</li>
+            </ul>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:1.1rem;border-left:3px solid var(--black);">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#999;margin-bottom:0.4rem;">Internacional</div>
+            <ul style="list-style:none;font-size:13px;color:#444;display:flex;flex-direction:column;gap:0.3rem;">
+              <li>✓ OIT (Organización Internacional del Trabajo)</li>
+              <li>✓ FSM (Federación Sindical Mundial)</li>
+              <li>✓ CSI / CSA</li>
+              <li>✓ Comité intersindical para migración</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div><img src="../assets/images/logo-cut.png" alt="Logo CUT" class="fbrand-logo"><div class="fbrand-badge">CUT</div><div class="fbrand-name">Confederación Unitaria de Trabajadores</div><p class="fbrand-desc">Fundada el 23 de noviembre de 1980. Siempre con el Pueblo.</p></div>
+    <div class="fcol"><h4>La CUT</h4><ul class="flinks"><li><a href="/pages/quienes-somos.html">Historia</a></li><li><a href="/pages/quienes-somos.html#mision">Misión y Visión</a></li><li><a href="/pages/junta-directiva.html">Junta Directiva</a></li><li><a href="/pages/documentos.html">Estatutos</a></li></ul></div>
+    <div class="fcol"><h4>Noticias</h4><ul class="flinks"><li><a href="/pages/noticias.html">Todas las noticias</a></li><li><a href="/#noticias">Últimas noticias</a></li></ul></div>
+    <div class="fcol"><h4>Contacto</h4><ul class="flinks"><li><a href="/pages/afiliacion.html">Afiliación</a></li><li><a href="/pages/contacto.html">Contacto</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="fcopy">© <span id="fyear">2025</span> <span>Confederación Unitaria de Trabajadores (CUT)</span>. Todos los derechos reservados.</p>
+    <p class="fcopy">Fundada el 23 de noviembre de 1980 · Costa Rica</p>
+  </div>
+</footer>
+
+<nav class="social-float" aria-label="Redes sociales">
+  <a href="https://facebook.com/CUT.CostaRica" class="sf-btn fb" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+  <a href="https://x.com/CUT_CR"              class="sf-btn tw" aria-label="Twitter"   target="_blank" rel="noopener">𝕏</a>
+  <a href="https://youtube.com/@CUT_CR"        class="sf-btn yt" aria-label="YouTube"   target="_blank" rel="noopener">▶</a>
+  <a href="https://instagram.com/cut_cr"       class="sf-btn ig" aria-label="Instagram" target="_blank" rel="noopener">◉</a>
+</nav>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

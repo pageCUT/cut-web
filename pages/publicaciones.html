@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publicaciones | CUT — Confederación Unitaria de Trabajadores</title>
+<meta name="description" content="Publicaciones, comunicados y materiales de la CUT Costa Rica.">
+<link rel="icon" type="image/png" href="../assets/images/logo-cut.png">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#C0001A">
+<link rel="apple-touch-icon" href="../assets/images/logo-cut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  .page-hero{margin-top:calc(var(--topbar-h,34px) + var(--nav-h,64px));background:linear-gradient(135deg,#111 0%,#3d1008 60%,#111 100%);padding:4rem 2rem 3rem;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.022) 0,rgba(255,255,255,0.022) 1px,transparent 1px,transparent 10px);}
+  .page-hero-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,#C0001A 0%,#F5C300 50%,#C0001A 100%);}
+  .page-hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;}
+  .breadcrumb{font-size:12px;color:rgba(255,255,255,.45);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.75rem;}
+  .breadcrumb a{color:rgba(255,255,255,.45);transition:color .2s;} .breadcrumb a:hover{color:#F5C300;} .breadcrumb span{color:rgba(255,255,255,.65);}
+  .page-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;color:#fff;line-height:1;}
+  .page-subtitle{font-size:1rem;color:rgba(255,255,255,.6);margin-top:.75rem;}
+
+  /* ── CATEGORY FILTER ── */
+  /*
+   * ══════════════════════════════════════════════════════
+   * GUÍA: CAMBIAR NOMBRES DE CATEGORÍAS
+   * ══════════════════════════════════════════════════════
+   * Cada botón de categoría tiene dos atributos:
+   *   data-cat="valor"  → el código interno (no cambiar)
+   *   texto visible     → el que ve el usuario (SÍ cambiar)
+   *
+   * Ejemplo para renombrar "SINDICAL" → "ACCIÓN SINDICAL":
+   *   Busca: <button class="cat-btn active" data-cat="all">Todas</button>
+   *   Busca: <button class="cat-btn" data-cat="sindical">SINDICAL</button>
+   *   Cambia SOLO el texto entre las etiquetas, NO el data-cat
+   * ══════════════════════════════════════════════════════
+   */
+  .cat-filter{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem;}
+  .cat-btn{padding:.45rem 1.1rem;border-radius:20px;border:1.5px solid rgba(0,0,0,.1);background:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#666;cursor:pointer;transition:all .2s;}
+  .cat-btn:hover,.cat-btn.active{background:#C0001A;border-color:#C0001A;color:#fff;}
+
+  /* ── PUBLICATION GRID ── */
+  .pub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin-bottom:2.5rem;}
+  .pub-card{background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,.07);box-shadow:0 2px 10px rgba(0,0,0,.05);overflow:hidden;transition:transform .22s,box-shadow .22s;}
+  .pub-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,0,.12);}
+  .pub-card.hidden{display:none;}
+  .pub-img{height:180px;display:flex;align-items:flex-end;padding:1rem;position:relative;overflow:hidden;}
+  .pub-badge{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#fff;padding:.22rem .65rem;border-radius:3px;position:relative;z-index:1;}
+  /*
+   * ══════════════════════════════════════════════════════
+   * GUÍA: CAMBIAR COLOR DE BADGE
+   * ══════════════════════════════════════════════════════
+   * Cada clase .nc-badge.NOMBRE tiene su propio color:
+   *   .pub-badge.sindical  → background:#C0001A (rojo)
+   *   .pub-badge.politica  → background:#1565c0 (azul)
+   *   .pub-badge.laboral   → background:#212121 (negro)
+   *   .pub-badge.derechos  → background:#1a6b5c (verde)
+   *   .pub-badge.formacion → background:#e65100 (naranja)
+   *   .pub-badge.social    → background:#1976d2 (azul claro)
+   *   .pub-badge.comunicado→ background:#6a1b9a (morado)
+   * Para cambiar el color busca la clase y cambia el background
+   * ══════════════════════════════════════════════════════
+   */
+  .pub-badge.sindical{background:#C0001A;}
+  .pub-badge.politica{background:#1565c0;}
+  .pub-badge.laboral{background:#212121;}
+  .pub-badge.derechos{background:#1a6b5c;}
+  .pub-badge.formacion{background:#e65100;}
+  .pub-badge.social{background:#1976d2;}
+  .pub-badge.comunicado{background:#6a1b9a;}
+  .pub-body{padding:1.1rem 1.25rem;}
+  .pub-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;line-height:1.3;color:#111;margin-bottom:.65rem;}
+  .pub-title a{color:inherit;transition:color .2s;}
+  .pub-title a:hover{color:#C0001A;}
+  .pub-desc{font-size:13px;color:#666;line-height:1.55;margin-bottom:.75rem;}
+  .pub-meta{display:flex;align-items:center;gap:.4rem;font-size:12px;color:#aaa;border-top:1px solid #f0f0f0;padding-top:.65rem;}
+  .pub-dl-btn{display:inline-flex;align-items:center;gap:.35rem;font-size:11px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#C0001A;margin-top:.5rem;}
+  .pub-dl-btn:hover{text-decoration:underline;}
+
+  .pub-more{text-align:center;}
+  @media(max-width:600px){.pub-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div id="readBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+<a class="skip-link" href="#page-content" style="position:absolute;top:-100px;left:1rem;z-index:99999;padding:.5rem 1rem;background:#C0001A;color:#fff;font-weight:700;border-radius:0 0 4px 4px">Saltar al contenido</a>
+
+<!-- TOPBAR -->
+<div class="topbar" style="position:fixed;top:0;left:0;right:0;z-index:1001;height:34px;background:#111;display:flex;align-items:center;justify-content:flex-end;padding:0 1.5rem;gap:.5rem;">
+  <span style="font-size:11px;color:rgba(255,255,255,.4);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.1em">Síguenos:</span>
+  <a href="https://facebook.com/CUT.CostaRica" style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;text-decoration:none;transition:all .22s" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+  <a href="https://x.com/CUT_CR"              style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;text-decoration:none;" aria-label="Twitter" target="_blank" rel="noopener">𝕏</a>
+  <a href="https://youtube.com/@CUT_CR"        style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;text-decoration:none;" aria-label="YouTube" target="_blank" rel="noopener">▶</a>
+  <a href="https://instagram.com/cut_cr"       style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;text-decoration:none;" aria-label="Instagram" target="_blank" rel="noopener">◉</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav" style="position:fixed;top:34px;left:0;right:0;z-index:1000;height:64px;background:#1a1a1a;display:flex;align-items:center;border-bottom:2px solid rgba(192,0,26,.6);" role="navigation" aria-label="Navegación principal">
+  <div style="max-width:1280px;margin:0 auto;width:100%;padding:0 1.5rem;display:flex;align-items:center;gap:1rem;">
+    <a href="/" style="display:flex;align-items:center;gap:.65rem;flex-shrink:0;margin-right:1rem;text-decoration:none;" aria-label="CUT — Inicio">
+      <img src="../assets/images/logo-cut.png" alt="Logo CUT" style="height:42px;width:42px;border-radius:50%;object-fit:cover;">
+      <div style="display:flex;flex-direction:column;line-height:1.1">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;color:rgba(255,255,255,.9);text-transform:uppercase;letter-spacing:.06em">CUT — Costa Rica</span>
+        <span style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.16em">Siempre con el Pueblo</span>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:0;flex:1" role="menubar">
+      <a href="/" class="nav-link" role="menuitem">Inicio</a>
+      <a href="noticias.html" class="nav-link" role="menuitem">Noticias</a>
+      <a href="publicaciones.html" class="nav-link active" role="menuitem">Publicaciones</a>
+      <a href="quienes-somos.html" class="nav-link" role="menuitem">Quiénes somos</a>
+      <a href="sindicatos.html" class="nav-link" role="menuitem">Afiliados</a>
+      <a href="documentos.html" class="nav-link" role="menuitem">Documentos</a>
+      <a href="contacto.html" class="nav-link" role="menuitem">Contacto</a>
+      <a href="afiliacion.html" class="nav-link" style="margin-left:auto;background:#C0001A;color:#fff;height:36px;border-radius:4px;padding:0 1.1rem;border-bottom:none;font-size:12px;" role="menuitem">Únete</a>
+    </div>
+    <button class="hamburger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" role="menu" aria-label="Menú móvil">
+  <a href="/" class="nav-link" role="menuitem">Inicio</a>
+  <a href="noticias.html" class="nav-link" role="menuitem">Noticias</a>
+  <a href="publicaciones.html" class="nav-link" role="menuitem">Publicaciones</a>
+  <a href="quienes-somos.html" class="nav-link" role="menuitem">Quiénes somos</a>
+  <a href="sindicatos.html" class="nav-link" role="menuitem">Sindicatos afiliados</a>
+  <a href="documentos.html" class="nav-link" role="menuitem">Documentos</a>
+  <a href="contacto.html" class="nav-link" role="menuitem">Contacto</a>
+  <a href="afiliacion.html" class="nav-link" style="margin-top:.5rem;justify-content:center;background:#C0001A;border-radius:4px;color:#fff" role="menuitem">Únete →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-stripe" aria-hidden="true"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="/">Inicio</a> / <span>Publicaciones</span></div>
+    <h1 class="page-title">Publicaciones</h1>
+    <p class="page-subtitle">Comunicados, materiales educativos, informes y documentos de la CUT</p>
+  </div>
+</div>
+
+<main id="page-content">
+  <section style="padding:4rem 2rem" aria-labelledby="pub-h2">
+    <div style="max-width:1280px;margin:0 auto;">
+
+      <!--
+      ══════════════════════════════════════════════════════════
+      GUÍA: CAMBIAR NOMBRES DE CATEGORÍAS EN LOS BOTONES
+      ══════════════════════════════════════════════════════════
+      Los botones de abajo controlan el filtro. Para cambiar
+      el nombre visible de una categoría:
+        1. Busque el botón con el data-cat que quiere cambiar
+        2. Cambie SOLO el texto dentro de las etiquetas <button>
+        3. NO cambie el valor de data-cat (eso rompe el filtro)
+
+      Ejemplo:
+        ANTES: <button class="cat-btn" data-cat="sindical">SINDICAL</button>
+        DESPUÉS: <button class="cat-btn" data-cat="sindical">ACCIÓN SINDICAL</button>
+      ══════════════════════════════════════════════════════════
+      -->
+      <div class="cat-filter" role="group" aria-label="Filtrar publicaciones por categoría">
+        <button class="cat-btn active" data-cat="all">Todas</button>
+        <button class="cat-btn" data-cat="comunicado">Comunicados</button>
+        <button class="cat-btn" data-cat="sindical">Sindical</button>
+        <button class="cat-btn" data-cat="formacion">Formación</button>
+        <button class="cat-btn" data-cat="laboral">Laboral</button>
+        <button class="cat-btn" data-cat="derechos">Derechos</button>
+        <button class="cat-btn" data-cat="social">Social</button>
+        <button class="cat-btn" data-cat="politica">Política</button>
+      </div>
+
+      <div class="pub-grid" id="pubGrid" role="list">
+
+        <!--
+        ══════════════════════════════════════════════════════════
+        GUÍA: AGREGAR O EDITAR UNA PUBLICACIÓN
+        ══════════════════════════════════════════════════════════
+        Para cada publicación copie el bloque <article> completo.
+        Cambie los siguientes valores:
+          1. data-cat="comunicado"  → categoría interna (ver lista arriba)
+          2. style="background:..."  → color de fondo de la imagen
+          3. class="pub-badge comunicado" → clase del badge (misma que data-cat)
+          4. Texto del badge → nombre visible de la categoría
+          5. .pub-title → el título de la publicación
+          6. .pub-desc → la descripción corta
+          7. .pub-meta fecha y autor
+          8. href del botón "Descargar" → URL del PDF en GitHub
+        ══════════════════════════════════════════════════════════
+        -->
+
+        <article class="pub-card fi" data-cat="comunicado" role="listitem">
+          <div class="pub-img" style="background:linear-gradient(135deg,#6a1b9a,#4a148c)">
+            <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 10px)"></div>
+            <span class="pub-badge comunicado">COMUNICADO</span>
+          </div>
+          <div class="pub-body">
+            <h3 class="pub-title"><a href="#">Comunicado oficial CUT — 1° de mayo 2025</a></h3>
+            <p class="pub-desc">Posición oficial de la Confederación Unitaria de Trabajadores en el Día Internacional de los Trabajadores.</p>
+            <div class="pub-meta"><span>📅 Mayo 2025</span><span style="color:#ccc">·</span><span>CUT</span></div>
+            <a href="documentos.html" class="pub-dl-btn">📄 Descargar PDF →</a>
+          </div>
+        </article>
+
+        <article class="pub-card fi d1" data-cat="formacion" role="listitem">
+          <div class="pub-img" style="background:linear-gradient(135deg,#e65100,#bf360c)">
+            <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 10px)"></div>
+            <span class="pub-badge formacion">FORMACIÓN</span>
+          </div>
+          <div class="pub-body">
+            <h3 class="pub-title"><a href="#">Aprendiendo a Negociar — Guía para líderes sindicales</a></h3>
+            <p class="pub-desc">Material educativo sobre técnicas de negociación, estilos de influencia y estrategias ganar-ganar. CUT 2005.</p>
+            <div class="pub-meta"><span>📅 2005</span><span style="color:#ccc">·</span><span>CUT — Economía y Desarrollo</span></div>
+            <a href="documentos.html" class="pub-dl-btn">📄 Descargar PDF →</a>
+          </div>
+        </article>
+
+        <article class="pub-card fi d2" data-cat="sindical" role="listitem">
+          <div class="pub-img" style="background:linear-gradient(135deg,#C0001A,#8B0012)">
+            <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 10px)"></div>
+            <span class="pub-badge sindical">SINDICAL</span>
+          </div>
+          <div class="pub-body">
+            <h3 class="pub-title"><a href="#">Reseña histórica y actualidad de la CUT</a></h3>
+            <p class="pub-desc">Documento completo con la historia, logros y estado actual de la Confederación Unitaria de Trabajadores.</p>
+            <div class="pub-meta"><span>📅 Actualizado</span><span style="color:#ccc">·</span><span>CUT</span></div>
+            <a href="documentos.html" class="pub-dl-btn">📄 Descargar PDF →</a>
+          </div>
+        </article>
+
+        <article class="pub-card fi" data-cat="derechos" role="listitem">
+          <div class="pub-img" style="background:linear-gradient(135deg,#1a6b5c,#0f4f40)">
+            <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 10px)"></div>
+            <span class="pub-badge derechos">DERECHOS</span>
+          </div>
+          <div class="pub-body">
+            <h3 class="pub-title"><a href="#">Guía de derechos laborales para trabajadores migrantes</a></h3>
+            <p class="pub-desc">Información sobre los derechos laborales de trabajadores inmigrantes en Costa Rica según el Código de Trabajo.</p>
+            <div class="pub-meta"><span>📅 2024</span><span style="color:#ccc">·</span><span>CUT</span></div>
+            <a href="documentos.html" class="pub-dl-btn">📄 Descargar PDF →</a>
+          </div>
+        </article>
+
+        <article class="pub-card fi d1" data-cat="laboral" role="listitem">
+          <div class="pub-img" style="background:linear-gradient(135deg,#212121,#333)">
+            <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 10px)"></div>
+            <span class="pub-badge laboral">LABORAL</span>
+          </div>
+          <div class="pub-body">
+            <h3 class="pub-title"><a href="#">Informe de condiciones laborales sector construcción 2024</a></h3>
+            <p class="pub-desc">Análisis de las condiciones laborales, accidentes y derechos pendientes en el sector construcción costarricense.</p>
+            <div class="pub-meta"><span>📅 Diciembre 2024</span><span style="color:#ccc">·</span><span>CUT — SUNTRACS</span></div>
+            <a href="documentos.html" class="pub-dl-btn">📄 Descargar PDF →</a>
+          </div>
+        </article>
+
+        <article class="pub-card fi d2" data-cat="social" role="listitem">
+          <div class="pub-img" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">
+            <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 10px)"></div>
+            <span class="pub-badge social">SOCIAL</span>
+          </div>
+          <div class="pub-body">
+            <h3 class="pub-title"><a href="#">Campaña de afiliación sindical — Sector privado 2025</a></h3>
+            <p class="pub-desc">Materiales de la campaña para ampliar la base organizacional en el sector privado costarricense.</p>
+            <div class="pub-meta"><span>📅 Enero 2025</span><span style="color:#ccc">·</span><span>CUT</span></div>
+            <a href="afiliacion.html" class="pub-dl-btn">🤝 Afiliarse →</a>
+          </div>
+        </article>
+
+      </div><!-- /pubGrid -->
+
+      <div class="pub-more fi">
+        <p style="font-size:13px;color:#888;text-align:center;margin-bottom:1rem;">¿Busca un documento específico? Revise nuestro repositorio completo.</p>
+        <a href="documentos.html" style="display:inline-flex;align-items:center;gap:.4rem;padding:.72rem 2rem;background:transparent;color:#C0001A;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.1em;border:2px solid #C0001A;border-radius:4px;transition:all .22s;" onmouseover="this.style.background='#C0001A';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#C0001A'">Ver todos los documentos →</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer style="background:#111;color:rgba(255,255,255,.6);padding:2.5rem 2rem 1.5rem">
+  <div style="max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem">
+    <p style="font-size:12px;color:rgba(255,255,255,.28)">© <span id="fyear">2025</span> <span style="color:#C0001A">Confederación Unitaria de Trabajadores (CUT)</span>. Costa Rica.</p>
+    <div style="display:flex;gap:.75rem">
+      <a href="/" style="font-size:12px;color:rgba(255,255,255,.4);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-decoration:none">Inicio</a>
+      <a href="noticias.html" style="font-size:12px;color:rgba(255,255,255,.4);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-decoration:none">Noticias</a>
+      <a href="contacto.html" style="font-size:12px;color:rgba(255,255,255,.4);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-decoration:none">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<!-- A11Y FAB (creado por main.js) -->
+<button class="a11y-fab" id="uwFab" aria-label="Abrir menú de accesibilidad" aria-controls="uwPanel" aria-expanded="false" style="position:fixed;right:1.5rem;bottom:1.5rem;z-index:99999;width:50px;height:50px;border-radius:50%;background:#1a6b5c;border:2px solid rgba(255,255,255,.2);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.35);">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="1.8"/><path d="M12 7v5"/><path d="M8 10h8"/><path d="M10 15l-2 5"/><path d="M14 15l2 5"/></svg>
+</button>
+
+<script>
+  document.getElementById('fyear').textContent = new Date().getFullYear();
+  // Category filter
+  document.querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      document.querySelectorAll('.pub-card').forEach(card => {
+        card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+      });
+    });
+  });
+</script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

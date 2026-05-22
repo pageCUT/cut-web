@@ -1,0 +1,44 @@
+## =============================================================
+##  CUT — Cabeceras de Seguridad
+##  Archivo: _headers
+##  Funciona en: Netlify (recomendado) o Cloudflare Pages
+##  GitHub Pages nativo NO soporta cabeceras personalizadas.
+##  Si usa GitHub Pages puro, estas protecciones van en meta tags
+##  del HTML (ya incluidas en index.html).
+## =============================================================
+
+## Cabeceras globales para todo el sitio
+/*
+  ## CORS — Solo permite peticiones desde el propio dominio
+  Access-Control-Allow-Origin: https://TU-USUARIO.github.io
+  Access-Control-Allow-Methods: GET, OPTIONS
+  Access-Control-Allow-Headers: Content-Type
+
+  ## Seguridad general
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+  ## Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+  ## HSTS — Forzar HTTPS siempre
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  ## Cache para assets estáticos
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+## Sin cache para HTML (siempre fresco)
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/pages/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+## Service Worker siempre fresco
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+  Service-Worker-Allowed: /cut-web/

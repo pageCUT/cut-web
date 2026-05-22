@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentos y Estatutos | CUT — Confederación Unitaria de Trabajadores</title>
+<meta name="description" content="Documentos oficiales, estatutos, acuerdos y publicaciones de la Confederación Unitaria de Trabajadores de Costa Rica.">
+<link rel="icon" type="image/png" href="../assets/images/logo-cut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  .page-hero{margin-top:var(--nav-h);background:linear-gradient(135deg,#111 0%,#3d1008 60%,#111 100%);padding:4rem 2rem 3rem;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.025) 0,rgba(255,255,255,0.025) 1px,transparent 1px,transparent 10px);}
+  .page-hero-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,var(--red) 0%,var(--yellow) 50%,var(--red) 100%);}
+  .page-hero-inner{max-width:var(--max-w);margin:0 auto;position:relative;z-index:1;}
+  .breadcrumb{font-size:12px;color:rgba(255,255,255,0.45);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.75rem;}
+  .breadcrumb a{color:rgba(255,255,255,0.45);transition:color .2s;} .breadcrumb a:hover{color:var(--yellow);} .breadcrumb span{color:rgba(255,255,255,0.65);}
+  .page-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;color:#fff;line-height:1;}
+  .page-subtitle{font-size:1rem;color:rgba(255,255,255,0.6);margin-top:0.75rem;}
+
+  /* Search bar */
+  .doc-search-wrap{display:flex;gap:0.75rem;margin-bottom:2.5rem;}
+  .doc-search{flex:1;padding:0.75rem 1.1rem;border:1.5px solid rgba(0,0,0,0.13);border-radius:8px;font-family:'Barlow',sans-serif;font-size:0.95rem;color:#111;background:#fff;transition:border-color .2s;}
+  .doc-search:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(192,0,26,0.08);}
+  .doc-search-btn{padding:0.75rem 1.5rem;background:var(--red);color:#fff;border:none;border-radius:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:background .2s;}
+  .doc-search-btn:hover{background:var(--red-dark);}
+
+  /* Category tabs */
+  .doc-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2rem;border-bottom:2px solid #f0f0f0;padding-bottom:1rem;}
+  .doc-tab{padding:0.45rem 1.1rem;border-radius:20px;border:1.5px solid rgba(0,0,0,0.1);background:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#666;cursor:pointer;transition:all .2s;}
+  .doc-tab:hover,.doc-tab.active{background:var(--red);border-color:var(--red);color:#fff;}
+
+  /* Document cards - larger, richer */
+  .docs-full-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+  .doc-full-card{
+    background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.07);
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    display:flex;gap:0;flex-direction:column;
+    transition:all .25s;overflow:hidden;
+  }
+  .doc-full-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.1);border-color:rgba(192,0,26,0.2);}
+  .doc-card-header{padding:1.25rem 1.25rem 0;display:flex;gap:0.9rem;align-items:flex-start;}
+  .doc-card-ico{width:52px;height:52px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+  .doc-card-ico.red{background:rgba(192,0,26,0.1);}
+  .doc-card-ico.yellow{background:rgba(245,195,0,0.15);}
+  .doc-card-ico.black{background:rgba(17,17,17,0.07);}
+  .doc-card-ico.blue{background:rgba(21,101,192,0.08);}
+  .doc-card-meta{flex:1;}
+  .doc-card-cat{font-size:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--red);margin-bottom:0.3rem;}
+  .doc-card-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;text-transform:uppercase;letter-spacing:0.04em;color:#111;line-height:1.25;}
+  .doc-card-body{padding:1rem 1.25rem;}
+  .doc-card-desc{font-size:13px;color:#666;line-height:1.6;margin-bottom:0.75rem;}
+  .doc-card-info{display:flex;gap:1rem;font-size:11px;color:#aaa;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;}
+  .doc-card-footer{padding:1rem 1.25rem;border-top:1px solid #f5f5f5;display:flex;gap:0.75rem;align-items:center;}
+  .doc-btn-primary{flex:1;padding:0.55rem;background:var(--red);color:#fff;border:none;border-radius:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;cursor:pointer;transition:background .2s;text-align:center;text-decoration:none;display:block;}
+  .doc-btn-primary:hover{background:var(--red-dark);}
+  .doc-btn-secondary{padding:0.55rem 0.9rem;background:transparent;color:#888;border:1.5px solid rgba(0,0,0,0.1);border-radius:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;cursor:pointer;transition:all .2s;text-decoration:none;display:block;}
+  .doc-btn-secondary:hover{border-color:var(--red);color:var(--red);}
+
+  /* Upload guide box */
+  code{background:rgba(0,0,0,0.06);padding:0.1rem 0.4rem;border-radius:3px;font-size:11px;font-family:monospace;color:var(--red);}
+
+  /* Hidden cards on filter */
+  .doc-full-card.hidden{display:none;}
+
+  @media(max-width:680px){.docs-full-grid{grid-template-columns:1fr;}.doc-search-wrap{flex-direction:column;}}
+</style>
+
+  <!-- PWA -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#C0001A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CUT CR">
+  <link rel="apple-touch-icon" href="../assets/images/logo-cut.png">
+  <!-- Seguridad -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+</head>
+<body>
+
+<div id="readBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+<a class="skip-link" href="#page-content">Saltar al contenido</a>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="CUT — Inicio">
+      <img src="../assets/images/logo-cut.png" alt="Logo CUT" class="nav-logo">
+      <div class="nav-badge">CUT</div>
+      <div class="nav-name"><span class="nav-name-title">Confederación Unitaria</span><span class="nav-name-sub">Siempre con el Pueblo</span></div>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="/"                           class="nav-link"        role="menuitem">Inicio</a>
+      <a href="/pages/noticias.html"        class="nav-link"        role="menuitem">Noticias</a>
+      <a href="/pages/quienes-somos.html"   class="nav-link"        role="menuitem">Quiénes somos</a>
+      <a href="/pages/sindicatos.html"      class="nav-link"        role="menuitem">Afiliados</a>
+      <a href="/pages/documentos.html"      class="nav-link active" role="menuitem">Documentos</a>
+      <a href="/pages/junta-directiva.html" class="nav-link"        role="menuitem">Junta</a>
+      <a href="/pages/afiliacion.html"      class="nav-link cta"    role="menuitem">Únete</a>
+    </div>
+    <button class="hamburger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" role="menu">
+  <a href="/" class="nav-link" role="menuitem">Inicio</a>
+  <a href="/pages/noticias.html" class="nav-link" role="menuitem">Noticias</a>
+  <a href="/pages/quienes-somos.html" class="nav-link" role="menuitem">Quiénes somos</a>
+  <a href="/pages/sindicatos.html" class="nav-link" role="menuitem">Sindicatos afiliados</a>
+  <a href="/pages/documentos.html" class="nav-link" role="menuitem">Documentos</a>
+  <a href="/pages/junta-directiva.html" class="nav-link" role="menuitem">Junta Directiva</a>
+  <a href="/pages/afiliacion.html" class="nav-link cta" role="menuitem">Únete →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-stripe" aria-hidden="true"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="/">Inicio</a> / <span>Documentos y Estatutos</span></div>
+    <h1 class="page-title">Documentos y Estatutos</h1>
+    <p class="page-subtitle">Repositorio oficial de documentos institucionales de la CUT</p>
+  </div>
+</div>
+
+<main id="page-content">
+  <section class="sec" aria-labelledby="docs-h2">
+    <div class="container">
+
+      <!-- UPLOAD GUIDE -->
+
+      <!-- SEARCH -->
+      <div class="doc-search-wrap" role="search">
+        <input type="search" id="docSearch" class="doc-search" placeholder="🔍  Buscar documento..." aria-label="Buscar documentos">
+        <button class="doc-search-btn" onclick="searchDocs()" aria-label="Buscar">Buscar</button>
+      </div>
+
+      <!-- CATEGORY TABS -->
+      <div class="doc-tabs" role="tablist" aria-label="Filtrar por categoría">
+        <button class="doc-tab active" data-cat="all"          role="tab" aria-selected="true">Todos</button>
+        <button class="doc-tab"        data-cat="estatutos"    role="tab" aria-selected="false">Estatutos</button>
+        <button class="doc-tab"        data-cat="institucional" role="tab" aria-selected="false">Institucional</button>
+        <button class="doc-tab"        data-cat="formacion"    role="tab" aria-selected="false">Formación</button>
+        <button class="doc-tab"        data-cat="historico"    role="tab" aria-selected="false">Histórico</button>
+        <button class="doc-tab"        data-cat="formularios"  role="tab" aria-selected="false">Formularios</button>
+      </div>
+
+      <h2 class="sec-h2 fi" id="docs-h2" style="margin-bottom:1.5rem;">Repositorio institucional</h2>
+
+      <!-- DOCUMENTS GRID -->
+      <div class="docs-full-grid" id="docsGrid">
+
+        <!-- 1. ESTATUTO -->
+        <div class="doc-full-card fi" data-cat="estatutos" data-title="estatuto cut confederacion">
+          <div class="doc-card-header">
+            <div class="doc-card-ico red" aria-hidden="true">📋</div>
+            <div class="doc-card-meta">
+              <div class="doc-card-cat">Estatutos · Fundacional</div>
+              <div class="doc-card-title">Estatuto de la CUT</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <p class="doc-card-desc">Documento estatutario oficial de la Confederación Unitaria de Trabajadores. Establece la estructura orgánica, principios, objetivos y normas de funcionamiento de la confederación fundada el 23 de noviembre de 1980.</p>
+            <div class="doc-card-info">
+              <span>📅 1980</span>
+              <span>📄 PDF</span>
+              <span>🏛️ Oficial</span>
+            </div>
+          </div>
+          <div class="doc-card-footer">
+            <!-- Cambie href por la URL real del archivo en GitHub:
+                 https://pageCUT.github.io/cut-web/assets/docs/estatuto-cut.pdf -->
+            <a href="#" class="doc-btn-primary" aria-label="Descargar Estatuto de la CUT en PDF">⬇ Descargar PDF</a>
+            <a href="#" class="doc-btn-secondary" aria-label="Ver Estatuto en línea">👁 Ver</a>
+          </div>
+        </div>
+
+        <!-- 2. MISIÓN VISIÓN PRINCIPIOS -->
+        <div class="doc-full-card fi d1" data-cat="institucional" data-title="mision vision principios cut">
+          <div class="doc-card-header">
+            <div class="doc-card-ico yellow" aria-hidden="true">🎯</div>
+            <div class="doc-card-meta">
+              <div class="doc-card-cat">Institucional · Identidad</div>
+              <div class="doc-card-title">Misión, Visión y Principios</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <p class="doc-card-desc">Documento que define la identidad institucional de la CUT: misión de desarrollar el sindicalismo costarricense con inclusión total, visión de ser un movimiento sindical unitario reconocido, y los 8 principios que guían su accionar.</p>
+            <div class="doc-card-info">
+              <span>📅 Vigente</span>
+              <span>📄 Word/PDF</span>
+              <span>🏛️ Oficial</span>
+            </div>
+          </div>
+          <div class="doc-card-footer">
+            <!-- https://pageCUT.github.io/cut-web/assets/docs/mision-vision-principios.pdf -->
+            <a href="#" class="doc-btn-primary" aria-label="Descargar Misión Visión y Principios">⬇ Descargar</a>
+            <a href="/pages/quienes-somos.html#mision" class="doc-btn-secondary" aria-label="Ver en línea">👁 Ver</a>
+          </div>
+        </div>
+
+        <!-- 3. PRIMERA JUNTA DIRECTIVA -->
+        <div class="doc-full-card fi d2" data-cat="historico" data-title="primera junta directiva 1980 comision ejecutiva">
+          <div class="doc-card-header">
+            <div class="doc-card-ico black" aria-hidden="true">👥</div>
+            <div class="doc-card-meta">
+              <div class="doc-card-cat">Histórico · Fundacional</div>
+              <div class="doc-card-title">Primera Junta Directiva</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <p class="doc-card-desc">Registro histórico de la primera Comisión Ejecutiva de la CUT (1980), encabezada por Mario Devandas Brenes como presidente. Incluye los 12 miembros de la Comisión Ejecutiva, Otras Secretarías y Suplentes.</p>
+            <div class="doc-card-info">
+              <span>📅 1980</span>
+              <span>📄 Word/PDF</span>
+              <span>🗂️ Archivo</span>
+            </div>
+          </div>
+          <div class="doc-card-footer">
+            <!-- https://pageCUT.github.io/cut-web/assets/docs/primera-junta-directiva.pdf -->
+            <a href="#" class="doc-btn-primary" aria-label="Descargar Primera Junta Directiva">⬇ Descargar</a>
+            <a href="/pages/junta-directiva.html" class="doc-btn-secondary" aria-label="Ver Junta Directiva">👁 Ver</a>
+          </div>
+        </div>
+
+        <!-- 4. RESEÑA HISTÓRICA -->
+        <div class="doc-full-card fi" data-cat="historico" data-title="resena historica cut historia">
+          <div class="doc-card-header">
+            <div class="doc-card-ico red" aria-hidden="true">📰</div>
+            <div class="doc-card-meta">
+              <div class="doc-card-cat">Histórico · Reseña</div>
+              <div class="doc-card-title">Reseña Histórica y Actual de la CUT</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <p class="doc-card-desc">Documento completo con la historia de la CUT desde su fundación en 1980: contexto del movimiento sindical costarricense, principales logros, convenciones colectivas firmadas (Municipalidad de Atenas, Dos Pinos, Ind. Cerámica) y estado actual.</p>
+            <div class="doc-card-info">
+              <span>📅 Actualizado</span>
+              <span>📄 PDF</span>
+              <span>🏛️ Oficial</span>
+            </div>
+          </div>
+          <div class="doc-card-footer">
+            <!-- https://pageCUT.github.io/cut-web/assets/docs/resena-historica-cut.pdf -->
+            <a href="#" class="doc-btn-primary" aria-label="Descargar Reseña Histórica">⬇ Descargar PDF</a>
+            <a href="/pages/quienes-somos.html" class="doc-btn-secondary" aria-label="Ver Historia">👁 Ver</a>
+          </div>
+        </div>
+
+        <!-- 5. APRENDIENDO A NEGOCIAR -->
+        <div class="doc-full-card fi d1" data-cat="formacion" data-title="aprendiendo negociar formacion sindical">
+          <div class="doc-card-header">
+            <div class="doc-card-ico yellow" aria-hidden="true">🤝</div>
+            <div class="doc-card-meta">
+              <div class="doc-card-cat">Formación · Material educativo</div>
+              <div class="doc-card-title">Aprendiendo a Negociar</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <p class="doc-card-desc">Material educativo elaborado por la CUT (2005) para el área de Economía y Desarrollo. Aborda técnicas de negociación, trabajo en equipo, estilos de influencia (persuasivo, asertivo, puntear), estrategias ganar-ganar y concesiones prácticas.</p>
+            <div class="doc-card-info">
+              <span>📅 2005</span>
+              <span>📄 Word/PDF</span>
+              <span>📚 Educativo</span>
+            </div>
+          </div>
+          <div class="doc-card-footer">
+            <!-- https://pageCUT.github.io/cut-web/assets/docs/aprendiendo-a-negociar.pdf -->
+            <a href="#" class="doc-btn-primary" aria-label="Descargar Aprendiendo a Negociar">⬇ Descargar</a>
+            <a href="#" class="doc-btn-secondary" aria-label="Ver documento">👁 Ver</a>
+          </div>
+        </div>
+
+        <!-- 6. FORMULARIO WEB -->
+        <div class="doc-full-card fi d2" data-cat="formularios" data-title="formulario web institucional tecnologia">
+          <div class="doc-card-header">
+            <div class="doc-card-ico blue" aria-hidden="true">🌐</div>
+            <div class="doc-card-meta">
+              <div class="doc-card-cat">Formularios · Digital</div>
+              <div class="doc-card-title">Formulario Web Institucional</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <p class="doc-card-desc">Formulario de selección múltiple CUT-TID-WEB-01 v1.0 elaborado por la Dirección de Tecnología e Innovación Digital. Establece los objetivos, público meta, arquitectura y funcionalidades del sitio web oficial de la CUT. Mayo 2025.</p>
+            <div class="doc-card-info">
+              <span>📅 Mayo 2025</span>
+              <span>📄 Word</span>
+              <span>💻 Digital</span>
+            </div>
+          </div>
+          <div class="doc-card-footer">
+            <!-- https://pageCUT.github.io/cut-web/assets/docs/formulario-web-cut.pdf -->
+            <a href="#" class="doc-btn-primary" aria-label="Descargar Formulario Web">⬇ Descargar</a>
+            <a href="#" class="doc-btn-secondary" aria-label="Ver documento">👁 Ver</a>
+          </div>
+        </div>
+
+        <!-- 7. PORTADA ESTATUTO -->
+        <div class="doc-full-card fi" data-cat="estatutos" data-title="portada estatuto cut">
+          <div class="doc-card-header">
+            <div class="doc-card-ico black" aria-hidden="true">📑</div>
+            <div class="doc-card-meta">
+              <div class="doc-card-cat">Estatutos · Portada</div>
+              <div class="doc-card-title">Portada oficial del Estatuto CUT</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <p class="doc-card-desc">Portada oficial del Estatuto de la Confederación Unitaria de Trabajadores (CUT), fundada el 23 de noviembre de 1980. Documento de identidad y referencia institucional.</p>
+            <div class="doc-card-info">
+              <span>📅 1980</span>
+              <span>📄 Word/PDF</span>
+              <span>🏛️ Oficial</span>
+            </div>
+          </div>
+          <div class="doc-card-footer">
+            <!-- https://pageCUT.github.io/cut-web/assets/docs/portada-estatuto-cut.pdf -->
+            <a href="#" class="doc-btn-primary" aria-label="Descargar portada del Estatuto">⬇ Descargar</a>
+            <a href="#" class="doc-btn-secondary" aria-label="Ver documento">👁 Ver</a>
+          </div>
+        </div>
+
+        <!-- 8. PLACEHOLDER — agregar futuros documentos -->
+        <div class="doc-full-card fi d1" data-cat="institucional" data-title="convencion colectiva">
+          <div class="doc-card-header">
+            <div class="doc-card-ico red" aria-hidden="true">📜</div>
+            <div class="doc-card-meta">
+              <div class="doc-card-cat">Institucional · Convenios</div>
+              <div class="doc-card-title">Convenciones Colectivas</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <p class="doc-card-desc">Registro de convenciones colectivas firmadas por la CUT y sus sindicatos afiliados. Incluye acuerdos con Municipalidad de Atenas, Dos Pinos, Industria Cerámica Costarricense y otras empresas e instituciones.</p>
+            <div class="doc-card-info">
+              <span>📅 Varios años</span>
+              <span>📄 PDF</span>
+              <span>⚖️ Legal</span>
+            </div>
+          </div>
+          <div class="doc-card-footer">
+            <!-- Suba el archivo y actualice el href -->
+            <a href="#" class="doc-btn-primary" aria-label="Descargar Convenciones Colectivas">⬇ Próximamente</a>
+            <a href="/pages/contacto.html" class="doc-btn-secondary" aria-label="Solicitar documento">✉ Solicitar</a>
+          </div>
+        </div>
+
+      </div><!-- /docsGrid -->
+
+      <!-- Para agregar nuevos documentos: ver README.md en la raíz del repositorio -->
+
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div><img src="../assets/images/logo-cut.png" alt="Logo CUT" class="fbrand-logo"><div class="fbrand-badge">CUT</div><div class="fbrand-name">Confederación Unitaria de Trabajadores</div><p class="fbrand-desc">Fundada el 23 de noviembre de 1980. Más de <span data-years>45</span> años con el pueblo trabajador.</p></div>
+    <div class="fcol"><h4>La CUT</h4><ul class="flinks"><li><a href="/pages/quienes-somos.html">Historia</a></li><li><a href="/pages/quienes-somos.html#mision">Misión y Visión</a></li><li><a href="/pages/junta-directiva.html">Junta Directiva</a></li><li><a href="/pages/documentos.html">Estatutos</a></li></ul></div>
+    <div class="fcol"><h4>Noticias</h4><ul class="flinks"><li><a href="/pages/noticias.html">Todas las noticias</a></li><li><a href="/#noticias">Últimas noticias</a></li></ul></div>
+    <div class="fcol"><h4>Contacto</h4><ul class="flinks"><li><a href="/pages/afiliacion.html">Afiliación</a></li><li><a href="/pages/contacto.html">Contacto</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="fcopy">© <span id="fyear">2025</span> <span>Confederación Unitaria de Trabajadores (CUT)</span>. Todos los derechos reservados.</p>
+    <p class="fcopy">Fundada el 23 de noviembre de 1980 · Costa Rica</p>
+  </div>
+</footer>
+
+<nav class="social-float" aria-label="Redes sociales">
+  <a href="https://facebook.com/CUT.CostaRica" class="sf-btn fb" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+  <a href="https://x.com/CUT_CR"              class="sf-btn tw" aria-label="Twitter"   target="_blank" rel="noopener">𝕏</a>
+  <a href="https://youtube.com/@CUT_CR"        class="sf-btn yt" aria-label="YouTube"   target="_blank" rel="noopener">▶</a>
+  <a href="https://instagram.com/cut_cr"       class="sf-btn ig" aria-label="Instagram" target="_blank" rel="noopener">◉</a>
+</nav>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

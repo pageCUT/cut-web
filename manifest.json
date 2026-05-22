@@ -1,0 +1,83 @@
+{
+  "name": "CUT — Confederación Unitaria de Trabajadores",
+  "short_name": "CUT Costa Rica",
+  "description": "Confederación Unitaria de Trabajadores de Costa Rica. Siempre con el Pueblo. Fundada el 23 de noviembre de 1980.",
+  "start_url": "/cut-web/",
+  "scope": "/cut-web/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#C0001A",
+  "orientation": "portrait-primary",
+  "lang": "es-CR",
+  "dir": "ltr",
+  "categories": [
+    "government",
+    "social",
+    "news"
+  ],
+  "icons": [
+    {
+      "src": "assets/images/logo-cut.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/logo-cut.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Noticias",
+      "short_name": "Noticias",
+      "description": "Últimas noticias de la CUT",
+      "url": "/cut-web/pages/noticias.html",
+      "icons": [
+        {
+          "src": "assets/images/logo-cut.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Afiliarse",
+      "short_name": "Afiliarse",
+      "description": "Formulario de afiliación",
+      "url": "/cut-web/pages/afiliacion.html",
+      "icons": [
+        {
+          "src": "assets/images/logo-cut.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contacto",
+      "short_name": "Contacto",
+      "description": "Contactar a la CUT",
+      "url": "/cut-web/pages/contacto.html",
+      "icons": [
+        {
+          "src": "assets/images/logo-cut.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Publicaciones",
+      "short_name": "Publicaciones",
+      "description": "Comunicados y materiales de la CUT",
+      "url": "/cut-web/pages/publicaciones.html",
+      "icons": [
+        {
+          "src": "assets/images/logo-cut.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

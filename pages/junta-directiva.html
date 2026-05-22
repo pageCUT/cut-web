@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Junta Directiva | CUT — Confederación Unitaria de Trabajadores</title>
+<meta name="description" content="Primera Junta Directiva y Comisión Ejecutiva de la Confederación Unitaria de Trabajadores de Costa Rica, fundada en 1980.">
+<link rel="icon" type="image/png" href="../assets/images/logo-cut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  .page-hero{margin-top:var(--nav-h);background:linear-gradient(160deg,#0d0503 0%,#1a0a05 40%,#3d1008 70%,#0d0503 100%);padding:4rem 2rem 3rem;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.022) 0,rgba(255,255,255,0.022) 1px,transparent 1px,transparent 10px);}
+  .page-hero-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,var(--red) 0%,var(--yellow) 50%,var(--red) 100%);}
+  .page-hero-inner{max-width:var(--max-w);margin:0 auto;position:relative;z-index:1;}
+  .breadcrumb{font-size:12px;color:rgba(255,255,255,0.45);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.75rem;}
+  .breadcrumb a{color:rgba(255,255,255,0.45);transition:color .2s;} .breadcrumb a:hover{color:var(--yellow);} .breadcrumb span{color:rgba(255,255,255,0.65);}
+  .page-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;color:#fff;line-height:1;}
+  .page-subtitle{font-size:1rem;color:rgba(255,255,255,0.6);margin-top:0.75rem;}
+
+  /* President card - hero style */
+  .president-card{
+    background:linear-gradient(135deg,rgba(192,0,26,0.12),rgba(192,0,26,0.05));
+    border:2px solid rgba(192,0,26,0.3);border-radius:16px;
+    padding:2.5rem;margin-bottom:3rem;
+    display:flex;align-items:center;gap:2.5rem;
+    position:relative;overflow:hidden;
+  }
+  .president-card::before{
+    content:'1980';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);
+    font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8rem;
+    color:rgba(192,0,26,0.07);line-height:1;pointer-events:none;user-select:none;
+  }
+  .president-avatar{
+    width:80px;height:80px;border-radius:50%;
+    background:linear-gradient(135deg,var(--red),var(--red-dark));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Barlow Condensed',sans-serif;font-weight:900;
+    font-size:1.8rem;color:#fff;flex-shrink:0;
+    box-shadow:0 4px 20px rgba(192,0,26,0.3);
+    border:3px solid rgba(255,255,255,0.15);
+  }
+  .president-info{}
+  .president-tag{font-size:11px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:var(--yellow);margin-bottom:0.4rem;}
+  .president-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.2rem;color:#fff;text-transform:uppercase;line-height:1;margin-bottom:0.5rem;}
+  .president-sub{font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.5;}
+
+  /* Section divider */
+  .junta-section-title{
+    display:flex;align-items:center;gap:1rem;
+    margin:2.5rem 0 1.25rem;
+  }
+  .junta-section-title h3{
+    font-family:'Barlow Condensed',sans-serif;font-weight:900;
+    font-size:1.3rem;text-transform:uppercase;letter-spacing:0.06em;
+    color:#fff;white-space:nowrap;
+  }
+  .junta-section-title .line{flex:1;height:1px;background:rgba(255,255,255,0.08);}
+
+  /* Member card grid */
+  .junta-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0.85rem;}
+  .junta-member{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:10px;padding:1.1rem 1.25rem;
+    transition:all 0.22s;display:flex;gap:0.85rem;align-items:flex-start;
+  }
+  .junta-member:hover{background:rgba(255,255,255,0.08);border-color:rgba(192,0,26,0.35);transform:translateY(-2px);}
+  .junta-member.executive{border-color:rgba(192,0,26,0.25);background:rgba(192,0,26,0.06);}
+  .junta-member.suplente{border-color:rgba(255,255,255,0.04);background:rgba(255,255,255,0.025);}
+  .jm-avatar{
+    width:36px;height:36px;border-radius:50%;
+    background:var(--red);display:flex;align-items:center;justify-content:center;
+    font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;
+    color:#fff;flex-shrink:0;
+  }
+  .junta-member.suplente .jm-avatar{background:rgba(255,255,255,0.12);}
+  .jm-info{}
+  .jm-role{font-size:9.5px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--yellow);margin-bottom:0.2rem;line-height:1;}
+  .junta-member.suplente .jm-role{color:rgba(255,255,255,0.4);}
+  .jm-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.92rem;color:#fff;text-transform:uppercase;letter-spacing:0.02em;line-height:1.25;}
+
+  /* Context note */
+  .context-box{
+    background:rgba(245,195,0,0.06);border:1px solid rgba(245,195,0,0.2);
+    border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:3rem;
+  }
+  .context-box h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--yellow);margin-bottom:0.4rem;}
+  .context-box p{font-size:13px;color:rgba(255,255,255,0.6);margin:0;line-height:1.65;}
+
+  @media(max-width:640px){
+    .president-card{flex-direction:column;align-items:flex-start;gap:1.25rem;}
+    .president-card::before{display:none;}
+    .president-name{font-size:1.6rem;}
+    .junta-grid{grid-template-columns:1fr;}
+  }
+</style>
+
+  <!-- PWA -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#C0001A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CUT CR">
+  <link rel="apple-touch-icon" href="../assets/images/logo-cut.png">
+  <!-- Seguridad -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+</head>
+<body>
+
+<div id="readBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+<a class="skip-link" href="#page-content">Saltar al contenido</a>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="CUT — Inicio">
+      <img src="../assets/images/logo-cut.png" alt="Logo CUT" class="nav-logo">
+      <div class="nav-badge">CUT</div>
+      <div class="nav-name"><span class="nav-name-title">Confederación Unitaria</span><span class="nav-name-sub">Siempre con el Pueblo</span></div>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="/"                           class="nav-link"        role="menuitem">Inicio</a>
+      <a href="/pages/noticias.html"        class="nav-link"        role="menuitem">Noticias</a>
+      <a href="/pages/publicaciones.html"   class="nav-link"        role="menuitem">Publicaciones</a>
+      <a href="/pages/quienes-somos.html"   class="nav-link"        role="menuitem">Quiénes somos</a>
+      <a href="/pages/sindicatos.html"      class="nav-link"        role="menuitem">Afiliados</a>
+      <a href="/pages/documentos.html"      class="nav-link"        role="menuitem">Documentos</a>
+      <a href="/pages/junta-directiva.html" class="nav-link active" role="menuitem">Junta</a>
+      <a href="/pages/afiliacion.html"      class="nav-link cta"    role="menuitem">Únete</a>
+    </div>
+    <button class="hamburger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" role="menu">
+  <a href="/" class="nav-link" role="menuitem">Inicio</a>
+  <a href="/pages/noticias.html" class="nav-link" role="menuitem">Noticias</a>
+  <a href="/pages/quienes-somos.html" class="nav-link" role="menuitem">Quiénes somos</a>
+  <a href="/pages/sindicatos.html" class="nav-link" role="menuitem">Sindicatos afiliados</a>
+  <a href="/pages/documentos.html" class="nav-link" role="menuitem">Documentos</a>
+  <a href="/pages/junta-directiva.html" class="nav-link" role="menuitem">Junta Directiva</a>
+  <a href="/pages/afiliacion.html" class="nav-link cta" role="menuitem">Únete →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-stripe" aria-hidden="true"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="/">Inicio</a> / <span>Junta Directiva</span></div>
+    <h1 class="page-title">Primera Junta Directiva</h1>
+    <p class="page-subtitle">Comisión Ejecutiva fundacional · CUT · 23 de noviembre de 1980</p>
+  </div>
+</div>
+
+<main id="page-content">
+  <section class="sec sec-dark" id="junta" aria-labelledby="junta-h2">
+    <div class="container">
+
+      <!-- CONTEXTO HISTÓRICO -->
+      <div class="context-box fi" role="note">
+        <h4>Contexto histórico</h4>
+        <p>La primera Junta Directiva de la Confederación Unitaria de Trabajadores (CUT) fue constituida al momento de su fundación el <strong style="color:var(--yellow)">23 de noviembre de 1980</strong>. Esta estructura de dirección estableció las bases del movimiento sindical unitario que durante más de cuatro décadas ha luchado incansablemente por los derechos laborales del pueblo trabajador costarricense, con representación en el sector público, privado e informal.</p>
+      </div>
+
+      <h2 class="sec-h2 fi" id="junta-h2" style="color:#fff;margin-bottom:2rem;">Comisión Ejecutiva y Dirección</h2>
+
+      <!-- PRESIDENTE -->
+      <div class="president-card fi" aria-label="Presidente Fundador">
+        <div class="president-avatar" aria-hidden="true">MD</div>
+        <div class="president-info">
+          <div class="president-tag">Presidente Fundador — CUT 1980</div>
+          <div class="president-name">Mario Devandas Brenes</div>
+          <p class="president-sub">Primer presidente de la Confederación Unitaria de Trabajadores de Costa Rica. Bajo su liderazgo se constituyó la primera Comisión Ejecutiva y se sentaron las bases del sindicalismo unitario costarricense.</p>
+        </div>
+      </div>
+
+      <!-- COMISIÓN EJECUTIVA -->
+      <div class="junta-section-title fi">
+        <div class="line" aria-hidden="true"></div>
+        <h3>Comisión Ejecutiva</h3>
+        <div class="line" aria-hidden="true"></div>
+      </div>
+
+      <div class="junta-grid" role="list">
+
+        <div class="junta-member executive fi" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">VG</div>
+          <div class="jm-info">
+            <div class="jm-role">Vicepresidenta</div>
+            <div class="jm-name">María de los Ángeles Giralt Bermúdez</div>
+          </div>
+        </div>
+
+        <div class="junta-member executive fi d1" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">RU</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretario General</div>
+            <div class="jm-name">Rodrigo Ureña Quirós</div>
+          </div>
+        </div>
+
+        <div class="junta-member executive fi d2" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">LM</div>
+          <div class="jm-info">
+            <div class="jm-role">Primer Subsecretario General</div>
+            <div class="jm-name">Luis Carlos Montero Benavidez</div>
+          </div>
+        </div>
+
+        <div class="junta-member executive fi" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">TS</div>
+          <div class="jm-info">
+            <div class="jm-role">Segundo Subsecretario General</div>
+            <div class="jm-name">Timothy Scott Duncley</div>
+          </div>
+        </div>
+
+        <div class="junta-member executive fi d1" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">ES</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretario de Organización</div>
+            <div class="jm-name">Eliécer Sánchez Castillo</div>
+          </div>
+        </div>
+
+        <div class="junta-member executive fi d2" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">OS</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretario de Afiliación</div>
+            <div class="jm-name">Orlando Solano Arroyo</div>
+          </div>
+        </div>
+
+        <div class="junta-member executive fi" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">MH</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretario de Finanzas</div>
+            <div class="jm-name">Marcos Hernández Ramírez</div>
+          </div>
+        </div>
+
+        <div class="junta-member executive fi d1" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">ÁA</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretario de Prensa y Propaganda</div>
+            <div class="jm-name">Álvaro Álvarez Corrales</div>
+          </div>
+        </div>
+
+        <div class="junta-member executive fi d2" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">AF</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretario de Conflictos y Asuntos Legales</div>
+            <div class="jm-name">Arturo Fournier Facio</div>
+          </div>
+        </div>
+
+        <div class="junta-member executive fi" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">BZ</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretario de Asuntos Campesinos</div>
+            <div class="jm-name">Bernardo Zúñiga Aguilar</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- OTRAS SECRETARÍAS -->
+      <div class="junta-section-title fi" style="margin-top:3rem;">
+        <div class="line" aria-hidden="true"></div>
+        <h3>Otras Secretarías</h3>
+        <div class="line" aria-hidden="true"></div>
+      </div>
+
+      <div class="junta-grid" role="list">
+
+        <div class="junta-member fi" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">HD</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretario de Cultura</div>
+            <div class="jm-name">Hugo Díaz Jiménez</div>
+          </div>
+        </div>
+
+        <div class="junta-member fi d1" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">ÁM</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretario de Deportes</div>
+            <div class="jm-name">Álvaro Murillo Chacón</div>
+          </div>
+        </div>
+
+        <div class="junta-member fi d2" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">JE</div>
+          <div class="jm-info">
+            <div class="jm-role">Sec. Relaciones Internacionales y Solidaridad</div>
+            <div class="jm-name">Juan Rafael Espinoza Esquivel</div>
+          </div>
+        </div>
+
+        <div class="junta-member fi" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">RC</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretario de la Juventud</div>
+            <div class="jm-name">Ronald Campos Villegas</div>
+          </div>
+        </div>
+
+        <div class="junta-member fi d1" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">VH</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretaria de Educación y Formación Profesional</div>
+            <div class="jm-name">Vilma Herrera Picado</div>
+          </div>
+        </div>
+
+        <div class="junta-member fi d2" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">YL</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretaria de la Mujer Trabajadora</div>
+            <div class="jm-name">Yamileth López Ballestero</div>
+          </div>
+        </div>
+
+        <div class="junta-member fi" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">HD</div>
+          <div class="jm-info">
+            <div class="jm-role">Secretario de Relaciones Nacionales</div>
+            <div class="jm-name">Herminio Dover Carrillo</div>
+          </div>
+        </div>
+
+        <div class="junta-member fi d1" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">FH</div>
+          <div class="jm-info">
+            <div class="jm-role">Fiscal General</div>
+            <div class="jm-name">Franklin Heyden Quintero</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SUPLENTES -->
+      <div class="junta-section-title fi" style="margin-top:3rem;">
+        <div class="line" aria-hidden="true"></div>
+        <h3>Suplentes</h3>
+        <div class="line" aria-hidden="true"></div>
+      </div>
+
+      <div class="junta-grid" role="list">
+
+        <div class="junta-member suplente fi" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">1°</div>
+          <div class="jm-info">
+            <div class="jm-role">Suplente Primero</div>
+            <div class="jm-name">Jesús Garbanzo Arguedas</div>
+          </div>
+        </div>
+
+        <div class="junta-member suplente fi d1" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">2°</div>
+          <div class="jm-info">
+            <div class="jm-role">Suplente Segundo</div>
+            <div class="jm-name">Jesús Campos Méndez</div>
+          </div>
+        </div>
+
+        <div class="junta-member suplente fi d2" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">3°</div>
+          <div class="jm-info">
+            <div class="jm-role">Suplente Tercero</div>
+            <div class="jm-name">José Luis Loria Chaves</div>
+          </div>
+        </div>
+
+        <div class="junta-member suplente fi" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">4°</div>
+          <div class="jm-info">
+            <div class="jm-role">Suplente Cuarto</div>
+            <div class="jm-name">Freddy Menéndez Chaves</div>
+          </div>
+        </div>
+
+        <div class="junta-member suplente fi d1" role="listitem">
+          <div class="jm-avatar" aria-hidden="true">5°</div>
+          <div class="jm-info">
+            <div class="jm-role">Suplente Cinco</div>
+            <div class="jm-name">Víctor Manuel Chinchilla Meneses</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- NOTA DOCUMENTOS -->
+      <div style="margin-top:3rem;padding:1.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;" class="fi">
+        <p style="font-size:13px;color:rgba(255,255,255,0.5);margin:0;text-align:center;">
+          Fuente: <em>Primera Junta Directiva de la CUT</em> — Documento oficial, archivo histórico de la Confederación Unitaria de Trabajadores · Costa Rica · 1980.
+          <br><a href="/pages/documentos.html" style="color:var(--yellow);margin-top:0.5rem;display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;">Ver todos los documentos →</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div><img src="../assets/images/logo-cut.png" alt="Logo CUT" class="fbrand-logo"><div class="fbrand-badge">CUT</div><div class="fbrand-name">Confederación Unitaria de Trabajadores</div><p class="fbrand-desc">Fundada el 23 de noviembre de 1980. Más de <span data-years>45</span> años con el pueblo trabajador.</p></div>
+    <div class="fcol"><h4>La CUT</h4><ul class="flinks"><li><a href="/pages/quienes-somos.html">Historia</a></li><li><a href="/pages/quienes-somos.html#mision">Misión y Visión</a></li><li><a href="/pages/junta-directiva.html">Junta Directiva</a></li><li><a href="/pages/documentos.html">Estatutos</a></li></ul></div>
+    <div class="fcol"><h4>Noticias</h4><ul class="flinks"><li><a href="/pages/noticias.html">Todas las noticias</a></li><li><a href="/#noticias">Últimas noticias</a></li></ul></div>
+    <div class="fcol"><h4>Contacto</h4><ul class="flinks"><li><a href="/pages/afiliacion.html">Afiliación</a></li><li><a href="/pages/contacto.html">Contacto</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="fcopy">© <span id="fyear">2025</span> <span>Confederación Unitaria de Trabajadores (CUT)</span>. Todos los derechos reservados.</p>
+    <p class="fcopy">Fundada el 23 de noviembre de 1980 · Costa Rica</p>
+  </div>
+</footer>
+
+<nav class="social-float" aria-label="Redes sociales">
+  <a href="https://facebook.com/CUT.CostaRica" class="sf-btn fb" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+  <a href="https://x.com/CUT_CR"              class="sf-btn tw" aria-label="Twitter"   target="_blank" rel="noopener">𝕏</a>
+  <a href="https://youtube.com/@CUT_CR"        class="sf-btn yt" aria-label="YouTube"   target="_blank" rel="noopener">▶</a>
+  <a href="https://instagram.com/cut_cr"       class="sf-btn ig" aria-label="Instagram" target="_blank" rel="noopener">◉</a>
+</nav>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

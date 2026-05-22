@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Afiliación | CUT — Confederación Unitaria de Trabajadores</title>
+<meta name="description" content="Afíliese a la Confederación Unitaria de Trabajadores. Proteja sus derechos laborales con el respaldo de la CUT.">
+<link rel="icon" type="image/png" href="../assets/images/logo-cut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  .page-hero{margin-top:var(--nav-h);background:linear-gradient(135deg,#8B0012 0%,#111 100%);padding:4rem 2rem 3rem;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.025) 0,rgba(255,255,255,0.025) 1px,transparent 1px,transparent 10px);}
+  .page-hero-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,var(--red) 0%,var(--yellow) 50%,var(--red) 100%);}
+  .page-hero-inner{max-width:var(--max-w);margin:0 auto;position:relative;z-index:1;}
+  .breadcrumb{font-size:12px;color:rgba(255,255,255,0.45);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.75rem;}
+  .breadcrumb a{color:rgba(255,255,255,0.45);} .breadcrumb a:hover{color:var(--yellow);} .breadcrumb span{color:rgba(255,255,255,0.65);}
+  .page-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;color:#fff;line-height:1;}
+  .page-subtitle{font-size:1rem;color:rgba(255,255,255,0.6);margin-top:0.75rem;}
+  /* Benefits */
+  .benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-bottom:3rem;}
+  .benefit-card{background:#fff;border-radius:10px;padding:1.5rem;border-left:4px solid var(--red);box-shadow:var(--sh-sm);}
+  .benefit-ico{font-size:2rem;margin-bottom:0.5rem;}
+  .benefit-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;text-transform:uppercase;margin-bottom:0.4rem;}
+  .benefit-desc{font-size:13px;color:var(--gray-text);line-height:1.55;}
+  /* Form card */
+  .aff-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start;}
+  .aff-info h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;text-transform:uppercase;margin-bottom:1rem;}
+  .aff-info p{color:#555;margin-bottom:1rem;font-size:0.97rem;}
+  .aff-info ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;}
+  .aff-info ul li{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.95rem;color:#444;}
+  .aff-info ul li::before{content:'✓';color:var(--red);font-weight:700;flex-shrink:0;}
+  .aff-form{background:#fff;border-radius:10px;border:1px solid rgba(0,0,0,0.07);padding:2rem;box-shadow:var(--sh-sm);}
+  .aff-form h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;margin-bottom:1.25rem;color:var(--black);}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  @media(max-width:900px){.aff-wrap{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+</style>
+
+  <!-- PWA -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#C0001A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CUT CR">
+  <link rel="apple-touch-icon" href="../assets/images/logo-cut.png">
+  <!-- Seguridad -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+</head>
+<body>
+
+<div id="readBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+<a class="skip-link" href="#page-content">Saltar al contenido</a>
+
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="CUT — Inicio">
+      <img src="../assets/images/logo-cut.png" alt="Logo CUT" class="nav-logo">
+      <div class="nav-badge">CUT</div>
+      <div class="nav-name"><span class="nav-name-title">Confederación Unitaria</span><span class="nav-name-sub">Siempre con el Pueblo</span></div>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="/"                             class="nav-link"        role="menuitem">Inicio</a>
+      <a href="/pages/noticias.html"          class="nav-link"        role="menuitem">Noticias</a>
+      <a href="/pages/quienes-somos.html"     class="nav-link"        role="menuitem">Quiénes somos</a>
+      <a href="/pages/sindicatos.html"        class="nav-link"        role="menuitem">Afiliados</a>
+      <a href="/pages/documentos.html"        class="nav-link"        role="menuitem">Documentos</a>
+      <a href="/pages/junta-directiva.html"   class="nav-link"        role="menuitem">Junta</a>
+      <a href="/pages/afiliacion.html"        class="nav-link cta active" role="menuitem">Únete</a>
+    </div>
+    <button class="hamburger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" role="menu">
+  <a href="/" class="nav-link" role="menuitem">Inicio</a>
+  <a href="/pages/noticias.html" class="nav-link" role="menuitem">Noticias</a>
+  <a href="/pages/publicaciones.html" class="nav-link" role="menuitem">Publicaciones</a>
+  <a href="/pages/quienes-somos.html" class="nav-link" role="menuitem">Quiénes somos</a>
+  <a href="/pages/sindicatos.html" class="nav-link" role="menuitem">Sindicatos afiliados</a>
+  <a href="/pages/documentos.html" class="nav-link" role="menuitem">Documentos</a>
+  <a href="/pages/junta-directiva.html" class="nav-link" role="menuitem">Junta Directiva</a>
+  <a href="/pages/afiliacion.html" class="nav-link cta" role="menuitem">Únete →</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-stripe" aria-hidden="true"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="/">Inicio</a> / <span>Afiliación</span></div>
+    <h1 class="page-title">Únase a la CUT</h1>
+    <p class="page-subtitle">Proteja sus derechos laborales con el respaldo de la Confederación Unitaria de Trabajadores</p>
+  </div>
+</div>
+
+<main id="page-content">
+
+  <!-- BENEFICIOS -->
+  <section class="sec" aria-labelledby="ben-h2">
+    <div class="container">
+      <div class="sec-header center fi">
+        <div class="sec-tag">¿Por qué afiliarse?</div>
+        <h2 class="sec-h2" id="ben-h2">Beneficios de estar afiliado</h2>
+      </div>
+      <div class="benefits">
+        <div class="benefit-card fi"><div class="benefit-ico" aria-hidden="true">⚖️</div><div class="benefit-title">Defensa legal</div><p class="benefit-desc">Representación legal ante conflictos laborales, despidos injustificados y violaciones a sus derechos.</p></div>
+        <div class="benefit-card fi d1"><div class="benefit-ico" aria-hidden="true">🤝</div><div class="benefit-title">Negociación colectiva</div><p class="benefit-desc">Participación en convenios colectivos que mejoran salarios, jornadas y condiciones de trabajo.</p></div>
+        <div class="benefit-card fi d2"><div class="benefit-ico" aria-hidden="true">📚</div><div class="benefit-title">Formación sindical</div><p class="benefit-desc">Acceso a talleres, cursos y materiales educativos para fortalecer sus capacidades como trabajador.</p></div>
+        <div class="benefit-card fi d3"><div class="benefit-ico" aria-hidden="true">👥</div><div class="benefit-title">Red de solidaridad</div><p class="benefit-desc">Apoyo de compañeros trabajadores organizados y red de solidaridad en momentos difíciles.</p></div>
+      </div>
+
+      <!-- FORMULARIO DE AFILIACIÓN -->
+      <div class="aff-wrap">
+        <div class="aff-info fi">
+          <div class="sec-tag">Proceso de afiliación</div>
+          <h2>Únase hoy</h2>
+          <p>Completar el formulario de afiliación es el primer paso para proteger sus derechos laborales. Un representante de la CUT se comunicará con usted en un plazo de 48 horas hábiles.</p>
+          <ul>
+            <li>Proceso completamente gratuito de registro inicial</li>
+            <li>Válido para trabajadores del sector público, privado e informal</li>
+            <li>Incluye a inmigrantes, personas con discapacidad y comunidad LGTBI</li>
+            <li>Sin discriminación por ideas políticas, raza, fe u origen</li>
+            <li>Confidencialidad garantizada de sus datos personales</li>
+          </ul>
+          <div style="background:rgba(192,0,26,0.05);border:1px solid rgba(192,0,26,0.15);border-radius:8px;padding:1.25rem;">
+            <strong style="display:block;font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);margin-bottom:0.5rem;">¿Tiene preguntas?</strong>
+            <p style="margin:0;font-size:0.9rem;color:#555">Contáctenos directamente en <strong>info@cut.or.cr</strong> o llame al <strong>+506 2222-0000</strong></p>
+          </div>
+        </div>
+        <div class="aff-form fi" style="transition-delay:0.15s">
+          <h3>Formulario de afiliación</h3>
+          <form id="affForm" novalidate>
+            <div class="form-row">
+              <div class="fgroup"><label class="flabel" for="aff-nombre">Nombre *</label><input type="text" id="aff-nombre" class="finput" placeholder="Nombre" required aria-required="true"></div>
+              <div class="fgroup"><label class="flabel" for="aff-apellido">Apellido *</label><input type="text" id="aff-apellido" class="finput" placeholder="Apellido" required aria-required="true"></div>
+            </div>
+            <div class="fgroup"><label class="flabel" for="aff-cedula">Cédula / Número de identificación *</label><input type="text" id="aff-cedula" class="finput" placeholder="0-0000-0000" required aria-required="true"></div>
+            <div class="fgroup"><label class="flabel" for="aff-email">Correo electrónico *</label><input type="email" id="aff-email" class="finput" placeholder="su@correo.com" required aria-required="true"></div>
+            <div class="fgroup"><label class="flabel" for="aff-tel">Teléfono *</label><input type="tel" id="aff-tel" class="finput" placeholder="+506 0000-0000" required aria-required="true"></div>
+            <div class="fgroup"><label class="flabel" for="aff-sector">Sector laboral *</label>
+              <select id="aff-sector" class="finput" required aria-required="true">
+                <option value="">Seleccione su sector...</option>
+                <option>Sector público</option>
+                <option>Sector privado</option>
+                <option>Sector informal</option>
+                <option>Construcción</option>
+                <option>Transporte</option>
+                <option>Industria alimentaria</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="fgroup"><label class="flabel" for="aff-empresa">Empresa o institución donde labora</label><input type="text" id="aff-empresa" class="finput" placeholder="Nombre de la empresa o institución"></div>
+            <div class="fgroup"><label class="flabel" for="aff-cargo">Cargo o puesto</label><input type="text" id="aff-cargo" class="finput" placeholder="Su cargo actual"></div>
+            <div class="fgroup"><label class="flabel" for="aff-mensaje">¿Por qué desea afiliarse? (opcional)</label><textarea id="aff-mensaje" class="finput" placeholder="Cuéntenos su situación o motivo de afiliación..."></textarea></div>
+            <button type="submit" class="fsubmit">Enviar solicitud de afiliación</button>
+            <div id="aff-fb" role="alert" aria-live="polite" style="display:none;margin-top:0.75rem;font-size:13px;text-align:center;padding:0.75rem;border-radius:6px;"></div>
+            <p style="margin-top:0.75rem;font-size:11px;color:#999;text-align:center;">Al enviar este formulario acepta que la CUT se comunicará con usted para continuar el proceso de afiliación. Sus datos son confidenciales.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div><img src="../assets/images/logo-cut.png" alt="Logo CUT" class="fbrand-logo"><div class="fbrand-badge">CUT</div><div class="fbrand-name">Confederación Unitaria de Trabajadores</div><p class="fbrand-desc">Fundada el 23 de noviembre de 1980. Siempre con el Pueblo.</p></div>
+    <div class="fcol"><h4>La CUT</h4><ul class="flinks"><li><a href="/pages/quienes-somos.html">Historia</a></li><li><a href="/pages/quienes-somos.html#mision">Misión y Visión</a></li><li><a href="/pages/junta-directiva.html">Junta Directiva</a></li></ul></div>
+    <div class="fcol"><h4>Noticias</h4><ul class="flinks"><li><a href="/pages/noticias.html">Todas las noticias</a></li><li><a href="/#noticias">Últimas noticias</a></li></ul></div>
+    <div class="fcol"><h4>Contacto</h4><ul class="flinks"><li><a href="/pages/afiliacion.html">Afiliación</a></li><li><a href="/pages/contacto.html">Contacto</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="fcopy">© <span id="fyear">2025</span> <span>Confederación Unitaria de Trabajadores (CUT)</span>. Todos los derechos reservados.</p>
+    <p class="fcopy">Fundada el 23 de noviembre de 1980 · Costa Rica</p>
+  </div>
+</footer>
+
+<nav class="social-float" aria-label="Redes sociales">
+  <a href="https://facebook.com/CUT.CostaRica" class="sf-btn fb" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+  <a href="https://x.com/CUT_CR"              class="sf-btn tw" aria-label="Twitter"   target="_blank" rel="noopener">𝕏</a>
+  <a href="https://youtube.com/@CUT_CR"        class="sf-btn yt" aria-label="YouTube"   target="_blank" rel="noopener">▶</a>
+  <a href="https://instagram.com/cut_cr"       class="sf-btn ig" aria-label="Instagram" target="_blank" rel="noopener">◉</a>
+</nav>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

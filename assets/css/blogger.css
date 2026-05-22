@@ -1,0 +1,124 @@
+/* ================================================================
+   CUT — blogger.css
+   Estilos adicionales específicos para Blogger
+   ================================================================ */
+
+/* ---- Post individual en Blogger ---- */
+.blogger-page-wrap {
+  max-width: 900px;
+  margin: calc(64px + 3rem) auto 4rem;
+  padding: 0 2rem;
+}
+
+.blogger-post {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2.5rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  margin-bottom: 2rem;
+}
+
+.blogger-post-body {
+  font-size: 1.05rem;
+  line-height: 1.78;
+  color: #2d2d2d;
+}
+
+.blogger-post-body h2,
+.blogger-post-body h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #111;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.blogger-post-body h2 { font-size: 1.8rem; }
+.blogger-post-body h3 { font-size: 1.4rem; }
+
+.blogger-post-body p  { margin-bottom: 1rem; }
+
+.blogger-post-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.blogger-post-body a {
+  color: #C0001A;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.blogger-post-body a:hover { color: #8B0012; }
+
+.blogger-post-body blockquote {
+  border-left: 4px solid #C0001A;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background: rgba(192,0,26,0.04);
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: #555;
+}
+
+.blogger-post-body ul,
+.blogger-post-body ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.blogger-post-body li { margin-bottom: 0.4rem; }
+
+/* ---- Labels como categorías ---- */
+.post-label-link {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: #fff; background: #C0001A;
+  padding: 0.2rem 0.65rem; border-radius: 3px;
+  margin-right: 0.4rem; text-decoration: none;
+}
+.post-label-link:hover { background: #8B0012; }
+
+/* ---- Paginación ---- */
+#blog-pager {
+  text-align: center;
+  padding: 2rem 0 3rem;
+}
+.blog-pager-older-link,
+.blog-pager-newer-link {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background: #C0001A; color: #fff;
+  border-radius: 4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 13px;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  text-decoration: none; margin: 0 0.3rem;
+  transition: background 0.2s;
+}
+.blog-pager-older-link:hover,
+.blog-pager-newer-link:hover { background: #8B0012; }
+
+/* ---- Widget de búsqueda ---- */
+.widget.BlogSearch .search-input {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9rem;
+}
+.widget.BlogSearch .search-input:focus {
+  outline: none;
+  border-color: #C0001A;
+  box-shadow: 0 0 0 3px rgba(192,0,26,0.08);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .blogger-page-wrap { padding: 0 1.25rem; margin-top: calc(56px + 2rem); }
+  .blogger-post { padding: 1.5rem; }
+  .blogger-post-body { font-size: 0.97rem; }
+}

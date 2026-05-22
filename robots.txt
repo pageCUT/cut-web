@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://pageCUT.github.io/cut-web/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+Crawl-delay: 5

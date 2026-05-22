@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sin conexión | CUT</title>
+<link rel="icon" type="image/png" href="assets/images/logo-cut.png">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--red:#C0001A;--yellow:#F5C300;--black:#111}
+  body{
+    font-family:'Barlow',sans-serif;background:var(--black);color:#fff;
+    min-height:100vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;padding:2rem;
+    background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.012) 3px,rgba(255,255,255,0.012) 4px);
+  }
+  .stripe{position:fixed;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,var(--red) 0%,var(--yellow) 50%,var(--red) 100%)}
+  img{width:100px;height:100px;border-radius:50%;border:3px solid rgba(192,0,26,0.5);margin-bottom:2rem;box-shadow:0 0 40px rgba(192,0,26,0.2)}
+  h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.5rem;text-transform:uppercase;margin-bottom:0.5rem;color:#fff}
+  p{color:rgba(255,255,255,0.55);margin-bottom:2rem;max-width:400px;line-height:1.65;font-size:0.95rem}
+  .icon{font-size:4rem;margin-bottom:1rem;opacity:0.6}
+  .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;background:var(--red);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.1em;border-radius:4px;text-decoration:none;transition:background 0.2s;cursor:pointer;border:none}
+  .btn:hover{background:#8B0012}
+  .offline-notice{margin-top:1.5rem;font-size:12px;color:rgba(255,255,255,0.3);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.1em}
+  @media(prefers-color-scheme:light){body{background:#f0f0f0;color:#111}h1{color:#111}p{color:#555}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="stripe" aria-hidden="true"></div>
+  <div class="icon" aria-hidden="true">📵</div>
+  <img src="assets/images/logo-cut.png" alt="Logo CUT" onerror="this.style.display='none'">
+  <h1>Sin conexión</h1>
+  <p>No hay conexión a internet en este momento. Puede seguir viendo las páginas que visitó anteriormente, o intente reconectarse.</p>
+  <button class="btn" onclick="window.location.reload()">↺ Intentar de nuevo</button>
+  <p class="offline-notice">CUT — Sitio disponible sin conexión gracias a PWA</p>
+</body>
+</html>

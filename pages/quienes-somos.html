@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiénes somos | CUT — Confederación Unitaria de Trabajadores</title>
+<meta name="description" content="Historia, misión, visión y principios de la Confederación Unitaria de Trabajadores de Costa Rica. Fundada el 23 de noviembre de 1980.">
+<link rel="icon" type="image/png" href="../assets/images/logo-cut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  .page-hero{
+    margin-top:var(--nav-h);
+    background:linear-gradient(135deg,var(--red-dark) 0%,var(--black) 100%);
+    padding:4rem 2rem 3rem;
+    position:relative;overflow:hidden;
+  }
+  .page-hero::before{
+    content:'';position:absolute;inset:0;
+    background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.025) 0,rgba(255,255,255,0.025) 1px,transparent 1px,transparent 10px);
+  }
+  .page-hero-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,var(--red) 0%,var(--yellow) 50%,var(--red) 100%);}
+  .page-hero-inner{max-width:var(--max-w);margin:0 auto;position:relative;z-index:1;}
+  .breadcrumb{font-size:12px;color:rgba(255,255,255,0.45);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.75rem;}
+  .breadcrumb a{color:rgba(255,255,255,0.45);transition:color .2s;}
+  .breadcrumb a:hover{color:var(--yellow);}
+  .breadcrumb span{color:rgba(255,255,255,0.65);}
+  .page-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;color:#fff;line-height:1;}
+  .page-subtitle{font-size:1rem;color:rgba(255,255,255,0.6);margin-top:0.75rem;}
+</style>
+
+  <!-- PWA -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#C0001A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CUT CR">
+  <link rel="apple-touch-icon" href="../assets/images/logo-cut.png">
+  <!-- Seguridad -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+</head>
+<body>
+
+<div id="readBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"></div>
+<a class="skip-link" href="#page-content">Saltar al contenido</a>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="CUT — Inicio">
+      <img src="../assets/images/logo-cut.png" alt="Logo CUT" class="nav-logo">
+      <div class="nav-badge">CUT</div>
+      <div class="nav-name">
+        <span class="nav-name-title">Confederación Unitaria</span>
+        <span class="nav-name-sub">Siempre con el Pueblo</span>
+      </div>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="/"               class="nav-link"        role="menuitem">Inicio</a>
+      <a href="/#noticias"      class="nav-link"        role="menuitem">Noticias</a>
+      <a href="/pages/quienes-somos.html" class="nav-link active" role="menuitem">Quiénes somos</a>
+      <a href="/pages/sindicatos.html"    class="nav-link"        role="menuitem">Afiliados</a>
+      <a href="/pages/documentos.html"    class="nav-link"        role="menuitem">Documentos</a>
+      <a href="/pages/junta-directiva.html" class="nav-link"      role="menuitem">Junta</a>
+      <a href="/pages/afiliacion.html"    class="nav-link cta"    role="menuitem">Únete</a>
+    </div>
+    <button class="hamburger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" role="menu">
+  <a href="/"               class="nav-link" role="menuitem">Inicio</a>
+  <a href="/#noticias"      class="nav-link" role="menuitem">Noticias</a>
+  <a href="/pages/quienes-somos.html"   class="nav-link" role="menuitem">Quiénes somos</a>
+  <a href="/pages/sindicatos.html"      class="nav-link" role="menuitem">Sindicatos afiliados</a>
+  <a href="/pages/documentos.html"      class="nav-link" role="menuitem">Documentos</a>
+  <a href="/pages/junta-directiva.html" class="nav-link" role="menuitem">Junta Directiva</a>
+  <a href="/pages/afiliacion.html"      class="nav-link cta" role="menuitem">Únete →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero" aria-hidden="false">
+  <div class="page-hero-stripe" aria-hidden="true"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="/">Inicio</a> / <span>Quiénes somos</span></div>
+    <h1 class="page-title">Quiénes somos</h1>
+    <p class="page-subtitle">Historia, misión, visión y principios de la CUT</p>
+  </div>
+</div>
+
+<main id="page-content">
+
+  <!-- HISTORIA -->
+  <section class="sec" id="historia" aria-labelledby="historia-h2">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-visual fi" role="img" aria-label="Logo institucional de la CUT">
+          <img src="../assets/images/logo-cut.png" alt="Logo oficial CUT" class="sobre-logo-img">
+        </div>
+        <div class="fi" style="transition-delay:0.15s">
+          <div class="sec-tag">Nuestra historia</div>
+          <h2 class="sec-h2" id="historia-h2">Historia de la CUT</h2>
+          <div class="sobre-text">
+            <p>La <strong>Confederación Unitaria de Trabajadores (CUT)</strong> fue fundada el <strong>23 de noviembre de 1980</strong> en Costa Rica, surgiendo como respuesta a la necesidad de unificar el movimiento sindical costarricense bajo principios de solidaridad, inclusión y defensa firme de los derechos laborales.</p>
+            <p>Desde sus inicios, la CUT integró a trabajadores sin distinción de ideas políticas, raza, fe religiosa u origen, convirtiéndose en una voz representativa de los sectores público, privado e informal del país.</p>
+            <p>A lo largo de más de cuatro décadas de historia, la organización ha participado activamente en negociaciones colectivas, defensa de derechos laborales ante organismos nacionales e internacionales, y formación de líderes sindicales capacitados para enfrentar los retos del mundo laboral moderno.</p>
+          </div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-year">1980</div><div class="tl-bar"></div><div class="tl-text"><h4>Fundación</h4><p>La CUT nace el 23 de noviembre como confederación sindical unitaria en Costa Rica.</p></div></div>
+            <div class="tl-item"><div class="tl-year">1981</div><div class="tl-bar"></div><div class="tl-text"><h4>Primera Junta Directiva</h4><p>Constitución de la primera Comisión Ejecutiva, presidida por Mario Devandas Brenes.</p></div></div>
+            <div class="tl-item"><div class="tl-year">1990</div><div class="tl-bar"></div><div class="tl-text"><h4>Crecimiento organizacional</h4><p>La CUT amplía su representación incorporando sindicatos de nuevos sectores productivos.</p></div></div>
+            <div class="tl-item"><div class="tl-year">2005</div><div class="tl-bar"></div><div class="tl-text"><h4>Formación sindical</h4><p>Publicación de "Aprendiendo a Negociar", herramienta educativa para líderes sindicales.</p></div></div>
+            <div class="tl-item"><div class="tl-year" data-years>45</div><div class="tl-bar"></div><div class="tl-text"><h4>Años de lucha y dignidad</h4><p>La CUT celebra más de cuatro décadas de compromiso ininterrumpido con el pueblo trabajador.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN VISIÓN PRINCIPIOS -->
+  <section class="sec sec-alt" id="mision" aria-labelledby="mision-h2">
+    <div class="container">
+      <div class="sec-header center fi">
+        <div class="sec-tag">Identidad institucional</div>
+        <h2 class="sec-h2" id="mision-h2">Misión, Visión y Principios</h2>
+        <p class="sec-lead">Los valores que guían nuestro accionar y definen nuestra identidad como organización sindical costarricense.</p>
+      </div>
+      <div class="mvv-grid">
+        <div class="mvv-card mision fi">
+          <div class="mvv-icon" aria-hidden="true">⚡</div>
+          <h3>Misión</h3>
+          <p>Desarrollar el sindicalismo costarricense incorporando a los inmigrantes, población con discapacidad y LGTBI para que todos tengamos pleno derecho al trabajo, promoviendo una transformación en las relaciones laborales y apoyando a los trabajadores del sector público, privado e informal. Divulgando los beneficios de estar protegido por un sindicato e incidiendo en la unidad de los trabajadores y el diálogo constructivo con el sector patronal.</p>
+        </div>
+        <div class="mvv-card vision fi" style="transition-delay:0.1s">
+          <div class="mvv-icon" aria-hidden="true">🎯</div>
+          <h3>Visión</h3>
+          <p>En nuestro futuro, nos vemos como un movimiento sindical unitario reconocido por su compromiso con los derechos humanos y laborales, a favor de una transformación en la vida de los trabajadores de los sectores público, privado e informal. Sirviendo como plataforma para dar voz a las personas trabajadoras y sus familias en el disfrute de sus derechos económicos, sociales y políticos.</p>
+        </div>
+        <div class="mvv-card principios fi" style="transition-delay:0.2s">
+          <div class="mvv-icon" aria-hidden="true">🤝</div>
+          <h3>Principios</h3>
+          <ul class="pr-list" aria-label="Los ocho principios de la CUT">
+            <li>1° Compromiso con los principios históricos del sindicalismo</li>
+            <li>2° Inclusivo: no excluimos a ningún trabajador o trabajadora</li>
+            <li>3° La solidaridad entre las personas trabajadoras es básica</li>
+            <li>4° Lealtad hacia la organización, sin buscar el beneficio propio</li>
+            <li>5° Autocrítica respetuosa como forma de mejorar nuestras acciones</li>
+            <li>6° La persona trabajadora es lo primero en todas las acciones</li>
+            <li>7° Apegarse al ordenamiento jurídico y la ética que éste abarca</li>
+            <li>8° Transparencia y buen sentido de responsabilidad laboral</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div>
+      <img src="../assets/images/logo-cut.png" alt="Logo CUT" class="fbrand-logo">
+      <div class="fbrand-badge">CUT</div>
+      <div class="fbrand-name">Confederación Unitaria de Trabajadores</div>
+      <p class="fbrand-desc">Fundada el 23 de noviembre de 1980. Más de <span data-years>45</span> años con el pueblo trabajador costarricense.</p>
+    </div>
+    <div class="fcol"><h4>La CUT</h4><ul class="flinks"><li><a href="/pages/quienes-somos.html">Historia</a></li><li><a href="/pages/quienes-somos.html#mision">Misión y Visión</a></li><li><a href="/pages/junta-directiva.html">Junta Directiva</a></li><li><a href="/pages/documentos.html">Estatutos</a></li></ul></div>
+    <div class="fcol"><h4>Noticias</h4><ul class="flinks"><li><a href="/#noticias">Últimas noticias</a></li><li><a href="/#noticias">Comunicados</a></li><li><a href="/pages/noticias.html">Ver todas</a></li></ul></div>
+    <div class="fcol"><h4>Contacto</h4><ul class="flinks"><li><a href="/pages/sindicatos.html">Sindicatos afiliados</a></li><li><a href="/pages/documentos.html">Documentos</a></li><li><a href="/pages/afiliacion.html">Afiliación</a></li><li><a href="/pages/contacto.html">Contacto</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="fcopy">© <span id="fyear">2025</span> <span>Confederación Unitaria de Trabajadores (CUT)</span>. Todos los derechos reservados.</p>
+    <p class="fcopy">Fundada el 23 de noviembre de 1980 · Siempre con el Pueblo</p>
+  </div>
+</footer>
+
+<nav class="social-float" aria-label="Redes sociales">
+  <a href="https://facebook.com/CUT.CostaRica" class="sf-btn fb" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+  <a href="https://x.com/CUT_CR"              class="sf-btn tw" aria-label="Twitter"   target="_blank" rel="noopener">𝕏</a>
+  <a href="https://youtube.com/@CUT_CR"        class="sf-btn yt" aria-label="YouTube"   target="_blank" rel="noopener">▶</a>
+  <a href="https://instagram.com/cut_cr"       class="sf-btn ig" aria-label="Instagram" target="_blank" rel="noopener">◉</a>
+</nav>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
