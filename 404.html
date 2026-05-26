@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página no encontrada | CUT</title>
+<link rel="icon" type="image/png" href="/cut-web/assets/images/logo-cut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--red:#C0001A;--yellow:#F5C300;--black:#111}
+  body{
+    font-family:'Barlow',sans-serif;
+    background:var(--black);color:#fff;
+    min-height:100vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    text-align:center;padding:2rem;
+    background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.012) 3px,rgba(255,255,255,0.012) 4px);
+  }
+  .stripe{position:fixed;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,var(--red) 0%,var(--yellow) 50%,var(--red) 100%)}
+  .logo{width:90px;height:90px;border-radius:50%;border:3px solid rgba(192,0,26,0.5);margin-bottom:1.5rem;box-shadow:0 0 40px rgba(192,0,26,0.2);object-fit:cover}
+  .code{font-family:'Barlow Condensed',sans-serif;font-size:7rem;font-weight:900;line-height:1;color:var(--red);margin-bottom:0.5rem;text-shadow:0 0 60px rgba(192,0,26,0.4)}
+  h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;text-transform:uppercase;margin-bottom:1rem;color:#fff}
+  p{color:rgba(255,255,255,0.55);margin-bottom:2rem;max-width:480px;line-height:1.65}
+  .btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.75rem 1.75rem;background:var(--red);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.1em;border-radius:4px;text-decoration:none;transition:background 0.2s;border:none;cursor:pointer}
+  .btn:hover{background:#8B0012}
+  .links{margin-top:2rem;display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center}
+  .link-item{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.08em}
+  .link-item:hover{color:var(--yellow)}
+  #redirect-msg{font-size:12px;color:rgba(255,255,255,0.3);margin-top:1rem}
+</style>
+</head>
+<body>
+  <div class="stripe" aria-hidden="true"></div>
+  <img src="/cut-web/assets/images/logo-cut.png" alt="Logo CUT" class="logo" onerror="this.style.display='none'">
+  <div class="code" aria-label="Error 404">404</div>
+  <h1>Página no encontrada</h1>
+  <p>La página que busca no existe o fue movida. Será redirigido al inicio automáticamente.</p>
+  <a href="/cut-web/" class="btn" id="homeBtn">← Volver al inicio</a>
+  <nav class="links" aria-label="Páginas principales">
+    <a class="link-item" href="/cut-web/pages/noticias.html">Noticias</a>
+    <a class="link-item" href="/cut-web/pages/publicaciones.html">Publicaciones</a>
+    <a class="link-item" href="/cut-web/pages/quienes-somos.html">Quiénes somos</a>
+    <a class="link-item" href="/cut-web/pages/sindicatos.html">Sindicatos</a>
+    <a class="link-item" href="/cut-web/pages/documentos.html">Documentos</a>
+    <a class="link-item" href="/cut-web/pages/contacto.html">Contacto</a>
+  </nav>
+  <p id="redirect-msg">Redirigiendo en <span id="countdown">5</span> segundos...</p>
+
+<script>
+  /* ─── GitHub Pages SPA redirect trick ─── */
+  (function() {
+    // Save current path so index.html can restore it
+    sessionStorage.setItem('gh_redirect', window.location.href);
+    // Countdown and redirect to home
+    var count = 5;
+    var el = document.getElementById('countdown');
+    var interval = setInterval(function() {
+      count--;
+      if (el) el.textContent = count;
+      if (count <= 0) {
+        clearInterval(interval);
+        window.location.replace(base + '/');
+      }
+    }, 1000);
+  })();
+</script>
+</body>
+</html>
