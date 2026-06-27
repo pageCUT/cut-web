@@ -18,7 +18,6 @@
   .breadcrumb a{color:rgba(255,255,255,0.45);transition:color .2s;} .breadcrumb a:hover{color:var(--yellow);} .breadcrumb span{color:rgba(255,255,255,0.65);}
   .page-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;color:#fff;line-height:1;}
   .page-subtitle{font-size:1rem;color:rgba(255,255,255,0.6);margin-top:0.75rem;}
-  
   /* Category filter */
   .cat-filter{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2rem;}
   .cat-btn{
@@ -28,79 +27,13 @@
     cursor:pointer;transition:all 0.2s;
   }
   .cat-btn:hover,.cat-btn.active{background:var(--red);border-color:var(--red);color:#fff;}
-  
-  /* News grid - 3 columns */
+  /* Extended news grid - 3 columns always */
   .news-grid-full{
     display:grid;grid-template-columns:repeat(3,1fr);
     gap:1.5rem;margin-bottom:2.5rem;
   }
   @media(max-width:900px){.news-grid-full{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:560px){.news-grid-full{grid-template-columns:1fr;}}
-
-  /* Estilos para las tarjetas (nc = news card) */
-  .nc {
-    background:#fff;
-    border-radius:10px;
-    border:1px solid rgba(0,0,0,0.07);
-    box-shadow:0 2px 8px rgba(0,0,0,0.05);
-    overflow:hidden;
-    transition:transform 0.25s, box-shadow 0.25s;
-  }
-  .nc:hover {
-    transform:translateY(-5px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.12);
-  }
-  .nc-img {
-    height:160px;
-    display:flex;
-    align-items:flex-end;
-    padding:1rem;
-    position:relative;
-    overflow:hidden;
-    background:linear-gradient(135deg,#333,#111);
-  }
-  .nc-placeholder {
-    font-size:2.8rem;
-    position:absolute;
-    right:0.8rem;
-    bottom:0.8rem;
-    opacity:0.3;
-    line-height:1;
-  }
-  .nc-badge {
-    font-family:'Barlow Condensed',sans-serif;
-    font-size:10px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:0.1em;
-    color:#fff;
-    padding:0.2rem 0.7rem;
-    border-radius:3px;
-    position:relative;
-    z-index:1;
-  }
-  .nc-badge.sindical{background:#C0001A;}
-  .nc-badge.politica{background:#1565c0;}
-  .nc-badge.laboral{background:#212121;}
-  .nc-badge.derechos{background:#1a6b5c;}
-  .nc-badge.formacion{background:#e65100;}
-  .nc-badge.social{background:#1976d2;}
-  .nc-badge.cultura{background:#6a1b9a;}
-  .nc-badge.general{background:#555;}
-
-  .nc-body{padding:1rem 1.2rem 1.2rem;}
-  .nc-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;line-height:1.3;color:#111;margin-bottom:0.5rem;}
-  .nc-title a{color:inherit;text-decoration:none;transition:color 0.2s;}
-  .nc-title a:hover{color:#C0001A;}
-  .nc-desc{font-size:0.9rem;color:#666;line-height:1.5;margin-bottom:0.5rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-  .nc-meta{display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:#aaa;border-top:1px solid #f0f0f0;padding-top:0.6rem;}
-  .nc-meta .meta-dot{color:#ddd;}
-
-  .loading-spinner{text-align:center;padding:3rem 0;color:#888;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;letter-spacing:.05em;}
-  .loading-spinner::after{content:'';display:inline-block;width:20px;height:20px;margin-left:10px;border:3px solid #ddd;border-top-color:#C0001A;border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle;}
-  @keyframes spin{to{transform:rotate(360deg);}}
-  .error-msg{text-align:center;padding:2rem;color:#C0001A;font-family:'Barlow',sans-serif;}
-  .no-results{text-align:center;padding:2rem;color:#888;font-family:'Barlow',sans-serif;}
 </style>
 
   <!-- PWA -->
@@ -127,8 +60,8 @@
       <div class="nav-name"><span class="nav-name-title">Confederación Unitaria</span><span class="nav-name-sub">Siempre con el Pueblo</span></div>
     </a>
     <div class="nav-links" role="menubar">
-      <a href="/"                     class="nav-link"        role="menuitem">Inicio</a>
-      <a href="/pages/noticias.html"  class="nav-link active" role="menuitem">Noticias</a>
+      <a href="/"               class="nav-link"        role="menuitem">Inicio</a>
+      <a href="/pages/noticias.html" class="nav-link active" role="menuitem">Noticias</a>
       <a href="/pages/quienes-somos.html" class="nav-link" role="menuitem">Quiénes somos</a>
       <a href="/pages/sindicatos.html"    class="nav-link" role="menuitem">Afiliados</a>
       <a href="/pages/documentos.html"    class="nav-link" role="menuitem">Documentos</a>
@@ -170,21 +103,64 @@
         <button class="cat-btn" data-cat="derechos">Derechos</button>
         <button class="cat-btn" data-cat="formacion">Formación</button>
         <button class="cat-btn" data-cat="social">Social</button>
-        <button class="cat-btn" data-cat="comunicado">Comunicados</button>
       </div>
 
-      <!-- GRID DE NOTICIAS (se llena con JavaScript) -->
+      <!-- GRID COMPLETO DE NOTICIAS -->
       <div class="news-grid-full" id="newsGrid" role="list">
-        <div class="loading-spinner">Cargando noticias...</div>
-      </div>
 
-      <!-- Nota informativa -->
+        <article class="nc fi" data-cat="sindical" role="listitem">
+          <div class="nc-img"><div class="nc-placeholder" aria-hidden="true">📰</div><span class="nc-badge sindical">SINDICAL</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">CUT conmemora <span data-years>45</span> años de lucha sindical en Costa Rica</a></h3><div class="nc-meta"><span>📅 Mayo 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d1" data-cat="politica" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#1565c0,#0d47a1)"><div class="nc-placeholder" aria-hidden="true">⚖️</div><span class="nc-badge politica">POLÍTICA</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Reformas al Código de Trabajo: posición oficial de la CUT ante la Asamblea</a></h3><div class="nc-meta"><span>📅 Abril 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d2" data-cat="derechos" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#1a6b5c,#0f4f40)"><div class="nc-placeholder" aria-hidden="true">♿</div><span class="nc-badge derechos">DERECHOS</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Accesibilidad e inclusión laboral: compromiso renovado de la CUT</a></h3><div class="nc-meta"><span>📅 Marzo 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi" data-cat="formacion" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#e65100,#bf360c)"><div class="nc-placeholder" aria-hidden="true">📚</div><span class="nc-badge formacion">FORMACIÓN</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Taller "Aprendiendo a Negociar" para líderes sindicales 2025</a></h3><div class="nc-meta"><span>📅 Febrero 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d1" data-cat="social" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#6a1b9a,#4a148c)"><div class="nc-placeholder" aria-hidden="true">🌎</div><span class="nc-badge cultura">INTERNACIONAL</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">CUT participa en foro regional sindical latinoamericano en Panamá</a></h3><div class="nc-meta"><span>📅 Enero 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d2" data-cat="sindical" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#1976d2,#1565c0)"><div class="nc-placeholder" aria-hidden="true">👥</div><span class="nc-badge social">SOCIAL</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Nueva campaña de afiliación sindical en el sector privado</a></h3><div class="nc-meta"><span>📅 Diciembre 2024</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi" data-cat="laboral" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,var(--red-dark),#111)"><div class="nc-placeholder" aria-hidden="true">🏗️</div><span class="nc-badge laboral">LABORAL</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Denuncia ante el Ministerio de Trabajo por incumplimiento de convención colectiva</a></h3><div class="nc-meta"><span>📅 Noviembre 2024</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d1" data-cat="formacion" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#333,#111)"><div class="nc-placeholder" aria-hidden="true">🎓</div><span class="nc-badge formacion">FORMACIÓN</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">Seminario sobre derechos laborales para trabajadores del sector construcción</a></h3><div class="nc-meta"><span>📅 Octubre 2024</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+        <article class="nc fi d2" data-cat="derechos" role="listitem">
+          <div class="nc-img" style="background:linear-gradient(135deg,#1a6b5c,#111)"><div class="nc-placeholder" aria-hidden="true">✊</div><span class="nc-badge derechos">DERECHOS</span></div>
+          <div class="nc-body"><h3 class="nc-title"><a href="#">CUT celebra el Día Internacional de los Trabajadores con marcha en San José</a></h3><div class="nc-meta"><span>📅 Mayo 2024</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        </article>
+
+      </div><!-- /newsGrid -->
+
+      <!-- Nota para Blogger -->
       <div style="text-align:center;padding:2rem;background:rgba(192,0,26,0.04);border:1px solid rgba(192,0,26,0.1);border-radius:10px;margin-top:1rem">
         <p style="font-size:0.9rem;color:#666;margin-bottom:1rem">
-          <strong style="color:#C0001A;">💡 ¿Quieres que tu noticia aparezca aquí?</strong><br>
-          Publica una entrada en Blogger con la categoría correspondiente y aparecerá automáticamente.
+          <strong style="color:#C0001A">💡 Para publicar noticias reales:</strong> Vaya a su Blogger, cree una nueva entrada, y aparecerá aquí automáticamente gracias al tema XML personalizado.
         </p>
-        <a href="https://www.blogger.com" target="_blank" rel="noopener" style="display:inline-block;padding:0.6rem 2rem;background:#C0001A;color:#fff;border-radius:4px;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">Ir a Blogger →</a>
+        <a href="https://blogger.com" target="_blank" rel="noopener" class="btn-red" style="display:inline-flex">Publicar en Blogger →</a>
       </div>
 
     </div>
@@ -211,186 +187,6 @@
   <a href="https://youtube.com/@CUT_CR"        class="sf-btn yt" aria-label="YouTube"   target="_blank" rel="noopener">▶</a>
   <a href="https://instagram.com/cut_cr"       class="sf-btn ig" aria-label="Instagram" target="_blank" rel="noopener">◉</a>
 </nav>
-
-<script>
-  // ============================================================
-  //  CONFIGURACIÓN
-  // ============================================================
-  const FEED_URL = 'https://confederacionunitariadetrabajadores.blogspot.com/feeds/posts/default?alt=json&max-results=50';
-
-  // ============================================================
-  //  MAPA DE COLORES POR CATEGORÍA (igual que en publicaciones)
-  // ============================================================
-  const CATEGORY_COLORS = {
-    'comunicado': '#6a1b9a',
-    'sindical':   '#C0001A',
-    'formacion':  '#e65100',
-    'laboral':    '#212121',
-    'derechos':   '#1a6b5c',
-    'social':     '#1565c0',
-    'politica':   '#2e7d32',
-    'general':    '#555'
-  };
-
-  // Almacenar todas las publicaciones para el filtro
-  let todasLasPublicaciones = [];
-
-  // ============================================================
-  //  CARGAR PUBLICACIONES DESDE BLOGGER
-  // ============================================================
-  async function cargarPublicaciones() {
-    const grid = document.getElementById('newsGrid');
-
-    try {
-      const respuesta = await fetch(FEED_URL);
-      if (!respuesta.ok) throw new Error(`HTTP error ${respuesta.status}`);
-      const datos = await respuesta.json();
-
-      const entradas = datos.feed.entry;
-      if (!entradas || entradas.length === 0) {
-        grid.innerHTML = '<p class="no-results">No hay publicaciones disponibles.</p>';
-        return;
-      }
-
-      todasLasPublicaciones = entradas;
-      renderizarPublicaciones(entradas);
-
-    } catch (error) {
-      console.error('Error al cargar noticias:', error);
-      grid.innerHTML = `<p class="error-msg">⚠️ Error al cargar las noticias. Intenta de nuevo más tarde.</p>`;
-    }
-  }
-
-  // ============================================================
-  //  RENDERIZAR TARJETAS (adaptado a la clase .nc)
-  // ============================================================
-  function renderizarPublicaciones(entradas) {
-    const grid = document.getElementById('newsGrid');
-
-    if (!entradas || entradas.length === 0) {
-      grid.innerHTML = '<p class="no-results">No hay noticias en esta categoría.</p>';
-      return;
-    }
-
-    let html = '';
-    entradas.forEach(entrada => {
-      // Título
-      const titulo = entrada.title?.$t || 'Sin título';
-
-      // Enlace
-      const enlace = entrada.link?.find(link => link.rel === 'alternate')?.href || '#';
-
-      // Fecha
-      const fechaRaw = entrada.published?.$t;
-      let fecha = 'Fecha desconocida';
-      if (fechaRaw) {
-        try {
-          const d = new Date(fechaRaw);
-          fecha = d.toLocaleDateString('es-ES', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          });
-        } catch (_) {}
-      }
-
-      // Autor
-      const autor = entrada.author?.[0]?.name?.$t || 'CUT';
-
-      // Categorías
-      let categorias = [];
-      if (entrada.category) {
-        categorias = entrada.category
-          .filter(cat => cat.scheme === 'http://www.blogger.com/atom/ns#')
-          .map(cat => cat.term.toLowerCase());
-      }
-      if (categorias.length === 0) categorias = ['general'];
-      const categoriaPrincipal = categorias[0];
-
-      // Descripción (extracto)
-      let descripcion = '';
-      if (entrada.content) {
-        const contenidoHtml = entrada.content.$t || '';
-        const textoPlano = contenidoHtml.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-        descripcion = textoPlano.substring(0, 130) + (textoPlano.length > 130 ? '...' : '');
-      }
-      if (!descripcion) {
-        if (entrada.summary) {
-          const textoPlano = entrada.summary.$t.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-          descripcion = textoPlano.substring(0, 130) + (textoPlano.length > 130 ? '...' : '');
-        } else {
-          descripcion = 'Lee más sobre esta noticia en nuestro blog.';
-        }
-      }
-
-      // Color del badge
-      const colorBadge = CATEGORY_COLORS[categoriaPrincipal] || CATEGORY_COLORS['general'];
-
-      // Emoji aleatorio para el placeholder (solo decorativo)
-      const emojis = ['📰', '📢', '⚡', '🔔', '📌', '✊', '🏛️', '📋'];
-      const emoji = emojis[Math.floor(Math.random() * emojis.length)];
-
-      // Generar HTML con la estructura .nc
-      html += `
-        <article class="nc" data-cat="${categoriaPrincipal}" role="listitem">
-          <div class="nc-img" style="background:linear-gradient(135deg, ${colorBadge}, #222);">
-            <div class="nc-placeholder" aria-hidden="true">${emoji}</div>
-            <span class="nc-badge ${categoriaPrincipal}" style="background:${colorBadge};">${categoriaPrincipal.toUpperCase()}</span>
-          </div>
-          <div class="nc-body">
-            <h3 class="nc-title"><a href="${enlace}" target="_blank" rel="noopener">${titulo}</a></h3>
-            <p class="nc-desc">${descripcion}</p>
-            <div class="nc-meta">
-              <span>📅 ${fecha}</span>
-              <span class="meta-dot">·</span>
-              <span>${autor}</span>
-            </div>
-          </div>
-        </article>
-      `;
-    });
-
-    grid.innerHTML = html;
-  }
-
-  // ============================================================
-  //  FILTRAR POR CATEGORÍA
-  // ============================================================
-  function filtrarPorCategoria(categoria) {
-    if (categoria === 'all') {
-      renderizarPublicaciones(todasLasPublicaciones);
-    } else {
-      const filtradas = todasLasPublicaciones.filter(entrada => {
-        const categorias = entrada.category
-          ? entrada.category
-              .filter(cat => cat.scheme === 'http://www.blogger.com/atom/ns#')
-              .map(cat => cat.term.toLowerCase())
-          : ['general'];
-        return categorias.some(cat => cat === categoria.toLowerCase());
-      });
-      renderizarPublicaciones(filtradas);
-    }
-  }
-
-  // ============================================================
-  //  EVENTOS DE FILTRO
-  // ============================================================
-  document.querySelectorAll('.cat-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      filtrarPorCategoria(btn.dataset.cat);
-    });
-  });
-
-  // ============================================================
-  //  INICIAR CARGA
-  // ============================================================
-  document.addEventListener('DOMContentLoaded', cargarPublicaciones);
-
-  // Año en el footer
-  document.getElementById('fyear').textContent = new Date().getFullYear();
-</script>
 
 <script src="../assets/js/main.js"></script>
 </body>
