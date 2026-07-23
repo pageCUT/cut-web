@@ -130,20 +130,6 @@
      Previene XSS e inyección en formularios
      ============================================================ */
   var Security = {
-    /* Escapa caracteres HTML peligrosos */
-    escapeHtml: function(str) {
-      if (typeof str !== 'string') return '';
-      return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#x27;')
-        .replace(/\//g, '&#x2F;')
-        .replace(/`/g, '&#x60;')
-        .replace(/=/g, '&#x3D;');
-    },
-
     /* Elimina caracteres de control y scripts */
     sanitize: function(str) {
       if (typeof str !== 'string') return '';
