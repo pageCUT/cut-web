@@ -10,6 +10,18 @@ content = content.replace('href="assets/', f'href="{REPO_ROOT}/assets/')
 content = content.replace("url('assets/", f"url('{REPO_ROOT}/assets/")
 content = content.replace('src="assets/', f'src="{REPO_ROOT}/assets/')
 
+# Update Navigation Links for Blogger
+content = content.replace('href="#inicio"', 'href="/"')
+content = content.replace('href="#noticias"', 'href="/search/label/Noticias"')
+content = content.replace('href="pages/publicaciones.html"', 'href="/search/label/Publicaciones"')
+# Leave others as hash links if they exist on the homepage, but wait,
+# if someone is on a blog post, `#sobre` won't work. We should make them absolute to homepage
+content = content.replace('href="#sobre"', 'href="/#sobre"')
+content = content.replace('href="#sindicatos"', 'href="/#sindicatos"')
+content = content.replace('href="#documentos"', 'href="/#documentos"')
+content = content.replace('href="#contacto"', 'href="/#contacto"')
+
+
 # Make self-closing tags valid XML
 def close_tags(match):
     tag = match.group(0)
@@ -21,8 +33,8 @@ def close_tags(match):
 
 content = re.sub(r'<(meta|link|img|input|br|hr)\b[^>]*>', close_tags, content)
 
-# Fix HTML tag for Blogger
-html_tag = """<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie.xml' b:templateVersion='1.3.0' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>"""
+# Fix HTML tag for Blogger (using version 1 for widget to auto-populate default blogger blog widget)
+html_tag = """<html b:css='false' b:defaultwidgetversion='1' b:layoutsVersion='1' b:responsive='true' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>"""
 content = re.sub(r'<html[^>]*>', html_tag, content)
 
 # Add XML declaration
@@ -56,14 +68,49 @@ style_pattern = re.compile(r'<style>(.*?)</style>', re.DOTALL)
 match = style_pattern.search(content)
 if match:
     css = match.group(1)
-    b_skin = f"<b:skin><![CDATA[{css}]]></b:skin>"
+    # Add some basic styling for the Blogger dynamic content
+    extra_css = """
+      .main-blog-container {
+        max-width: 1100px;
+        margin: 120px auto 40px;
+        padding: 0 2rem;
+        min-height: 60vh;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      }
+      .post {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid #eee;
+      }
+      .post-title {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        color: #111;
+        margin-bottom: 1rem;
+      }
+      .post-title a { color: #C0001A; }
+      .post-body {
+        font-size: 1.05rem;
+        color: #444;
+        line-height: 1.7;
+      }
+      .post-footer {
+        margin-top: 1rem;
+        font-size: 13px;
+        color: #888;
+      }
+      .blog-pager {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+        padding: 1rem 0;
+      }
+    """
+    b_skin = f"<b:skin><![CDATA[{css}\n{extra_css}]]></b:skin>"
     content = style_pattern.sub(b_skin, content)
-
-# Adjust navigation for Blogger
-# Instead of pages/publicaciones.html we point to /search/label/Publicaciones
-content = content.replace('href="https://pagecut.github.io/cut-web/pages/publicaciones.html"', 'href="/search/label/Publicaciones"')
-content = content.replace('href="https://pagecut.github.io/cut-web/pages/noticias.html"', 'href="/search/label/Noticias"')
-content = content.replace('href="#inicio"', 'href="/"')
 
 # Enclose main content in Blogger conditionals
 main_start = '<main id="main-content">'
@@ -75,13 +122,58 @@ if len(parts) == 2:
     static_html = sub_parts[0]
 
     dynamic_content = f"""
-  <b:if cond='data:view.isHomepage'>
+  <b:if cond='data:blog.url == data:blog.homepageUrl'>
     {static_html}
   </b:if>
-  <b:if cond='not data:view.isHomepage'>
-    <div style="max-width: 1000px; margin: 120px auto 40px; padding: 0 2rem; min-height: 60vh;">
+  <b:if cond='data:blog.url != data:blog.homepageUrl'>
+    <div class="main-blog-container">
       <b:section id='main-blog' class='main-blog' showaddelement='yes'>
-        <b:widget id='Blog1' locked='true' title='Entradas del blog' type='Blog' version='2' />
+        <b:widget id='Blog1' locked='false' title='Entradas del blog' type='Blog' version='1'>
+          <b:includable id='main' var='top'>
+            <div class='blog-posts'>
+              <b:loop values='data:posts' var='post'>
+                <div class='post'>
+                  <h2 class='post-title'>
+                    <b:if cond='data:post.link'>
+                      <a expr:href='data:post.link'><data:post.title/></a>
+                    <b:else/>
+                      <b:if cond='data:post.url'>
+                        <a expr:href='data:post.url'><data:post.title/></a>
+                      <b:else/>
+                        <data:post.title/>
+                      </b:if>
+                    </b:if>
+                  </h2>
+                  <div class='post-meta'>
+                    <span class='post-date'><data:post.dateHeader/></span>
+                  </div>
+                  <div class='post-body'>
+                    <data:post.body/>
+                  </div>
+                  <div class='post-footer'>
+                    <span class='post-labels'>
+                      <b:if cond='data:post.labels'>
+                        Etiquetas:
+                        <b:loop values='data:post.labels' var='label'>
+                          <a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>, </b:if>
+                        </b:loop>
+                      </b:if>
+                    </span>
+                  </div>
+                </div>
+              </b:loop>
+            </div>
+
+            <div class='blog-pager' id='blog-pager'>
+              <b:if cond='data:newerPageUrl'>
+                <a class='blog-pager-newer-link' expr:href='data:newerPageUrl'>&#8592; Entradas más recientes</a>
+              </b:if>
+              <b:if cond='data:olderPageUrl'>
+                <a class='blog-pager-older-link' expr:href='data:olderPageUrl'>Entradas antiguas &#8594;</a>
+              </b:if>
+            </div>
+          </b:includable>
+        </b:widget>
       </b:section>
     </div>
   </b:if>
@@ -90,3 +182,5 @@ if len(parts) == 2:
 
 with open('blogger-dynamic.xml', 'w', encoding='utf-8') as f:
     f.write(content)
+
+print("Dynamic XML generated")
