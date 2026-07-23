@@ -162,11 +162,6 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
     },
 
-    /* Valida teléfono Costa Rica y general */
-    isValidPhone: function(phone) {
-      return /^[\d\s\+\-\(\)]{7,20}$/.test(phone);
-    },
-
     /* Rate limiting simple en el cliente (localStorage) */
     rateLimit: function(key, maxRequests, windowMs) {
       var now = Date.now();
