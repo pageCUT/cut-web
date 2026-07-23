@@ -735,19 +735,45 @@
       'box-shadow:0 -4px 20px rgba(0,0,0,.3);',
       'flex-wrap:wrap;'
     ].join('');
-    banner.innerHTML = [
-      '<div style="display:flex;align-items:center;gap:.65rem;flex:1">',
-        '<img src="/cut-web/assets/images/logo-cut.png" alt="" style="width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(192,0,26,.5);flex-shrink:0">',
-        '<div>',
-          '<div style="font-weight:600;font-size:13.5px">Instalar CUT Costa Rica</div>',
-          '<div style="color:rgba(255,255,255,.55);font-size:11.5px">Acceso rápido y funciona sin internet</div>',
-        '</div>',
-      '</div>',
-      '<div style="display:flex;gap:.65rem;flex-shrink:0">',
-        '<button id="pwa-install" style="padding:.45rem 1rem;background:#C0001A;color:#fff;border:none;border-radius:6px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;">Instalar</button>',
-        '<button id="pwa-dismiss" style="padding:.45rem .75rem;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);border:none;border-radius:6px;font-size:12px;cursor:pointer;">No, gracias</button>',
-      '</div>'
-    ].join('');
+    var contentDiv = document.createElement('div');
+    contentDiv.style.cssText = 'display:flex;align-items:center;gap:.65rem;flex:1';
+
+    var img = document.createElement('img');
+    img.src = '/cut-web/assets/images/logo-cut.png';
+    img.alt = '';
+    img.style.cssText = 'width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(192,0,26,.5);flex-shrink:0';
+
+    var textDiv = document.createElement('div');
+    var titleDiv = document.createElement('div');
+    titleDiv.style.cssText = 'font-weight:600;font-size:13.5px';
+    titleDiv.textContent = 'Instalar CUT Costa Rica';
+    var subtitleDiv = document.createElement('div');
+    subtitleDiv.style.cssText = 'color:rgba(255,255,255,.55);font-size:11.5px';
+    subtitleDiv.textContent = 'Acceso rápido y funciona sin internet';
+    textDiv.appendChild(titleDiv);
+    textDiv.appendChild(subtitleDiv);
+
+    contentDiv.appendChild(img);
+    contentDiv.appendChild(textDiv);
+
+    var buttonsDiv = document.createElement('div');
+    buttonsDiv.style.cssText = 'display:flex;gap:.65rem;flex-shrink:0';
+
+    var installBtn = document.createElement('button');
+    installBtn.id = 'pwa-install';
+    installBtn.style.cssText = 'padding:.45rem 1rem;background:#C0001A;color:#fff;border:none;border-radius:6px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;';
+    installBtn.textContent = 'Instalar';
+
+    var dismissBtn = document.createElement('button');
+    dismissBtn.id = 'pwa-dismiss';
+    dismissBtn.style.cssText = 'padding:.45rem .75rem;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);border:none;border-radius:6px;font-size:12px;cursor:pointer;';
+    dismissBtn.textContent = 'No, gracias';
+
+    buttonsDiv.appendChild(installBtn);
+    buttonsDiv.appendChild(dismissBtn);
+
+    banner.appendChild(contentDiv);
+    banner.appendChild(buttonsDiv);
     document.body.appendChild(banner);
 
     document.getElementById('pwa-install').addEventListener('click', function() {
