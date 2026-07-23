@@ -767,6 +767,7 @@
   /* ============================================================
      12. INIT — arranque de todo
      ============================================================ */
+  if (typeof module !== 'undefined' && module.exports) { module.exports = { Security }; }
   document.addEventListener('DOMContentLoaded', function () {
     updateYears();
     initReadBar();
