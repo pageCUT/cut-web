@@ -243,7 +243,6 @@
       var fn   = Security.sanitize(document.getElementById('fn')  ? document.getElementById('fn').value  : '');
       var fe   = Security.sanitize(document.getElementById('fe')  ? document.getElementById('fe').value  : '');
       var fm   = Security.sanitize(document.getElementById('fm')  ? document.getElementById('fm').value  : '');
-      var fsuj = document.getElementById('fsuj') ? document.getElementById('fsuj').value : '';
 
       if (!fn || !fe || !fm) {
         if (fb) { fb.style.display = 'block'; fb.style.color = '#C0001A'; fb.textContent = 'Por favor complete todos los campos requeridos.'; }
