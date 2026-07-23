@@ -7,6 +7,16 @@
 (function () {
   'use strict';
 
+  /* Utility para crear DOM de forma segura sin usar innerHTML */
+  function setSafeHTML(element, htmlString) {
+    var doc = new DOMParser().parseFromString(htmlString, 'text/html');
+    element.textContent = '';
+    while (doc.body.firstChild) {
+      element.appendChild(doc.body.firstChild);
+    }
+  }
+
+
   /* ============================================================
      1. AÑOS AUTOMÁTICOS (23 nov de cada año)
      ============================================================ */
@@ -539,7 +549,7 @@
     fab.setAttribute('aria-label', 'Abrir menú de accesibilidad (Ctrl+U)');
     fab.setAttribute('aria-controls', 'uwPanel');
     fab.setAttribute('aria-expanded', 'false');
-    fab.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8"/><path d="M12 7v5"/><path d="M8 10h8"/><path d="M10 15l-2 5"/><path d="M14 15l2 5"/></svg>';
+    setSafeHTML(fab, '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8"/><path d="M12 7v5"/><path d="M8 10h8"/><path d="M10 15l-2 5"/><path d="M14 15l2 5"/></svg>');
     document.body.appendChild(fab);
 
     var panel = document.createElement('div');
@@ -548,7 +558,7 @@
     panel.setAttribute('role', 'dialog');
     panel.setAttribute('aria-modal', 'false');
     panel.setAttribute('aria-label', 'Menú de accesibilidad');
-    panel.innerHTML = [
+    setSafeHTML(panel, [
       '<div class="uw-head">',
         '<div class="uw-head-left">',
           '<div class="uw-head-logo" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.8"/><path d="M12 7v5"/><path d="M8 10h8"/><path d="M10 15l-2 5"/><path d="M14 15l2 5"/></svg></div>',
@@ -593,7 +603,7 @@
       '</div>',
       /* Footer */
       '<div class="uw-footer"><span class="uw-footer-text">♿ Panel de Accesibilidad · CUT Costa Rica</span></div>'
-    ].join('');
+    ].join(''));
     document.body.appendChild(panel);
   }
 
@@ -735,7 +745,7 @@
       'box-shadow:0 -4px 20px rgba(0,0,0,.3);',
       'flex-wrap:wrap;'
     ].join('');
-    banner.innerHTML = [
+    setSafeHTML(banner, [
       '<div style="display:flex;align-items:center;gap:.65rem;flex:1">',
         '<img src="/cut-web/assets/images/logo-cut.png" alt="" style="width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(192,0,26,.5);flex-shrink:0">',
         '<div>',
@@ -747,7 +757,7 @@
         '<button id="pwa-install" style="padding:.45rem 1rem;background:#C0001A;color:#fff;border:none;border-radius:6px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;">Instalar</button>',
         '<button id="pwa-dismiss" style="padding:.45rem .75rem;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);border:none;border-radius:6px;font-size:12px;cursor:pointer;">No, gracias</button>',
       '</div>'
-    ].join('');
+    ].join(''));
     document.body.appendChild(banner);
 
     document.getElementById('pwa-install').addEventListener('click', function() {
