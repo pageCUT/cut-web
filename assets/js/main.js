@@ -73,9 +73,10 @@
   function initNav() {
     /* ── Active nav highlight on scroll ── */
     var links = document.querySelectorAll('.nav-link[href^="#"]');
+    var sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', function () {
       var pos = window.scrollY + 110;
-      document.querySelectorAll('section[id]').forEach(function (sec) {
+      sections.forEach(function (sec) {
         if (sec.offsetTop <= pos && sec.offsetTop + sec.offsetHeight > pos) {
           links.forEach(function (l) { l.classList.remove('active'); });
           var m = document.querySelector('.nav-link[href="#' + sec.id + '"]');
