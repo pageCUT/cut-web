@@ -14,13 +14,14 @@ content = content.replace('src="assets/', f'src="{REPO_ROOT}/assets/')
 content = content.replace('href="#inicio"', 'href="/"')
 content = content.replace('href="#noticias"', 'href="/search/label/Noticias"')
 content = content.replace('href="pages/publicaciones.html"', 'href="/search/label/Publicaciones"')
-# Leave others as hash links if they exist on the homepage, but wait,
-# if someone is on a blog post, `#sobre` won't work. We should make them absolute to homepage
 content = content.replace('href="#sobre"', 'href="/#sobre"')
 content = content.replace('href="#sindicatos"', 'href="/#sindicatos"')
 content = content.replace('href="#documentos"', 'href="/#documentos"')
 content = content.replace('href="#contacto"', 'href="/#contacto"')
 
+# Escape ampersands globally in specific tags before any other replace
+content = content.replace('&family', '&amp;family')
+content = content.replace('&display', '&amp;display')
 
 # Make self-closing tags valid XML
 def close_tags(match):
@@ -50,9 +51,14 @@ content = content.replace('data-years>', 'data-years="data-years">')
 
 # Fix ampersands
 content = content.replace('&&', '&amp;&amp;')
-content = content.replace('900&family', '900&amp;family')
-content = content.replace('700&family', '700&amp;family')
-content = content.replace('700&display', '700&amp;display')
+
+# Clean up possible double escapes in fonts URL
+content = re.sub(
+    r'<link href="https://fonts.googleapis.com/css2\?family=Barlow\+Condensed:wght@400;700;900[^"]+" rel="stylesheet" />',
+    r'<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&amp;family=Barlow:wght@400;500;600;700&amp;family=Atkinson+Hyperlegible:wght@400;700&amp;display=swap" rel="stylesheet" />',
+    content
+)
+
 
 # CDATA for scripts
 def wrap_cdata(match):
