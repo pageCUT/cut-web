@@ -129,7 +129,8 @@
      7. SEGURIDAD — SANITIZACIÓN DE INPUTS
      Previene XSS e inyección en formularios
      ============================================================ */
-  var Security = {
+  window.Security = window.Security || {};
+  var Security = window.Security = {
     /* Escapa caracteres HTML peligrosos */
     escapeHtml: function(str) {
       if (typeof str !== 'string') return '';
