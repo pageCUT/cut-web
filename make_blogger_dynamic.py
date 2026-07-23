@@ -10,7 +10,8 @@ content = content.replace('href="assets/', f'href="{REPO_ROOT}/assets/')
 content = content.replace("url('assets/", f"url('{REPO_ROOT}/assets/")
 content = content.replace('src="assets/', f'src="{REPO_ROOT}/assets/')
 
-# Update Navigation Links for Blogger
+# Update Navigation Links for Blogger explicitly.
+# We will just change them all manually via regex or explicit replaces to ensure they are pointing to what the user expects.
 content = content.replace('href="#inicio"', 'href="/"')
 content = content.replace('href="#noticias"', 'href="/search/label/Noticias"')
 content = content.replace('href="pages/publicaciones.html"', 'href="/search/label/Publicaciones"')
@@ -18,6 +19,7 @@ content = content.replace('href="#sobre"', 'href="/#sobre"')
 content = content.replace('href="#sindicatos"', 'href="/#sindicatos"')
 content = content.replace('href="#documentos"', 'href="/#documentos"')
 content = content.replace('href="#contacto"', 'href="/#contacto"')
+content = content.replace('href="pages/afiliacion.html"', 'href="https://pagecut.github.io/cut-web/pages/afiliacion.html"')
 
 # Escape ampersands globally in specific tags before any other replace
 content = content.replace('&family', '&amp;family')
