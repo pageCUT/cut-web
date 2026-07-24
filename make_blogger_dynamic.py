@@ -12,13 +12,15 @@ content = content.replace('src="assets/', f'src="{REPO_ROOT}/assets/')
 
 # Update Navigation Links for Blogger explicitly.
 # We will just change them all manually via regex or explicit replaces to ensure they are pointing to what the user expects.
-content = content.replace('href="#inicio"', 'href="/"')
+# For sections on the homepage (like #sobre, #sindicatos), we must point to the absolute github pages URL
+# so it returns correctly when they click it from blogger.
+content = content.replace('href="#inicio"', 'href="https://pagecut.github.io/cut-web/"')
 content = content.replace('href="#noticias"', 'href="/search/label/Noticias"')
 content = content.replace('href="pages/publicaciones.html"', 'href="/search/label/Publicaciones"')
-content = content.replace('href="#sobre"', 'href="/#sobre"')
-content = content.replace('href="#sindicatos"', 'href="/#sindicatos"')
-content = content.replace('href="#documentos"', 'href="/#documentos"')
-content = content.replace('href="#contacto"', 'href="/#contacto"')
+content = content.replace('href="#sobre"', 'href="https://pagecut.github.io/cut-web/#sobre"')
+content = content.replace('href="#sindicatos"', 'href="https://pagecut.github.io/cut-web/#sindicatos"')
+content = content.replace('href="#documentos"', 'href="https://pagecut.github.io/cut-web/#documentos"')
+content = content.replace('href="#contacto"', 'href="https://pagecut.github.io/cut-web/#contacto"')
 content = content.replace('href="pages/afiliacion.html"', 'href="https://pagecut.github.io/cut-web/pages/afiliacion.html"')
 
 # Escape ampersands globally in specific tags before any other replace

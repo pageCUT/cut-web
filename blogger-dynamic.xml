@@ -449,7 +449,7 @@ textarea.finput{resize:vertical;min-height:100px}
 <!-- ════════════ NAV ════════════ -->
 <nav class="nav" role="navigation" aria-label="Navegación principal">
   <div class="nav-inner">
-    <a href="/" class="nav-brand" aria-label="CUT — Inicio">
+    <a href="https://pagecut.github.io/cut-web/" class="nav-brand" aria-label="CUT — Inicio">
       <img src="https://pagecut.github.io/cut-web/assets/images/logo-cut.png" alt="Logo CUT" class="nav-logo" />
       <div class="nav-name">
         <span class="nav-name-title">CUT — Costa Rica</span>
@@ -457,13 +457,13 @@ textarea.finput{resize:vertical;min-height:100px}
       </div>
     </a>
     <div class="nav-links" role="menubar">
-      <a href="/"     class="nav-link active" role="menuitem">Inicio</a>
+      <a href="https://pagecut.github.io/cut-web/"     class="nav-link active" role="menuitem">Inicio</a>
       <a href="/search/label/Noticias"   class="nav-link"        role="menuitem">Noticias</a>
       <a href="https://pagecut.github.io/cut-web/pages/publicaciones.html" class="nav-link" role="menuitem">Publicaciones</a>
-      <a href="/#sobre"      class="nav-link"        role="menuitem">Quiénes somos</a>
-      <a href="/#sindicatos" class="nav-link"        role="menuitem">Afiliados</a>
-      <a href="/#documentos" class="nav-link"        role="menuitem">Documentos</a>
-      <a href="/#contacto"   class="nav-link"        role="menuitem">Contacto</a>
+      <a href="https://pagecut.github.io/cut-web/#sobre"      class="nav-link"        role="menuitem">Quiénes somos</a>
+      <a href="https://pagecut.github.io/cut-web/#sindicatos" class="nav-link"        role="menuitem">Afiliados</a>
+      <a href="https://pagecut.github.io/cut-web/#documentos" class="nav-link"        role="menuitem">Documentos</a>
+      <a href="https://pagecut.github.io/cut-web/#contacto"   class="nav-link"        role="menuitem">Contacto</a>
       <a href="https://pagecut.github.io/cut-web/pages/afiliacion.html" class="nav-link cta" role="menuitem">Únete</a>
     </div>
     <button class="hamburger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
@@ -472,13 +472,13 @@ textarea.finput{resize:vertical;min-height:100px}
   </div>
 </nav>
 <nav class="mobile-menu" id="mobileMenu" role="menu" aria-label="Menú móvil">
-  <a href="/"     class="nav-link" role="menuitem">Inicio</a>
+  <a href="https://pagecut.github.io/cut-web/"     class="nav-link" role="menuitem">Inicio</a>
   <a href="/search/label/Noticias"   class="nav-link" role="menuitem">Noticias</a>
   <a href="https://pagecut.github.io/cut-web/pages/publicaciones.html" class="nav-link" role="menuitem">Publicaciones</a>
-  <a href="/#sobre"      class="nav-link" role="menuitem">Quiénes somos</a>
-  <a href="/#sindicatos" class="nav-link" role="menuitem">Afiliados</a>
-  <a href="/#documentos" class="nav-link" role="menuitem">Documentos</a>
-  <a href="/#contacto"   class="nav-link" role="menuitem">Contacto</a>
+  <a href="https://pagecut.github.io/cut-web/#sobre"      class="nav-link" role="menuitem">Quiénes somos</a>
+  <a href="https://pagecut.github.io/cut-web/#sindicatos" class="nav-link" role="menuitem">Afiliados</a>
+  <a href="https://pagecut.github.io/cut-web/#documentos" class="nav-link" role="menuitem">Documentos</a>
+  <a href="https://pagecut.github.io/cut-web/#contacto"   class="nav-link" role="menuitem">Contacto</a>
   <a href="https://pagecut.github.io/cut-web/pages/afiliacion.html" class="nav-link cta" role="menuitem">Únete →</a>
 </nav>
 
@@ -499,7 +499,7 @@ textarea.finput{resize:vertical;min-height:100px}
       </h1>
       <p class="hero-desc">Defendemos los derechos laborales del pueblo costarricense con inclusión, solidaridad y compromiso. Sectores público, privado e informal.</p>
       <div class="hero-btns">
-        <a href="/#sobre" class="btn-red">Conocer la CUT →</a>
+        <a href="https://pagecut.github.io/cut-web/#sobre" class="btn-red">Conocer la CUT →</a>
         <a href="https://pagecut.github.io/cut-web/pages/afiliacion.html" class="btn-outline">Afiliarse</a>
       </div>
       <div class="hero-dots" role="tablist" aria-label="Indicadores de slider">
