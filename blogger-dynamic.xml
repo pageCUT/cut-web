@@ -1,27 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html lang="es">
+<html b:css='false' b:defaultwidgetversion='1' b:layoutsVersion='1' b:responsive='true' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CUT — Confederación Unitaria de Trabajadores de Costa Rica</title>
-<meta name="description" content="Confederación Unitaria de Trabajadores de Costa Rica. Fundada el 23 de noviembre de 1980. Siempre con el Pueblo.">
-<meta name="keywords" content="CUT, sindicato, trabajadores, Costa Rica, confederación, derechos laborales">
-<meta property="og:title" content="CUT — Confederación Unitaria de Trabajadores">
-<meta property="og:description" content="Siempre con el Pueblo. Fundada el 23 de noviembre de 1980.">
-<meta property="og:image" content="https://pageCUT.github.io/cut-web/assets/images/logo-cut.png">
-<meta property="og:url" content="https://pageCUT.github.io/cut-web/">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<link rel="manifest" href="https://pagecut.github.io/cut-web/manifest.json">
-<meta name="theme-color" content="#C0001A">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="CUT CR">
-<link rel="apple-touch-icon" href="https://pagecut.github.io/cut-web/assets/images/logo-cut.png">
-<link rel="icon" type="image/png" href="https://pagecut.github.io/cut-web/assets/images/logo-cut.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-<style>
+<meta name="description" content="Confederación Unitaria de Trabajadores de Costa Rica. Fundada el 23 de noviembre de 1980. Siempre con el Pueblo." />
+<meta name="keywords" content="CUT, sindicato, trabajadores, Costa Rica, confederación, derechos laborales" />
+<meta property="og:title" content="CUT — Confederación Unitaria de Trabajadores" />
+<meta property="og:description" content="Siempre con el Pueblo. Fundada el 23 de noviembre de 1980." />
+<meta property="og:image" content="https://pageCUT.github.io/cut-web/assets/images/logo-cut.png" />
+<meta property="og:url" content="https://pageCUT.github.io/cut-web/" />
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+<link rel="manifest" href="https://pagecut.github.io/cut-web/manifest.json" />
+<meta name="theme-color" content="#C0001A" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="CUT CR" />
+<link rel="apple-touch-icon" href="https://pagecut.github.io/cut-web/assets/images/logo-cut.png" />
+<link rel="icon" type="image/png" href="https://pagecut.github.io/cut-web/assets/images/logo-cut.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&amp;family=Barlow:wght@400;500;600;700&amp;family=Atkinson+Hyperlegible:wght@400;700&amp;display=swap" rel="stylesheet" />
+<b:skin><![CDATA[
 /* ═══════════════════════════════════════════════════════════════
    CUT — index.html v4.0
    ═══════════════════════════════════════════════════════════════ */
@@ -387,7 +388,47 @@ textarea.finput{resize:vertical;min-height:100px}
   .unions-grid{grid-template-columns:1fr}
   .mvv-grid{grid-template-columns:1fr}
 }
-</style>
+
+
+      .main-blog-container {
+        max-width: 1100px;
+        margin: 120px auto 40px;
+        padding: 0 2rem;
+        min-height: 60vh;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      }
+      .post {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid #eee;
+      }
+      .post-title {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        color: #111;
+        margin-bottom: 1rem;
+      }
+      .post-title a { color: #C0001A; }
+      .post-body {
+        font-size: 1.05rem;
+        color: #444;
+        line-height: 1.7;
+      }
+      .post-footer {
+        margin-top: 1rem;
+        font-size: 13px;
+        color: #888;
+      }
+      .blog-pager {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+        padding: 1rem 0;
+      }
+    ]]></b:skin>
 </head>
 <body>
 
@@ -408,21 +449,21 @@ textarea.finput{resize:vertical;min-height:100px}
 <!-- ════════════ NAV ════════════ -->
 <nav class="nav" role="navigation" aria-label="Navegación principal">
   <div class="nav-inner">
-    <a href="#inicio" class="nav-brand" aria-label="CUT — Inicio">
-      <img src="https://pagecut.github.io/cut-web/assets/images/logo-cut.png" alt="Logo CUT" class="nav-logo">
+    <a href="https://pagecut.github.io/cut-web/" class="nav-brand" aria-label="CUT — Inicio">
+      <img src="https://pagecut.github.io/cut-web/assets/images/logo-cut.png" alt="Logo CUT" class="nav-logo" />
       <div class="nav-name">
         <span class="nav-name-title">CUT — Costa Rica</span>
         <span class="nav-name-sub">Siempre con el Pueblo</span>
       </div>
     </a>
     <div class="nav-links" role="menubar">
-      <a href="#inicio"     class="nav-link active" role="menuitem">Inicio</a>
-      <a href="#noticias"   class="nav-link"        role="menuitem">Noticias</a>
+      <a href="https://pagecut.github.io/cut-web/"     class="nav-link active" role="menuitem">Inicio</a>
+      <a href="/search/label/Noticias"   class="nav-link"        role="menuitem">Noticias</a>
       <a href="https://pagecut.github.io/cut-web/pages/publicaciones.html" class="nav-link" role="menuitem">Publicaciones</a>
-      <a href="#sobre"      class="nav-link"        role="menuitem">Quiénes somos</a>
-      <a href="#sindicatos" class="nav-link"        role="menuitem">Afiliados</a>
-      <a href="#documentos" class="nav-link"        role="menuitem">Documentos</a>
-      <a href="#contacto"   class="nav-link"        role="menuitem">Contacto</a>
+      <a href="https://pagecut.github.io/cut-web/#sobre"      class="nav-link"        role="menuitem">Quiénes somos</a>
+      <a href="https://pagecut.github.io/cut-web/#sindicatos" class="nav-link"        role="menuitem">Afiliados</a>
+      <a href="https://pagecut.github.io/cut-web/#documentos" class="nav-link"        role="menuitem">Documentos</a>
+      <a href="https://pagecut.github.io/cut-web/#contacto"   class="nav-link"        role="menuitem">Contacto</a>
       <a href="https://pagecut.github.io/cut-web/pages/afiliacion.html" class="nav-link cta" role="menuitem">Únete</a>
     </div>
     <button class="hamburger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
@@ -431,17 +472,19 @@ textarea.finput{resize:vertical;min-height:100px}
   </div>
 </nav>
 <nav class="mobile-menu" id="mobileMenu" role="menu" aria-label="Menú móvil">
-  <a href="#inicio"     class="nav-link" role="menuitem">Inicio</a>
-  <a href="#noticias"   class="nav-link" role="menuitem">Noticias</a>
+  <a href="https://pagecut.github.io/cut-web/"     class="nav-link" role="menuitem">Inicio</a>
+  <a href="/search/label/Noticias"   class="nav-link" role="menuitem">Noticias</a>
   <a href="https://pagecut.github.io/cut-web/pages/publicaciones.html" class="nav-link" role="menuitem">Publicaciones</a>
-  <a href="#sobre"      class="nav-link" role="menuitem">Quiénes somos</a>
-  <a href="#sindicatos" class="nav-link" role="menuitem">Afiliados</a>
-  <a href="#documentos" class="nav-link" role="menuitem">Documentos</a>
-  <a href="#contacto"   class="nav-link" role="menuitem">Contacto</a>
+  <a href="https://pagecut.github.io/cut-web/#sobre"      class="nav-link" role="menuitem">Quiénes somos</a>
+  <a href="https://pagecut.github.io/cut-web/#sindicatos" class="nav-link" role="menuitem">Afiliados</a>
+  <a href="https://pagecut.github.io/cut-web/#documentos" class="nav-link" role="menuitem">Documentos</a>
+  <a href="https://pagecut.github.io/cut-web/#contacto"   class="nav-link" role="menuitem">Contacto</a>
   <a href="https://pagecut.github.io/cut-web/pages/afiliacion.html" class="nav-link cta" role="menuitem">Únete →</a>
 </nav>
 
 <main id="main-content">
+  <b:if cond='data:blog.url == data:blog.homepageUrl'>
+
 
 <!-- ════════════ HERO ════════════ -->
 <section class="hero" id="inicio" aria-labelledby="hero-h1">
@@ -452,11 +495,11 @@ textarea.finput{resize:vertical;min-height:100px}
     <div class="hero-text">
       <div class="hero-tag">Fundada el 23 de noviembre de 1980</div>
       <h1 class="hero-h1" id="hero-h1">
-        Confederación<br><span class="red">de Trabajadores</span>
+        Confederación<br /><span class="red">de Trabajadores</span>
       </h1>
       <p class="hero-desc">Defendemos los derechos laborales del pueblo costarricense con inclusión, solidaridad y compromiso. Sectores público, privado e informal.</p>
       <div class="hero-btns">
-        <a href="#sobre" class="btn-red">Conocer la CUT →</a>
+        <a href="https://pagecut.github.io/cut-web/#sobre" class="btn-red">Conocer la CUT →</a>
         <a href="https://pagecut.github.io/cut-web/pages/afiliacion.html" class="btn-outline">Afiliarse</a>
       </div>
       <div class="hero-dots" role="tablist" aria-label="Indicadores de slider">
@@ -466,9 +509,9 @@ textarea.finput{resize:vertical;min-height:100px}
       </div>
     </div>
     <div class="hero-logo-col" aria-hidden="true">
-      <img src="https://pagecut.github.io/cut-web/assets/images/logo-cut.png" alt="" class="hero-logo-img">
+      <img src="https://pagecut.github.io/cut-web/assets/images/logo-cut.png" alt="" class="hero-logo-img" />
       <div class="hero-years">
-        <div class="hero-years-num" data-years>45</div>
+        <div class="hero-years-num" data-years="data-years">45</div>
         <div class="hero-years-txt">años de lucha y dignidad</div>
       </div>
     </div>
@@ -510,7 +553,7 @@ textarea.finput{resize:vertical;min-height:100px}
     <div class="news-grid" role="list">
       <article class="nc fi" role="listitem">
         <div class="nc-img"><div class="nc-placeholder">📰</div><span class="nc-badge sindical">SINDICAL</span></div>
-        <div class="nc-body"><h3 class="nc-title"><a href="https://pagecut.github.io/cut-web/pages/noticias.html">CUT conmemora <span data-years>45</span> años de lucha sindical en Costa Rica</a></h3><div class="nc-meta"><span>📅 Mayo 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
+        <div class="nc-body"><h3 class="nc-title"><a href="https://pagecut.github.io/cut-web/pages/noticias.html">CUT conmemora <span data-years="data-years">45</span> años de lucha sindical en Costa Rica</a></h3><div class="nc-meta"><span>📅 Mayo 2025</span><span class="meta-dot">·</span><span>CUT</span></div></div>
       </article>
       <article class="nc fi d1" role="listitem">
         <div class="nc-img" style="background:linear-gradient(135deg,#1565c0,#0d47a1)"><div class="nc-placeholder">⚖️</div><span class="nc-badge politica">POLÍTICA</span></div>
@@ -532,7 +575,7 @@ textarea.finput{resize:vertical;min-height:100px}
       <div class="fi">
         <div style="background:linear-gradient(135deg,var(--red-dark),#111);border-radius:12px;height:340px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
           <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.025) 0,rgba(255,255,255,0.025) 1px,transparent 1px,transparent 10px)"></div>
-          <img src="https://pagecut.github.io/cut-web/assets/images/logo-cut.png" alt="Logo CUT" style="width:180px;height:180px;border-radius:50%;object-fit:cover;box-shadow:0 0 40px rgba(192,0,26,0.3);position:relative;z-index:1">
+          <img src="https://pagecut.github.io/cut-web/assets/images/logo-cut.png" alt="Logo CUT" style="width:180px;height:180px;border-radius:50%;object-fit:cover;box-shadow:0 0 40px rgba(192,0,26,0.3);position:relative;z-index:1" />
         </div>
       </div>
       <div class="fi d1">
@@ -574,14 +617,14 @@ textarea.finput{resize:vertical;min-height:100px}
     </div>
     <div class="unions-grid">
       <div class="union-card fi" style="background:rgba(255,255,255,0.05);border-color:rgba(192,0,26,0.4)">
-        <div class="u-logo-wrap"><img src="https://pagecut.github.io/cut-web/assets/images/sindicatos/sittraiproa-logo.png" alt="Logo SITTRAIPROA"></div>
+        <div class="u-logo-wrap"><img src="https://pagecut.github.io/cut-web/assets/images/sindicatos/sittraiproa-logo.png" alt="Logo SITTRAIPROA" /></div>
         <div class="u-abbr">SITTRAIPROA</div>
         <div class="u-name">Sind. de Trabajadores del Agroindustria de Alajuela</div>
         <p class="u-desc" style="color:rgba(255,255,255,0.55)">Sector agroindustrial, provincia de Alajuela. Afiliado a CUT y FENATI.</p>
         <span class="u-tag">Agroindustria</span>
       </div>
       <div class="union-card fi d1" style="background:rgba(255,255,255,0.05);border-color:rgba(192,0,26,0.4)">
-        <div class="u-logo-wrap"><img src="https://pagecut.github.io/cut-web/assets/images/sindicatos/suntracs-logo.png" alt="Logo SUNTRACS"></div>
+        <div class="u-logo-wrap"><img src="https://pagecut.github.io/cut-web/assets/images/sindicatos/suntracs-logo.png" alt="Logo SUNTRACS" /></div>
         <div class="u-abbr">SUNTRACS</div>
         <div class="u-name">Sind. Único Nacional de Trabajadores de la Construcción</div>
         <p class="u-desc" style="color:rgba(255,255,255,0.55)">Sector construcción y similares. Presencia nacional, defensa de derechos laborales.</p>
@@ -693,12 +736,12 @@ textarea.finput{resize:vertical;min-height:100px}
       </div>
       <div class="cform fi d1">
         <h3>Envíenos un mensaje</h3>
-        <form id="contactForm" novalidate>
-          <div class="fgroup"><label class="flabel" for="fn">Nombre *</label><input type="text" id="fn" class="finput" placeholder="Su nombre completo" required></div>
-          <div class="fgroup"><label class="flabel" for="fe">Correo *</label><input type="email" id="fe" class="finput" placeholder="su@correo.com" required></div>
+        <form id="contactForm" novalidate="novalidate">
+          <div class="fgroup"><label class="flabel" for="fn">Nombre *</label><input type="text" id="fn" class="finput" placeholder="Su nombre completo" required="required" /></div>
+          <div class="fgroup"><label class="flabel" for="fe">Correo *</label><input type="email" id="fe" class="finput" placeholder="su@correo.com" required="required" /></div>
           <div class="fgroup"><label class="flabel" for="fsuj">Asunto</label>
             <select id="fsuj" class="finput"><option value="">Seleccione...</option><option>Información sobre afiliación</option><option>Consulta laboral</option><option>Denuncia laboral</option><option>Otro</option></select></div>
-          <div class="fgroup"><label class="flabel" for="fm">Mensaje *</label><textarea id="fm" class="finput" placeholder="Escriba su mensaje..." required></textarea></div>
+          <div class="fgroup"><label class="flabel" for="fm">Mensaje *</label><textarea id="fm" class="finput" placeholder="Escriba su mensaje..." required="required"></textarea></div>
           <button type="submit" class="fsubmit">Enviar mensaje</button>
           <div id="ffb" role="alert" aria-live="polite" style="display:none;margin-top:.75rem;font-size:13px;text-align:center;padding:.75rem;border-radius:6px"></div>
         </form>
@@ -707,15 +750,103 @@ textarea.finput{resize:vertical;min-height:100px}
   </div>
 </section>
 
+
+  </b:if>
+  <b:if cond='data:blog.url != data:blog.homepageUrl'>
+    <div class="page-hero">
+      <div class="page-hero-stripe" aria-hidden="true"></div>
+      <div class="page-hero-inner">
+        <div class="breadcrumb"><a href="/">Inicio</a> / <span><b:if cond='data:blog.pageType == &quot;item&quot;'><data:blog.pageName/><b:else/>Noticias</b:if></span></div>
+        <h1 class="page-title"><b:if cond='data:blog.pageType == &quot;item&quot;'><data:blog.pageName/><b:else/>Noticias y Publicaciones</b:if></h1>
+        <p class="page-subtitle">Actualidad sindical de la Confederación Unitaria de Trabajadores</p>
+      </div>
+    </div>
+
+    <div class="container" style="margin-top: 60px; margin-bottom: 60px; min-height: 50vh;">
+      <b:section id='main-blog' class='main-blog' showaddelement='yes'>
+        <b:widget id='Blog1' locked='false' title='Entradas del blog' type='Blog' version='1'>
+          <b:includable id='main' var='top'>
+            <b:if cond='data:blog.pageType == &quot;item&quot;'>
+              <b:loop values='data:posts' var='post'>
+                <div class='post'>
+                  <div class='post-meta' style='margin-bottom: 20px; color: #666;'>
+                    <span>&#128197; <data:post.dateHeader/></span>
+                    <b:if cond='data:post.labels'>
+                      <span class='meta-dot'>&#183;</span>
+                      Etiquetas:
+                      <b:loop values='data:post.labels' var='label'>
+                        <a expr:href='data:label.url' rel='tag' style='color: var(--red-main);'><data:label.name/></a><b:if cond='not data:label.isLast'>, </b:if>
+                      </b:loop>
+                    </b:if>
+                  </div>
+                  <div class='post-body' style='line-height: 1.8; font-size: 1.1rem; color: #333;'>
+                    <data:post.body/>
+                  </div>
+                </div>
+              </b:loop>
+            <b:else/>
+            <div class='news-grid-full' id='newsGrid' role='list'>
+              <b:loop values='data:posts' var='post'>
+                <article class='nc fi' role='listitem'>
+                  <div class='nc-img'>
+                    <b:if cond='data:post.featuredImage'>
+                      <img expr:src='data:post.featuredImage' expr:alt='data:post.title' style='position:absolute; width:100%; height:100%; object-fit:cover; top:0; left:0;'/>
+                    <b:else/>
+                      <div class='nc-placeholder' aria-hidden='true'>📰</div>
+                    </b:if>
+                    <b:if cond='data:post.labels'>
+                      <span class='nc-badge'>
+                        <b:loop values='data:post.labels' var='label'>
+                          <data:label.name/><b:if cond='not data:label.isLast'>, </b:if>
+                        </b:loop>
+                      </span>
+                    </b:if>
+                  </div>
+                  <div class='nc-body'>
+                    <h3 class='nc-title'>
+                      <b:if cond='data:post.link'>
+                        <a expr:href='data:post.link'><data:post.title/></a>
+                      <b:else/>
+                        <b:if cond='data:post.url'>
+                          <a expr:href='data:post.url'><data:post.title/></a>
+                        <b:else/>
+                          <a href='#'><data:post.title/></a>
+                        </b:if>
+                      </b:if>
+                    </h3>
+                    <div class='nc-meta'>
+                      <span>&#128197; <data:post.dateHeader/></span>
+                      <span class='meta-dot'>&#183;</span>
+                      <span>CUT</span>
+                    </div>
+                  </div>
+                </article>
+              </b:loop>
+            </div>
+            </b:if>
+
+            <div class='blog-pager' id='blog-pager' style='margin-top: 40px; display: flex; justify-content: space-between; font-weight: bold;'>
+              <b:if cond='data:newerPageUrl'>
+                <a class='blog-pager-newer-link' expr:href='data:newerPageUrl'>&#8592; Entradas más recientes</a>
+              </b:if>
+              <b:if cond='data:olderPageUrl'>
+                <a class='blog-pager-older-link' expr:href='data:olderPageUrl'>Entradas antiguas &#8594;</a>
+              </b:if>
+            </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
+    </div>
+  </b:if>
 </main>
 
 <!-- ════════════ FOOTER ════════════ -->
 <footer class="footer" role="contentinfo">
   <div class="footer-grid">
     <div>
-      <img src="https://pagecut.github.io/cut-web/assets/images/logo-cut.png" alt="Logo CUT" class="fbrand-logo">
+      <img src="https://pagecut.github.io/cut-web/assets/images/logo-cut.png" alt="Logo CUT" class="fbrand-logo" />
       <div class="fbrand-name">Confederación Unitaria de Trabajadores</div>
-      <p class="fbrand-desc">Fundada el 23 de noviembre de 1980. Más de <span data-years>45</span> años con el pueblo trabajador costarricense. <em>Siempre con el Pueblo.</em></p>
+      <p class="fbrand-desc">Fundada el 23 de noviembre de 1980. Más de <span data-years="data-years">45</span> años con el pueblo trabajador costarricense. <em>Siempre con el Pueblo.</em></p>
       <div class="footer-social">
         <a href="https://www.facebook.com/cutcostarica" aria-label="Facebook" target="_blank" rel="noopener">f</a>
         <a href="https://x.com/CUTCostaRica" aria-label="Twitter / X" target="_blank" rel="noopener">𝕏</a>
@@ -734,7 +865,8 @@ textarea.finput{resize:vertical;min-height:100px}
 </footer>
 
 
-<script>
+<script>//<![CDATA[
+
 // Footer year
 document.getElementById('fyear').textContent = new Date().getFullYear();
 
@@ -749,9 +881,11 @@ document.getElementById('contactForm').addEventListener('submit',function(e){
   fb.style.display='block';fb.style.background='rgba(26,107,92,0.06)';fb.style.color='#1a6b5c';fb.style.border='1px solid rgba(26,107,92,0.2)';fb.textContent='✓ Mensaje enviado. Nos comunicaremos pronto.';
   this.reset();setTimeout(()=>fb.style.display='none',6000);
 });
-</script>
 
-<script>
+//]]></script>
+
+<script>//<![CDATA[
+
 /* ═══════════════════════════════════════════════════════════════
    GitHub Pages SPA Navigation Fix
    Handles back-button and direct URL navigation
@@ -762,7 +896,7 @@ document.getElementById('contactForm').addEventListener('submit',function(e){
   if (redirect) {
     sessionStorage.removeItem('gh_redirect');
     var url = redirect;
-    if (url && url !== window.location.href) {
+    if (url &amp;&amp; url !== window.location.href) {
       window.history.replaceState(null, null, url);
     }
   }
@@ -796,7 +930,8 @@ document.getElementById('contactForm').addEventListener('submit',function(e){
     }
   });
 })();
-</script>
+
+//]]></script>
 <script src="https://pagecut.github.io/cut-web/assets/js/main.js"></script>
 </body>
 </html>
