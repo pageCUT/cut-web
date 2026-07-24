@@ -753,45 +753,79 @@ textarea.finput{resize:vertical;min-height:100px}
 
   </b:if>
   <b:if cond='data:blog.url != data:blog.homepageUrl'>
-    <div class="main-blog-container">
+    <div class="page-hero">
+      <div class="page-hero-stripe" aria-hidden="true"></div>
+      <div class="page-hero-inner">
+        <div class="breadcrumb"><a href="/">Inicio</a> / <span><b:if cond='data:blog.pageType == &quot;item&quot;'><data:blog.pageName/><b:else/>Noticias</b:if></span></div>
+        <h1 class="page-title"><b:if cond='data:blog.pageType == &quot;item&quot;'><data:blog.pageName/><b:else/>Noticias y Publicaciones</b:if></h1>
+        <p class="page-subtitle">Actualidad sindical de la Confederación Unitaria de Trabajadores</p>
+      </div>
+    </div>
+
+    <div class="container" style="margin-top: 60px; margin-bottom: 60px; min-height: 50vh;">
       <b:section id='main-blog' class='main-blog' showaddelement='yes'>
         <b:widget id='Blog1' locked='false' title='Entradas del blog' type='Blog' version='1'>
           <b:includable id='main' var='top'>
-            <div class='blog-posts'>
+            <b:if cond='data:blog.pageType == &quot;item&quot;'>
               <b:loop values='data:posts' var='post'>
                 <div class='post'>
-                  <h2 class='post-title'>
-                    <b:if cond='data:post.link'>
-                      <a expr:href='data:post.link'><data:post.title/></a>
-                    <b:else/>
-                      <b:if cond='data:post.url'>
-                        <a expr:href='data:post.url'><data:post.title/></a>
-                      <b:else/>
-                        <data:post.title/>
-                      </b:if>
+                  <div class='post-meta' style='margin-bottom: 20px; color: #666;'>
+                    <span>&#128197; <data:post.dateHeader/></span>
+                    <b:if cond='data:post.labels'>
+                      <span class='meta-dot'>&#183;</span>
+                      Etiquetas:
+                      <b:loop values='data:post.labels' var='label'>
+                        <a expr:href='data:label.url' rel='tag' style='color: var(--red-main);'><data:label.name/></a><b:if cond='not data:label.isLast'>, </b:if>
+                      </b:loop>
                     </b:if>
-                  </h2>
-                  <div class='post-meta'>
-                    <span class='post-date'><data:post.dateHeader/></span>
                   </div>
-                  <div class='post-body'>
+                  <div class='post-body' style='line-height: 1.8; font-size: 1.1rem; color: #333;'>
                     <data:post.body/>
-                  </div>
-                  <div class='post-footer'>
-                    <span class='post-labels'>
-                      <b:if cond='data:post.labels'>
-                        Etiquetas:
-                        <b:loop values='data:post.labels' var='label'>
-                          <a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>, </b:if>
-                        </b:loop>
-                      </b:if>
-                    </span>
                   </div>
                 </div>
               </b:loop>
+            <b:else/>
+            <div class='news-grid-full' id='newsGrid' role='list'>
+              <b:loop values='data:posts' var='post'>
+                <article class='nc fi' role='listitem'>
+                  <div class='nc-img'>
+                    <b:if cond='data:post.featuredImage'>
+                      <img expr:src='data:post.featuredImage' expr:alt='data:post.title' style='position:absolute; width:100%; height:100%; object-fit:cover; top:0; left:0;'/>
+                    <b:else/>
+                      <div class='nc-placeholder' aria-hidden='true'>📰</div>
+                    </b:if>
+                    <b:if cond='data:post.labels'>
+                      <span class='nc-badge'>
+                        <b:loop values='data:post.labels' var='label'>
+                          <data:label.name/><b:if cond='not data:label.isLast'>, </b:if>
+                        </b:loop>
+                      </span>
+                    </b:if>
+                  </div>
+                  <div class='nc-body'>
+                    <h3 class='nc-title'>
+                      <b:if cond='data:post.link'>
+                        <a expr:href='data:post.link'><data:post.title/></a>
+                      <b:else/>
+                        <b:if cond='data:post.url'>
+                          <a expr:href='data:post.url'><data:post.title/></a>
+                        <b:else/>
+                          <a href='#'><data:post.title/></a>
+                        </b:if>
+                      </b:if>
+                    </h3>
+                    <div class='nc-meta'>
+                      <span>&#128197; <data:post.dateHeader/></span>
+                      <span class='meta-dot'>&#183;</span>
+                      <span>CUT</span>
+                    </div>
+                  </div>
+                </article>
+              </b:loop>
             </div>
+            </b:if>
 
-            <div class='blog-pager' id='blog-pager'>
+            <div class='blog-pager' id='blog-pager' style='margin-top: 40px; display: flex; justify-content: space-between; font-weight: bold;'>
               <b:if cond='data:newerPageUrl'>
                 <a class='blog-pager-newer-link' expr:href='data:newerPageUrl'>&#8592; Entradas más recientes</a>
               </b:if>
